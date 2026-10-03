@@ -4,6 +4,7 @@ var placed: bool = false
 var selected: bool = false
 var triRotation: int = 0
 
+# Graphical placement updates. Can probably be handled differently
 func set_placed():
 	placed = true
 	scale = Vector2(1,1)
@@ -12,9 +13,6 @@ func set_unplaced():
 	placed = false
 	scale = Vector2(0.75,0.75)
 	color.a = 0.5
-
-func _init() -> void:
-	pass
 
 @export var triangle_width: float = 32
 var triangle_height: float = triangle_width * sin(deg_to_rad(60))
@@ -46,7 +44,7 @@ func _ready() -> void:
 	# Get click events
 	var clickArea: Area2D = find_child("ClickArea")
 	clickArea.input_event.connect(_on_area_event)
-	# Construct new polygon, centered on centroid
+	# Construct new polygon, centered on centroid TODO: multi-cellular
 	polygon = PackedVector2Array([
 		Vector2(-triangle_width/2,triangle_height-triangle_circumradius),
 		Vector2(0,-triangle_circumradius),
@@ -67,12 +65,13 @@ func _on_area_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 					return
 		
 		selected = event.pressed
-		# Snap on deselect
+		# Snap on deselect TODO: multi-cellular
 		if not placed and not selected and ShapeGlobal.CellViable(snap(position)):
 			position = snap(position)
 			ShapeGlobal.OccupiedCells.append(position)
 			set_placed()
 			queue_redraw()
+		# Un-occupy cell and update graphics on pickup TODO: multi-cellular
 		if placed and selected:
 			ShapeGlobal.OccupiedCells.remove_at(ShapeGlobal.OccupiedCells.find(position))
 			set_unplaced()
