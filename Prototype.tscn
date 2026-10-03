@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfikv08fm2t5y"]
 
-[ext_resource type="Script" uid="uid://b2nyp7s06lp1n" path="res://test_duplicator.gd" id="2_4d5uw"]
+[ext_resource type="Script" uid="uid://b2nyp7s06lp1n" path="res://ShapeDuplicator.gd" id="2_4d5uw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajabl"]
 size = Vector2(384, 32)

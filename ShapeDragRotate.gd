@@ -1,15 +1,25 @@
 extends Polygon2D
 
+var placed: bool = false
 var selected: bool = false
 var triRotation: int = 0
+
+func set_placed():
+	placed = true
+	scale = Vector2(1,1)
+	color.a = 1
+func set_unplaced():
+	placed = false
+	scale = Vector2(0.75,0.75)
+	color.a = 0.5
 
 func _init() -> void:
 	pass
 
-const triangle_width: float = 32
-const triangle_height: float = triangle_width * sin(deg_to_rad(60))
-const triangle_circumradius: float = triangle_width / sqrt(3)
-const triangle_grid_size: Vector2 = Vector2(triangle_width / 2, triangle_height)
+@export var triangle_width: float = 32
+var triangle_height: float = triangle_width * sin(deg_to_rad(60))
+var triangle_circumradius: float = triangle_width / sqrt(3)
+var triangle_grid_size: Vector2 = Vector2(triangle_width / 2, triangle_height)
 func screen_to_grid(screenSpace: Vector2, pointsDown: bool) -> Vector2i:
 	# Find nearest cell (centroid)
 	var cellY: int = round(screenSpace.y / triangle_grid_size.y)
@@ -45,6 +55,8 @@ func _ready() -> void:
 	# Copy polygon to clickArea's collision polygon
 	var clickPolygon: CollisionPolygon2D = clickArea.find_child("CollisionShape")
 	clickPolygon.polygon = polygon
+	# Set other relevant info
+	set_unplaced()
 
 func _on_area_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT):
@@ -56,14 +68,20 @@ func _on_area_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 		
 		selected = event.pressed
 		# Snap on deselect
-		if (!selected):
+		if not placed and not selected and ShapeGlobal.CellViable(snap(position)):
 			position = snap(position)
+			ShapeGlobal.OccupiedCells.append(position)
+			set_placed()
 			queue_redraw()
+		if placed and selected:
+			ShapeGlobal.OccupiedCells.remove_at(ShapeGlobal.OccupiedCells.find(position))
+			set_unplaced()
 
 # Snap debug graphic
 func _draw() -> void:
 	draw_set_transform(Vector2(0,0),-rotation,Vector2(1,1)/scale)
-	draw_circle((snap(position)-position),6, Color(0,1,0,0.75))
+	if not placed:
+		draw_circle((snap(position)-position),6, Color(0,1,0,0.75))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
