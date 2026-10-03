@@ -36,6 +36,13 @@ func _ready() -> void:
 	# Get click events
 	var clickArea: Area2D = find_child("ClickArea")
 	clickArea.input_event.connect(_on_area_event)
+	# Construct new polygon, centered on centroid
+	polygon = PackedVector2Array([
+		Vector2(-triangle_width/2,triangle_height-triangle_circumradius),
+		Vector2(0,-triangle_circumradius),
+		Vector2(triangle_width/2,triangle_height-triangle_circumradius)
+	])
+	# Copy polygon to clickArea's collision polygon
 	var clickPolygon: CollisionPolygon2D = clickArea.find_child("CollisionShape")
 	clickPolygon.polygon = polygon
 

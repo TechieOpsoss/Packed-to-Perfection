@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://b6kgnalig5xcn" path="res://test_drag_rotate.gd" id="1_welk7"]
 
 [node name="VisibleShape" type="Polygon2D" unique_id=170847505]
-scale = Vector2(0.125, 0.125)
-polygon = PackedVector2Array(-128, 73.901, 0, -147.802, 128, 73.901)
 script = ExtResource("1_welk7")
 
 [node name="ClickArea" type="Area2D" parent="." unique_id=339688801]
