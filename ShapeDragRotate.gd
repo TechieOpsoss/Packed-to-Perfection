@@ -65,7 +65,7 @@ func _on_area_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 					return
 		
 		selected = event.pressed
-		# Snap on deselect TODO: multi-cellular
+		# Snap on deselect TODO: multi-cellular TODO: gracefully keep selected
 		if not placed and not selected and ShapeGlobal.CellViable(snap(position)):
 			position = snap(position)
 			ShapeGlobal.OccupiedCells.append(position)
@@ -85,9 +85,9 @@ func _draw() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if (selected):
-		# Drag
+		# Drag TODO: drag at grab point (offset under parent object?)
 		position = get_viewport().get_mouse_position()
-		# Rotate
+		# Rotate TODO: rotate around grab point (offset under parent object?)
 		if (Input.is_action_just_pressed("ui_right")):
 			triRotation = triRotation + 1 % 6
 			rotation = triRotation * deg_to_rad(60)
