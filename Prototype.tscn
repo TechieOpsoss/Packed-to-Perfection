@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajabl"]
 size = Vector2(384, 32)
 
-[node name="Prototype4" type="Node2D" unique_id=126277312]
+[node name="Prototype" type="Node2D" unique_id=126277312]
 
 [node name="Duplicator" type="Polygon2D" parent="." unique_id=257364418]
 color = Color(0, 1, 1, 1)
