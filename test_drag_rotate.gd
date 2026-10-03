@@ -6,36 +6,38 @@ var triRotation: int = 0
 func _init() -> void:
 	pass
 
-func snap(to_snap: Vector2) -> Vector2:
-	var snap_to: Vector2
-	# Snap to nearest grid space, with half triangle width
-	snap_to = Vector2(16, 27.7128129211)
-	var snapped: Vector2 = round(to_snap / snap_to)
+const triangle_width: float = 32
+const triangle_height: float = triangle_width * sin(deg_to_rad(60))
+const triangle_circumradius: float = triangle_width / sqrt(3)
+const triangle_grid_size: Vector2 = Vector2(triangle_width / 2, triangle_height)
+func screen_to_grid(screenSpace: Vector2, pointsDown: bool) -> Vector2i:
+	# Find nearest cell
+	var cellY: int = round(screenSpace.y / triangle_grid_size.y)
 	# Offset grid snap if on an odd row, or upside down
-	if (fmod(snapped.y,2) == (triRotation % 2)):
-		snapped.x += 1
-	snapped.x = round(snapped.x / 2)
-	if (fmod(snapped.y,2) == (triRotation % 2)):
-		snapped.x -= 0.5
-	# Transform from snapped grid space to world space
-	snapped *= snap_to * Vector2(2,1)
+	var horizontalOffset: int = (1 if ((cellY % 2 == 0) != pointsDown) else 0)
+	var cellX: int = round((float(screenSpace.x)/triangle_grid_size.x + horizontalOffset)/2.0)*2 - horizontalOffset
+	return Vector2(cellX, cellY)
+
+func grid_to_screen(gridSpace: Vector2i) -> Vector2:
 	# Offset to be vertically centered based on height rather than centroid
-	if ((triRotation % 2) == 0):
-		snapped.y += 4.61880215352
+	var verticalOffset: float = triangle_circumradius - triangle_height / 2
+	if (fmod(gridSpace.x, 2) == fmod(gridSpace.y, 2)):
+		return Vector2(gridSpace) * triangle_grid_size - Vector2(0, verticalOffset)
 	else:
-		snapped.y -= 4.61880215352
-	
-	return snapped
+		return Vector2(gridSpace) * triangle_grid_size + Vector2(0, verticalOffset)
+
+func snap(to_snap: Vector2) -> Vector2:
+	return grid_to_screen(screen_to_grid(to_snap, triRotation % 2 == 0))
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Move to center of screen
-	position = snap((Vector2(get_viewport().size) * Vector2(randf_range(0,1),randf_range(0,1))))
+	# Move to random point on screen
+	position = snap(Vector2(get_viewport().size / 2))
 	# Get click events
 	var clickArea: Area2D = find_child("Area2D")
 	clickArea.input_event.connect(_on_area_event)
 
-func _on_area_event(viewport: Node, event: InputEvent, shape_idx: int):
+func _on_area_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT):
 		# Prevent pickup of full stack when overlapping
 		if (!selected and event.pressed):
@@ -55,7 +57,7 @@ func _draw() -> void:
 	draw_circle((snap(position)-position),6, Color(0,1,0,0.75))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (selected):
 		# Drag
 		position = get_viewport().get_mouse_position()
