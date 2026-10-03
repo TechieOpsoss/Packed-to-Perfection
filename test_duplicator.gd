@@ -5,7 +5,7 @@ func upper_left_most(a, b) -> bool:
 
 func _on_button_event(viewport: Node, event: InputEvent, shape_idx: int):
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed):
-		var newTriangle = load("res://PrototypeEquilateral.tscn").instantiate()
+		var newTriangle = load("res://PrototypeShape.tscn").instantiate()
 		get_parent().add_child(newTriangle)
 
 # Called when the node enters the scene tree for the first time.

@@ -11,12 +11,12 @@ const triangle_height: float = triangle_width * sin(deg_to_rad(60))
 const triangle_circumradius: float = triangle_width / sqrt(3)
 const triangle_grid_size: Vector2 = Vector2(triangle_width / 2, triangle_height)
 func screen_to_grid(screenSpace: Vector2, pointsDown: bool) -> Vector2i:
-	# Find nearest cell
+	# Find nearest cell (centroid)
 	var cellY: int = round(screenSpace.y / triangle_grid_size.y)
-	# Offset grid snap if on an odd row, or upside down
+	# Horizontally offset grid snap if on an odd row, or upside down
 	var horizontalOffset: int = (1 if ((cellY % 2 == 0) != pointsDown) else 0)
 	var cellX: int = round((float(screenSpace.x)/triangle_grid_size.x + horizontalOffset)/2.0)*2 - horizontalOffset
-	return Vector2(cellX, cellY)
+	return Vector2i(cellX, cellY)
 
 func grid_to_screen(gridSpace: Vector2i) -> Vector2:
 	# Offset to be vertically centered based on height rather than centroid
@@ -34,8 +34,10 @@ func _ready() -> void:
 	# Move to random point on screen
 	position = snap(Vector2(get_viewport().size / 2))
 	# Get click events
-	var clickArea: Area2D = find_child("Area2D")
+	var clickArea: Area2D = find_child("ClickArea")
 	clickArea.input_event.connect(_on_area_event)
+	var clickPolygon: CollisionPolygon2D = clickArea.find_child("CollisionShape")
+	clickPolygon.polygon = polygon
 
 func _on_area_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT):
