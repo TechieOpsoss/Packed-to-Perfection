@@ -2,7 +2,7 @@ extends Polygon2D
 
 var placed: bool = false
 var selected: bool = false
-var triRotation: int = 0
+var triangle_rotation: int = 0
 
 # Graphical placement updates. Can probably be handled differently
 func set_placed():
@@ -35,7 +35,7 @@ func grid_to_screen(gridSpace: Vector2i) -> Vector2:
 		return Vector2(gridSpace) * triangle_grid_size + Vector2(0, verticalOffset)
 
 func snap(to_snap: Vector2) -> Vector2:
-	return grid_to_screen(screen_to_grid(to_snap, triRotation % 2 == 0))
+	return grid_to_screen(screen_to_grid(to_snap, triangle_rotation % 2 == 0))
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -89,10 +89,10 @@ func _process(_delta: float) -> void:
 		position = get_viewport().get_mouse_position()
 		# Rotate TODO: rotate around grab point (offset under parent object?)
 		if (Input.is_action_just_pressed("ui_right")):
-			triRotation = triRotation + 1 % 6
-			rotation = triRotation * deg_to_rad(60)
+			triangle_rotation = (triangle_rotation + 1) % 6
+			rotation = triangle_rotation * deg_to_rad(60)
 		if (Input.is_action_just_pressed("ui_left")):
-			triRotation = triRotation + 5 % 6
-			rotation = triRotation * deg_to_rad(60)
+			triangle_rotation = (triangle_rotation + 5) % 6
+			rotation = triangle_rotation * deg_to_rad(60)
 		# Draw snap debug graphic, in case position was updated
 		queue_redraw()
