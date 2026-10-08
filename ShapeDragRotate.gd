@@ -19,6 +19,16 @@ var placed:
 	get:
 		return placed_internal
 
+func make_meshes(gridSpaceCellPositions: Array[Vector2i]) -> Array[PackedVector2Array]:
+	var ret: Array[PackedVector2Array] = []
+	for gridSpaceCellPosition: Vector2i in gridSpaceCellPositions:
+		if ((gridSpaceCellPosition.x % 2) == (gridSpaceCellPosition.y % 2)):
+			pass
+	return ret
+
+func combine_meshes(meshes: Array[PackedVector2Array]) -> Array:
+	return []
+
 @export var triangle_width: float = 128
 var triangle_height: float = triangle_width * sin(deg_to_rad(60))
 var triangle_circumradius: float = triangle_width / sqrt(3)
@@ -34,7 +44,7 @@ func screen_to_grid(screenSpace: Vector2, pointsDown: bool) -> Vector2i:
 func grid_to_screen(gridSpace: Vector2i) -> Vector2:
 	# Offset to be vertically centered based on height rather than centroid
 	var verticalOffset: float = triangle_circumradius - triangle_height / 2
-	if (fmod(gridSpace.x, 2) == fmod(gridSpace.y, 2)):
+	if ((gridSpace.x % 2) == (gridSpace.y % 2)):
 		return Vector2(gridSpace) * triangle_grid_size - Vector2(0, verticalOffset)
 	else:
 		return Vector2(gridSpace) * triangle_grid_size + Vector2(0, verticalOffset)
@@ -59,7 +69,8 @@ func _ready() -> void:
 	var clickPolygon: CollisionPolygon2D = clickArea.find_child("CollisionShape")
 	clickPolygon.polygon = polygon
 	# Set other relevant info
-	placed = true
+	placed = false
+	selected = true
 
 func _on_area_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT):
