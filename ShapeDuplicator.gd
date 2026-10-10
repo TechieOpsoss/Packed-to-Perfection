@@ -13,6 +13,8 @@ func _on_button_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	find_child("ButtonArea").input_event.connect(_on_button_event)
+	find_child("ButtonArea").find_child("CollisionPolygon2D").polygon = polygon
+	print(find_child("ButtonArea").find_child("CollisionPolygon2D").polygon)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

@@ -2,19 +2,14 @@
 
 [ext_resource type="Script" uid="uid://b2nyp7s06lp1n" path="res://ShapeDuplicator.gd" id="2_4d5uw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajabl"]
-size = Vector2(384, 32)
-
 [node name="Prototype" type="Node2D" unique_id=126277312]
 
 [node name="Duplicator" type="Polygon2D" parent="." unique_id=257364418]
 color = Color(0, 1, 1, 1)
-polygon = PackedVector2Array(0, 0, 384, 0, 384, 32, 0, 32)
+polygon = PackedVector2Array(421, 92, 125.388885, 119.449, 110, 337, 84, 74)
 script = ExtResource("2_4d5uw")
-shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(2, 1)])
+shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, 0)])
 
 [node name="ButtonArea" type="Area2D" parent="Duplicator" unique_id=1500422715]
-position = Vector2(192, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Duplicator/ButtonArea" unique_id=673985409]
-shape = SubResource("RectangleShape2D_ajabl")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Duplicator/ButtonArea" unique_id=1317311821]
