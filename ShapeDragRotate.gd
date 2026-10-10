@@ -19,20 +19,59 @@ var placed:
 	get:
 		return placed_internal
 
+@export var triangle_width: float = 128
+@export var visual_width: float = 126
+@export var shape: Array[Vector2i] = [Vector2i(0,0)]
+var triangle_height: float = triangle_width * sin(deg_to_rad(60))
+var triangle_circumradius: float = triangle_width / sqrt(3)
+var triangle_grid_size: Vector2 = Vector2(triangle_width / 2, triangle_height)
+var visual_height: float = visual_width * sin(deg_to_rad(60))
+var visual_circumradius: float = visual_width / sqrt(3)
 func make_meshes(gridSpaceCellPositions: Array[Vector2i]) -> Array[PackedVector2Array]:
 	var ret: Array[PackedVector2Array] = []
 	for gridSpaceCellPosition: Vector2i in gridSpaceCellPositions:
 		if ((gridSpaceCellPosition.x % 2) == (gridSpaceCellPosition.y % 2)):
-			pass
+			ret.append(PackedVector2Array(
+			[
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(-visual_width/2,visual_height-visual_circumradius),
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(0,-visual_circumradius),
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(visual_width/2,visual_height-visual_circumradius)
+			]))
+		else:
+			var verticalOffset: float = triangle_circumradius - triangle_height / 2
+			ret.append(PackedVector2Array(
+			[
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(-visual_width/2,visual_circumradius-visual_height) - Vector2(0, verticalOffset*2),
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(0,visual_circumradius) - Vector2(0, verticalOffset*2),
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(visual_width/2,visual_circumradius-visual_height) - Vector2(0, verticalOffset*2)
+			]))
 	return ret
 
 func combine_meshes(meshes: Array[PackedVector2Array]) -> Array:
-	return []
+	var ret1: PackedVector2Array = []
+	var ret2: Array[PackedInt32Array] = []
+	for triangleMesh: PackedVector2Array in meshes:
+		ret2.append(PackedInt32Array([ret1.size(), ret1.size() + 1, ret1.size() + 2]))
+		ret1.append_array(triangleMesh)
+	return [ret1, ret2]
 
-@export var triangle_width: float = 128
-var triangle_height: float = triangle_width * sin(deg_to_rad(60))
-var triangle_circumradius: float = triangle_width / sqrt(3)
-var triangle_grid_size: Vector2 = Vector2(triangle_width / 2, triangle_height)
+func change_shape(gridSpaceCellPositions: Array[Vector2i]):
+	var clickArea: Area2D = find_child("ClickArea")
+	# Construct new polygons, with (0,0) centered on centroid
+	var cellMeshes = make_meshes(gridSpaceCellPositions)
+	var combinedMeshes = combine_meshes(cellMeshes)
+	polygon = combinedMeshes[0]
+	polygons = combinedMeshes[1]
+	# Delete old collision polygons
+	for existingPolygon: CollisionPolygon2D in clickArea.find_children("*","CollisionPolygon2D",false):
+		existingPolygon.queue_free()
+	# Create new collision polygons
+	for mesh: PackedVector2Array in cellMeshes:
+		var clickPolygon: CollisionPolygon2D = CollisionPolygon2D.new()
+		clickArea.add_child(clickPolygon)
+		clickPolygon.polygon = mesh
+	
+
 func screen_to_grid(screenSpace: Vector2, pointsDown: bool) -> Vector2i:
 	# Find nearest cell (centroid)
 	var cellY: int = round(screenSpace.y / triangle_grid_size.y)
@@ -59,33 +98,27 @@ func _ready() -> void:
 	# Get click events
 	var clickArea: Area2D = find_child("ClickArea")
 	clickArea.input_event.connect(_on_area_event)
-	# Construct new polygon, centered on centroid TODO: multi-cellular
-	polygon = PackedVector2Array([
-		Vector2(-triangle_width/2,triangle_height-triangle_circumradius),
-		Vector2(0,-triangle_circumradius),
-		Vector2(triangle_width/2,triangle_height-triangle_circumradius)
-	])
-	# Copy polygon to clickArea's collision polygon
-	var clickPolygon: CollisionPolygon2D = clickArea.find_child("CollisionShape")
-	clickPolygon.polygon = polygon
+	change_shape(shape)
 	# Set other relevant info
 	placed = false
 	selected = true
 
 func _on_area_event(_viewport: Node, event: InputEvent, _shape_idx: int):
-	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT):
-		selected = event.pressed
-		# Snap on deselect TODO: multi-cellular TODO: gracefully keep selected
-		if not placed and not selected and ShapeGlobal.CellViable(snap(position)):
-			position = snap(position)
-			ShapeGlobal.OccupiedCells.append(position)
-			placed = true
-			queue_redraw()
-		# Un-occupy cell and update graphics on pickup TODO: multi-cellular
-		if placed and selected:
-			ShapeGlobal.OccupiedCells.remove_at(ShapeGlobal.OccupiedCells.find(position))
-			placed = false
-			grab_offset = position - get_viewport().get_mouse_position()
+	# Un-occupy cell and update graphics on pickup
+	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT) and (placed and not selected and event.pressed):
+		ShapeGlobal.OccupiedCells.remove_at(ShapeGlobal.OccupiedCells.find(position))
+		placed = false
+		selected = true
+		grab_offset = position - get_viewport().get_mouse_position()
+		queue_redraw()
+func _unhandled_input(event):
+	# Snap on deselect
+	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT) and (not placed and selected and not event.pressed and ShapeGlobal.CellViable(snap(position))):
+		position = snap(position)
+		ShapeGlobal.OccupiedCells.append(position)
+		placed = true
+		selected = false
+		queue_redraw()
 
 # Snap debug graphic
 func _draw() -> void:

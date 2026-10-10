@@ -1,11 +1,13 @@
 extends Polygon2D
 
+@export var shape: Array[Vector2i]
 func upper_left_most(a, b) -> bool:
 	return (a.position.x + a.position.y < b.position.x + b.position.y)
 
 func _on_button_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed):
 		var newTriangle = load("res://PrototypeShape.tscn").instantiate()
+		newTriangle.shape = shape
 		get_parent().add_child(newTriangle)
 
 # Called when the node enters the scene tree for the first time.
