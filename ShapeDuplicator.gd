@@ -1,19 +1,23 @@
 extends Polygon2D
 
+@export var shape: Array[Vector2i]
 func upper_left_most(a, b) -> bool:
 	return (a.position.x + a.position.y < b.position.x + b.position.y)
 
-func _on_button_event(viewport: Node, event: InputEvent, shape_idx: int):
+func _on_button_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed):
-		var newTriangle = load("res://Prototype4Equilateral.tscn").instantiate()
+		var newTriangle = load("res://PrototypeShape.tscn").instantiate()
+		newTriangle.shape = shape
 		get_parent().add_child(newTriangle)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	find_child("ButtonArea").input_event.connect(_on_button_event)
+	find_child("ButtonArea").find_child("CollisionPolygon2D").polygon = polygon
+	print(find_child("ButtonArea").find_child("CollisionPolygon2D").polygon)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 # Bianca is now able to make changes
