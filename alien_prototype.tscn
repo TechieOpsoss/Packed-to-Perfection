@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bo54l81j2v7u0"]
+
+[ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Aliens/Alien1.png" id="1_5a5os"]
+[ext_resource type="Script" uid="uid://dy6by1k5b1e3l" path="res://alien_prototype.gd" id="1_khx7w"]
+
+[node name="AlienPrototype" type="Node2D" unique_id=1584341472]
+script = ExtResource("1_khx7w")
+
+[node name="Alien1" type="Sprite2D" parent="." unique_id=491713993]
+position = Vector2(3.0000153, -10.6875)
+scale = Vector2(0.1324133, 0.13767359)
+texture = ExtResource("1_5a5os")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1393182578]
