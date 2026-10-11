@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Aliens/Alien1.png" id="1_5a5os"]
 [ext_resource type="Script" uid="uid://dy6by1k5b1e3l" path="res://alien_prototype.gd" id="1_khx7w"]
-[ext_resource type="Texture2D" uid="uid://6hbiyb5ybdx0" path="res://test_assets/circle3.png" id="3_5xhq3"]
-[ext_resource type="Script" uid="uid://ce5xd70e1dowg" path="res://bucket.gd" id="4_6mdto"]
+[ext_resource type="Script" uid="uid://b2nyp7s06lp1n" path="res://ShapeDuplicator.gd" id="4_5xhq3"]
+[ext_resource type="Script" uid="uid://bg4xb7g5nfyoo" path="res://bucket_2.gd" id="5_6mdto"]
 
 [node name="AlienPrototype" type="Node2D" unique_id=1584341472]
 script = ExtResource("1_khx7w")
@@ -14,14 +14,24 @@ scale = Vector2(0.1324133, 0.13767359)
 texture = ExtResource("1_5a5os")
 metadata/_edit_group_ = true
 
-[node name="Bucket" type="Sprite2D" parent="." unique_id=559616687]
+[node name="Bucket2" type="Polygon2D" parent="." unique_id=1136579913]
 position = Vector2(85, 575)
 scale = Vector2(0.24496645, 0.23378076)
-texture = ExtResource("3_5xhq3")
-script = ExtResource("4_6mdto")
+color = Color(0, 0.8688626, 0.67168236, 1)
+script = ExtResource("5_6mdto")
 
-[node name="ButtonArea" type="Area2D" parent="Bucket" unique_id=1167191073]
-position = Vector2(-346.98627, -2459.5693)
-scale = Vector2(4.0821915, 4.277512)
+[node name="ButtonArea" type="Area2D" parent="Bucket2" unique_id=1167191073]
+position = Vector2(-16.328796, 1.5258789e-05)
+scale = Vector2(4.082191, 4.277512)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bucket/ButtonArea" unique_id=1718615407]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bucket2/ButtonArea" unique_id=1718615407]
+
+[node name="Duplicator" type="Polygon2D" parent="." unique_id=912047099]
+color = Color(0, 1, 1, 1)
+polygon = PackedVector2Array(421, 92, 125.388885, 119.449, 110, 337, 84, 74)
+script = ExtResource("4_5xhq3")
+shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, 0)])
+
+[node name="ButtonArea" type="Area2D" parent="Duplicator" unique_id=1037901750]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Duplicator/ButtonArea" unique_id=1386476957]
