@@ -2,13 +2,26 @@
 
 [ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Aliens/Alien1.png" id="1_5a5os"]
 [ext_resource type="Script" uid="uid://dy6by1k5b1e3l" path="res://alien_prototype.gd" id="1_khx7w"]
+[ext_resource type="Texture2D" uid="uid://6hbiyb5ybdx0" path="res://test_assets/circle3.png" id="3_5xhq3"]
+[ext_resource type="Script" uid="uid://ce5xd70e1dowg" path="res://bucket.gd" id="4_6mdto"]
 
 [node name="AlienPrototype" type="Node2D" unique_id=1584341472]
 script = ExtResource("1_khx7w")
 
 [node name="Alien1" type="Sprite2D" parent="." unique_id=491713993]
-position = Vector2(3.0000153, -10.6875)
+position = Vector2(593, 308)
 scale = Vector2(0.1324133, 0.13767359)
 texture = ExtResource("1_5a5os")
+metadata/_edit_group_ = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1393182578]
+[node name="Bucket" type="Sprite2D" parent="." unique_id=559616687]
+position = Vector2(85, 575)
+scale = Vector2(0.24496645, 0.23378076)
+texture = ExtResource("3_5xhq3")
+script = ExtResource("4_6mdto")
+
+[node name="ButtonArea" type="Area2D" parent="Bucket" unique_id=1167191073]
+position = Vector2(-346.98627, -2459.5693)
+scale = Vector2(4.0821915, 4.277512)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bucket/ButtonArea" unique_id=1718615407]
