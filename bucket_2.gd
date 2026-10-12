@@ -23,7 +23,6 @@ func draw_circle_polygon():
 		var x = cos(angle) * radius
 		var y = sin(angle) * radius
 		points.append(Vector2(x, y))
-		
 	self.polygon = points
 
 # Called when the node enters the scene tree for the first time.

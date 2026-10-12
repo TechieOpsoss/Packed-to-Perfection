@@ -19,8 +19,8 @@ var placed:
 	get:
 		return placed_internal
 
-@export var triangle_width: float = 128
-@export var visual_width: float = 126
+@export var triangle_width: float = 64
+@export var visual_width: float = 63
 @export var shape: Array[Vector2i] = [Vector2i(0,0)]
 var triangle_height: float = triangle_width * sin(deg_to_rad(60))
 var triangle_circumradius: float = triangle_width / sqrt(3)

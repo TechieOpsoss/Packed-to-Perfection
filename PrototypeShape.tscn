@@ -4,6 +4,7 @@
 
 [node name="VisibleShape" type="Polygon2D" unique_id=170847505]
 scale = Vector2(0.5, 0.5)
+color = Color(0.98217016, 7.70092e-07, 0.536953, 1)
 script = ExtResource("1_welk7")
 
 [node name="ClickArea" type="Area2D" parent="." unique_id=339688801]

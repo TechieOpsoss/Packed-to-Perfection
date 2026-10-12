@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Aliens/Alien1.png" id="1_5a5os"]
 [ext_resource type="Script" uid="uid://dy6by1k5b1e3l" path="res://alien_prototype.gd" id="1_khx7w"]
 [ext_resource type="Script" uid="uid://b2nyp7s06lp1n" path="res://ShapeDuplicator.gd" id="4_5xhq3"]
-[ext_resource type="Script" uid="uid://bg4xb7g5nfyoo" path="res://bucket_2.gd" id="5_6mdto"]
 
 [node name="AlienPrototype" type="Node2D" unique_id=1584341472]
 script = ExtResource("1_khx7w")
@@ -14,24 +13,49 @@ scale = Vector2(0.1324133, 0.13767359)
 texture = ExtResource("1_5a5os")
 metadata/_edit_group_ = true
 
-[node name="Bucket2" type="Polygon2D" parent="." unique_id=1136579913]
-position = Vector2(85, 575)
-scale = Vector2(0.24496645, 0.23378076)
-color = Color(0, 0.8688626, 0.67168236, 1)
-script = ExtResource("5_6mdto")
-
-[node name="ButtonArea" type="Area2D" parent="Bucket2" unique_id=1167191073]
-position = Vector2(-16.328796, 1.5258789e-05)
-scale = Vector2(4.082191, 4.277512)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bucket2/ButtonArea" unique_id=1718615407]
-
-[node name="Duplicator" type="Polygon2D" parent="." unique_id=912047099]
-color = Color(0, 1, 1, 1)
-polygon = PackedVector2Array(421, 92, 125.388885, 119.449, 110, 337, 84, 74)
+[node name="Bucket1" type="Polygon2D" parent="." unique_id=912047099]
+position = Vector2(106.530304, 575.15546)
+scale = Vector2(0.30515364, 0.39123017)
+color = Color(0.5846766, 1, 0.42359248, 1)
+polygon = PackedVector2Array(421.53967, 73.46772, 419.396, 319.9805, 84.99609, 319.9805, 84, 74)
 script = ExtResource("4_5xhq3")
 shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, 0)])
 
-[node name="ButtonArea" type="Area2D" parent="Duplicator" unique_id=1037901750]
+[node name="ButtonArea" type="Area2D" parent="Bucket1" unique_id=1037901750]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Duplicator/ButtonArea" unique_id=1386476957]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bucket1/ButtonArea" unique_id=1386476957]
+
+[node name="Bucket_Label" type="Label" parent="Bucket1" unique_id=216423767]
+offset_left = -24.677082
+offset_top = 63.503708
+offset_right = 34.309612
+offset_bottom = 132.50371
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bucket2" type="Polygon2D" parent="." unique_id=2134845734]
+position = Vector2(64.00001, 460)
+scale = Vector2(0.30515364, 0.39123017)
+color = Color(0.5846766, 1, 0.42359248, 1)
+polygon = PackedVector2Array(421.53967, 73.46772, 419.396, 319.9805, 84.99609, 319.9805, 84, 74)
+script = ExtResource("4_5xhq3")
+shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, 0)])
+max_food_amount = 8
+
+[node name="ButtonArea" type="Area2D" parent="Bucket2" unique_id=273748999]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bucket2/ButtonArea" unique_id=735423723]
+
+[node name="Bucket_Label" type="Label" parent="Bucket2" unique_id=2125693663]
+offset_left = -24.677082
+offset_top = 63.503708
+offset_right = 34.309612
+offset_bottom = 132.50371
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
