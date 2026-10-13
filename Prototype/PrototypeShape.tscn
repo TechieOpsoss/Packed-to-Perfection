@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://conhrgykhiv4j"]
 
-[ext_resource type="Script" uid="uid://b6kgnalig5xcn" path="res://ShapeDragRotate.gd" id="1_welk7"]
+[ext_resource type="Script" uid="uid://b6kgnalig5xcn" path="res://Prototype/ShapeDragRotate.gd" id="1_welk7"]
 
 [node name="VisibleShape" type="Polygon2D" unique_id=170847505]
 scale = Vector2(0.5, 0.5)

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c07fu7134iygg"]
+
+[ext_resource type="Script" uid="uid://b5rqyq50k0ykf" path="res://Lunchbox/Cursor.gd" id="1_g5ugt"]
+[ext_resource type="Script" uid="uid://bglxm572r043g" path="res://Lunchbox/Bucket.gd" id="2_vaifc"]
+
+[node name="Lunchbox" type="Node2D" unique_id=1586488118]
+
+[node name="Cursor" type="Node2D" parent="." unique_id=754363100]
+script = ExtResource("1_g5ugt")
+
+[node name="Bucket" type="Button" parent="." unique_id=1821301226 node_paths=PackedStringArray("cursor")]
+offset_right = 502.0
+offset_bottom = 137.0
+action_mode = 0
+script = ExtResource("2_vaifc")
+cursor = NodePath("../Cursor")
