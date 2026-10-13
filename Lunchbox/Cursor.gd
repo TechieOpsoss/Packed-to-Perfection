@@ -1,8 +1,6 @@
 # Attached to blank node that acts as cursor and carries shapes.
 extends Node2D
 
-@export var gridBounds: Array[PackedInt32Array]
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
