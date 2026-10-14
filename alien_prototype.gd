@@ -1,13 +1,15 @@
 extends Node2D
 class_name Alien
 
-@export var is_alien : bool
 @export var has_restriction : bool #if yes tag applies else none
 @export var alien_name : String #unnecessary
 @export var score : int = 100
-@export var calories : int #TODO: check with beck 0-300?
-@export var macronutrients : Array #Protein, Carbohydrates, and Fat 0-10
-@export var tag : String #TODO: For now listing as dairy, vegetarian, and gluten
+@export var calories : int #needed number of calories per alien
+@export var macronutrients : Dictionary = {"Protein": 5, "Carbohydrates": 5, "Fat": 5} # needed number of calories per alien
+@export var tag : Dictionary = {"Dairy": 0, "Vegetarian": 0, "Gluten": 0}
+
+#TODO need to grab the reciept tags and update with dictionary values per alien, this should be done on ready also need to add a check to see if any restrictions, update view to show restricted receipt layer
+# I'm thinking of having a setter within shape duplicator, which then triggers an update to reciept based on food added into grid if we want the values to change in the receipt as a player inputs pieces
 
 func _ready() -> void:
 	pass
