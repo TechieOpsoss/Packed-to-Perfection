@@ -5,14 +5,6 @@ signal produceShape(shape: Array[Vector2i], offset: Vector2, softDrop: Signal, r
 
 @export var quantity: int = 10
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func returnShape():
 	quantity += 1
 	print("Quantity: ", quantity)

@@ -6,7 +6,7 @@ func upper_left_most(a, b) -> bool:
 
 func _on_button_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed):
-		var newTriangle = load("res://PrototypeShape.tscn").instantiate()
+		var newTriangle = load("res://Prototype/PrototypeShape.tscn").instantiate()
 		newTriangle.shape = shape
 		get_parent().add_child(newTriangle)
 

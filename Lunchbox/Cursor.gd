@@ -1,14 +1,14 @@
 # Attached to blank node that acts as cursor and carries shapes.
 extends Node2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Move to cursor position.
 	position = get_viewport().get_mouse_position()
+	if (Input.is_action_just_pressed("ui_right")):
+		rotation = fmod(rotation + deg_to_rad(60), deg_to_rad(360))
+	if (Input.is_action_just_pressed("ui_left")):
+		rotation = fmod(rotation + deg_to_rad(300), deg_to_rad(360))
 	pass
 
 # Carried shape production.
@@ -24,5 +24,8 @@ func produceShape(shape: Array[Vector2i], offset: Vector2, letGo: Signal, return
 	
 	# When unsuccessfully dropped, return to bucket.
 	carriedShapeInstance.dropFailure.connect(returnShape)
+	
+	# Randomize fetched rotation for flavor.
+	rotation = randi_range(0,5) * deg_to_rad(60)
 	
 	add_child(carriedShapeInstance)

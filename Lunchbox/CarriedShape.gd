@@ -1,9 +1,6 @@
 extends Node2D
 
-func alwaysFail(shape: Array[Vector2i]):
-	return false
-var attemptDrop: Callable = alwaysFail
-#signal attemptDrop(shape: Array[Vector2i], success: Callable, failure: Callable)
+var attemptDrop: Callable = func(_shape: Array[Vector2i]): return false
 signal dropSuccess()
 signal dropFailure()
 
@@ -12,11 +9,6 @@ var shape: Array[Vector2i]
 func _ready() -> void:
 	dropSuccess.connect(queue_free)
 	dropFailure.connect(queue_free)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _input(event):
 	if event is InputEventMouseButton:

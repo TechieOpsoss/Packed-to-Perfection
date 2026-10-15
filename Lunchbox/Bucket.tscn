@@ -5,5 +5,6 @@
 [node name="Bucket" type="Button" unique_id=899398795]
 offset_right = 502.0
 offset_bottom = 137.0
+focus_mode = 0
 action_mode = 0
 script = ExtResource("1_ipa7w")

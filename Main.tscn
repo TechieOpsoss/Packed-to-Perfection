@@ -4,4 +4,4 @@
 
 [node name="Main Scene" type="Node2D" unique_id=1693905958]
 
-[node name="MainLunchbox" parent="." unique_id=1586488118 instance=ExtResource("1_glv2v")]
+[node name="Main Lunchbox" parent="." unique_id=1586488118 instance=ExtResource("1_glv2v")]
