@@ -1,18 +1,16 @@
 extends Button
 
 @export var shape: Array[Vector2i] = [Vector2i(0,0)]
-signal produceShape(shape: Array[Vector2i], offset: Vector2, softDrop: Signal, returnShape: Callable)
+signal produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGoFromBucket: Signal, returnToBucket: Callable)
 
-@export var quantity: int = 10
+@export var heldQuantity: int = 10
 
 # Increment quantity stored in bucket.
 func returnShape():
-	quantity += 1
-	print("Quantity: ", quantity)
+	heldQuantity += 1
 
 # Decrement quantity stored in bucket and attempt to produce shape.
 func _pressed() -> void:
-	if (quantity > 0):
-		quantity = quantity - 1
-		print("Quantity: ", quantity)
+	if (heldQuantity > 0):
+		heldQuantity = heldQuantity - 1
 		produceShape.emit(shape, Vector2(0,0), button_up, returnShape)

@@ -19,20 +19,19 @@ func _process(_delta: float) -> void:
 
 # Carried shape production.
 const carriedShapeScene: Resource = preload("res://Lunchbox/CarriedShape.tscn")
-func produceShape(producedShape: Array[Vector2i], offset: Vector2, letGo: Signal, returnShape: Callable):
+func produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGoFromBucket: Signal, returnToBucket: Callable):
 	# Create and initialize instance.
 	var carriedShapeInstance: Node2D = carriedShapeScene.instantiate()
 	carriedShapeInstance.shape = producedShape
-	carriedShapeInstance.position += offset
+	carriedShapeInstance.position += cursorOffset
 	
 	# When bucket button released, drop softly.
-	letGo.connect(carriedShapeInstance.dropSoft)
+	letGoFromBucket.connect(carriedShapeInstance.dropSoft)
 	
 	# When unsuccessfully dropped, return to bucket.
-	carriedShapeInstance.dropFailure.connect(returnShape)
+	carriedShapeInstance.dropFailure.connect(returnToBucket)
 	
 	# Randomize fetched rotation for flavor.
 	cursor.rotation = randi_range(0,5) * deg_to_rad(60)
 	
 	cursor.add_child(carriedShapeInstance)
-	print(carriedShapeInstance)
