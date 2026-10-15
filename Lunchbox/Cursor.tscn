@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cv36h22kaxkgm"]
-
-[ext_resource type="Script" uid="uid://b5rqyq50k0ykf" path="res://Lunchbox/Cursor.gd" id="1_dovde"]
-
-[node name="Cursor" type="Node2D" unique_id=2066253851]
-script = ExtResource("1_dovde")

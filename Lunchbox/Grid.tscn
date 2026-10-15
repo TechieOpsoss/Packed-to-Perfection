@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dwy44bgksy46j"]
 
-[ext_resource type="Script" uid="uid://bf5jklwu7agdx" path="res://Lunchbox/Grid.gd" id="1_qlebx"]
+[ext_resource type="Script" uid="uid://b5rqyq50k0ykf" path="res://Lunchbox/Grid.gd" id="1_qlebx"]
 
 [node name="Grid" type="Node2D" unique_id=1446597112]
 script = ExtResource("1_qlebx")
+
+[node name="Cursor" type="Node2D" parent="." unique_id=2066253851]

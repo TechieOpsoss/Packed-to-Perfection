@@ -1,15 +1,12 @@
 [gd_scene format=3 uid="uid://c07fu7134iygg"]
 
-[ext_resource type="PackedScene" uid="uid://cv36h22kaxkgm" path="res://Lunchbox/Cursor.tscn" id="1_efxyu"]
 [ext_resource type="PackedScene" uid="uid://dwy44bgksy46j" path="res://Lunchbox/Grid.tscn" id="2_y3hra"]
 [ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Lunchbox/Bucket.tscn" id="3_l4vu7"]
 
 [node name="Lunchbox" type="Node2D" unique_id=1586488118]
 
-[node name="Cursor" parent="." unique_id=2066253851 instance=ExtResource("1_efxyu")]
-
 [node name="Grid" parent="." unique_id=1446597112 instance=ExtResource("2_y3hra")]
 
 [node name="Bucket" parent="." unique_id=899398795 instance=ExtResource("3_l4vu7")]
 
-[connection signal="produceShape" from="Bucket" to="Cursor" method="produceShape"]
+[connection signal="produceShape" from="Bucket" to="Grid" method="produceShape"]

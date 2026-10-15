@@ -5,10 +5,12 @@ signal produceShape(shape: Array[Vector2i], offset: Vector2, softDrop: Signal, r
 
 @export var quantity: int = 10
 
+# Increment quantity stored in bucket.
 func returnShape():
 	quantity += 1
 	print("Quantity: ", quantity)
 
+# Decrement quantity stored in bucket and attempt to produce shape.
 func _pressed() -> void:
 	if (quantity > 0):
 		quantity = quantity - 1

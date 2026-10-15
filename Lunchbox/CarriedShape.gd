@@ -5,7 +5,7 @@ signal dropSuccess()
 signal dropFailure()
 
 var shape: Array[Vector2i]
-# Called when the node enters the scene tree for the first time.
+# Delete when dropped.
 func _ready() -> void:
 	dropSuccess.connect(queue_free)
 	dropFailure.connect(queue_free)
@@ -17,12 +17,10 @@ func _input(event):
 			get_viewport().set_input_as_handled()
 
 func dropSoft():
-	print("soft drop")
 	if attemptDrop.call(shape):
 		dropSuccess.emit()
 
 func dropHard():
-	print("hard drop")
 	if attemptDrop.call(shape):
 		dropSuccess.emit()
 	else:
