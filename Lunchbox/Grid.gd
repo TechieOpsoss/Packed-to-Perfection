@@ -17,6 +17,11 @@ func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("ui_left")):
 		cursor.rotation = fmod(cursor.rotation + deg_to_rad(300), deg_to_rad(360))
 
+#TODO: shape visual
+
+func checkDrop(_shape: Array[Vector2i], _position: Vector2, rotation: int) -> bool:
+	return false
+
 # Carried shape production.
 const carriedShapeScene: Resource = preload("res://Lunchbox/CarriedShape.tscn")
 func produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGoFromBucket: Signal, returnToBucket: Callable):
@@ -24,6 +29,8 @@ func produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGoFr
 	var carriedShapeInstance: Node2D = carriedShapeScene.instantiate()
 	carriedShapeInstance.shape = producedShape
 	carriedShapeInstance.position += cursorOffset
+	
+	carriedShapeInstance.checkDrop = checkDrop
 	
 	# When bucket button released, drop softly.
 	letGoFromBucket.connect(carriedShapeInstance.dropSoft)
