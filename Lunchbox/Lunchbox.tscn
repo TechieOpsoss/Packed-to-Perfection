@@ -1,19 +1,15 @@
 [gd_scene format=3 uid="uid://c07fu7134iygg"]
 
-[ext_resource type="Script" uid="uid://b5rqyq50k0ykf" path="res://Lunchbox/Cursor.gd" id="1_g5ugt"]
-[ext_resource type="Script" uid="uid://bf5jklwu7agdx" path="res://Lunchbox/Grid.gd" id="2_efxyu"]
-[ext_resource type="Script" uid="uid://bglxm572r043g" path="res://Lunchbox/Bucket.gd" id="2_vaifc"]
+[ext_resource type="PackedScene" uid="uid://cv36h22kaxkgm" path="res://Lunchbox/Cursor.tscn" id="1_efxyu"]
+[ext_resource type="PackedScene" uid="uid://dwy44bgksy46j" path="res://Lunchbox/Grid.tscn" id="2_y3hra"]
+[ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Lunchbox/Bucket.tscn" id="3_l4vu7"]
 
 [node name="Lunchbox" type="Node2D" unique_id=1586488118]
 
-[node name="Cursor" type="Node2D" parent="." unique_id=754363100]
-script = ExtResource("1_g5ugt")
+[node name="Cursor" parent="." unique_id=2066253851 instance=ExtResource("1_efxyu")]
 
-[node name="Grid" type="Node2D" parent="." unique_id=806757944]
-script = ExtResource("2_efxyu")
+[node name="Grid" parent="." unique_id=1446597112 instance=ExtResource("2_y3hra")]
 
-[node name="Bucket" type="Button" parent="." unique_id=1821301226]
-offset_right = 502.0
-offset_bottom = 137.0
-action_mode = 0
-script = ExtResource("2_vaifc")
+[node name="Bucket" parent="." unique_id=899398795 instance=ExtResource("3_l4vu7")]
+
+[connection signal="produceShape" from="Bucket" to="Cursor" method="produceShape"]
