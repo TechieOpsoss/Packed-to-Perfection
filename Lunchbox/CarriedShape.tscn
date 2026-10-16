@@ -6,3 +6,4 @@
 script = ExtResource("1_ced2o")
 
 [node name="Render Polygon" type="Polygon2D" parent="." unique_id=1822289850]
+color = Color(0, 1, 1, 0.53333336)

@@ -6,8 +6,8 @@ signal dropSuccess()
 signal dropFailure()
 
 @export var shape: Array[Vector2i]
-@export var triangle_width: float = 64
-@export var spacing: float = 32
+@export var triangle_width: float = 48
+@export var spacing: float = 4
 
 # Delete when dropped.
 func _ready() -> void:
