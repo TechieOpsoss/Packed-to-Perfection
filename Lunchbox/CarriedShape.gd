@@ -5,30 +5,30 @@ signal dropSuccess()
 signal dropFailure()
 
 @export var shape: Array[Vector2i]
-@export var triangle_width: float = 128
+@export var triangle_width: float = 96
 var triangle_height: float = triangle_width * sin(deg_to_rad(60))
 var triangle_circumradius: float = triangle_width / sqrt(3)
 var triangle_grid_size: Vector2 = Vector2(triangle_width / 2, triangle_height)
-@export var visual_width: float = 126
-var visual_height: float = visual_width * sin(deg_to_rad(60))
-var visual_circumradius: float = visual_width / sqrt(3)
+@export var spacing_width: float = 93
+var spacing_height: float = spacing_width * sin(deg_to_rad(60))
+var spacing_circumradius: float = spacing_width / sqrt(3)
 func make_meshes(gridSpaceCellPositions: Array[Vector2i]) -> Array[PackedVector2Array]:
 	var ret: Array[PackedVector2Array] = []
 	for gridSpaceCellPosition: Vector2i in gridSpaceCellPositions:
 		if ((gridSpaceCellPosition.x % 2) == (gridSpaceCellPosition.y % 2)):
 			ret.append(PackedVector2Array(
 			[
-				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(-visual_width/2,visual_height-visual_circumradius),
-				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(0,-visual_circumradius),
-				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(visual_width/2,visual_height-visual_circumradius)
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(-spacing_width/2,spacing_height-spacing_circumradius),
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(0,-spacing_circumradius),
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(spacing_width/2,spacing_height-spacing_circumradius)
 			]))
 		else:
 			var verticalOffset: float = triangle_circumradius - triangle_height / 2
 			ret.append(PackedVector2Array(
 			[
-				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(-visual_width/2,visual_circumradius-visual_height) - Vector2(0, verticalOffset*2),
-				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(0,visual_circumradius) - Vector2(0, verticalOffset*2),
-				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(visual_width/2,visual_circumradius-visual_height) - Vector2(0, verticalOffset*2)
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(-spacing_width/2,spacing_circumradius-spacing_height) - Vector2(0, verticalOffset*2),
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(0,spacing_circumradius) - Vector2(0, verticalOffset*2),
+				Vector2(gridSpaceCellPosition) * triangle_grid_size + Vector2(spacing_width/2,spacing_circumradius-spacing_height) - Vector2(0, verticalOffset*2)
 			]))
 	return ret
 
