@@ -1,19 +1,16 @@
 [gd_scene format=3 uid="uid://bo54l81j2v7u0"]
 
-[ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Aliens/Alien1.png" id="1_5a5os"]
-[ext_resource type="Script" uid="uid://dy6by1k5b1e3l" path="res://alien_prototype.gd" id="1_khx7w"]
-[ext_resource type="Script" uid="uid://c6dvhgvgsuwmx" path="res://receipt_layer.gd" id="2_5xhq3"]
-[ext_resource type="Script" uid="uid://b2nyp7s06lp1n" path="res://ShapeDuplicator.gd" id="4_5xhq3"]
+[ext_resource type="Script" uid="uid://c6dvhgvgsuwmx" path="res://receipt_layer.gd" id="1_vx8cy"]
+[ext_resource type="Script" uid="uid://b2nyp7s06lp1n" path="res://ShapeDuplicator.gd" id="2_yt4pt"]
 
-[node name="AlienPrototype" type="Node2D" unique_id=1584341472]
-script = ExtResource("1_khx7w")
+[node name="AlienContainer" type="Node2D" unique_id=1584341472]
 
 [node name="ReceiptLayer" type="CanvasLayer" parent="." unique_id=1798305892]
-script = ExtResource("2_5xhq3")
+script = ExtResource("1_vx8cy")
 
 [node name="Receipt" type="Panel" parent="ReceiptLayer" unique_id=384934691]
-offset_right = 205.0
-offset_bottom = 271.0
+offset_right = 242.0
+offset_bottom = 300.0
 
 [node name="ReceiptHeader" type="Label" parent="ReceiptLayer/Receipt" unique_id=241148720]
 layout_mode = 0
@@ -55,18 +52,20 @@ offset_right = 204.0
 offset_bottom = 247.0
 text = "Calories: "
 
-[node name="Alien1" type="Sprite2D" parent="." unique_id=491713993]
-position = Vector2(593, 308)
-scale = Vector2(0.1324133, 0.13767359)
-texture = ExtResource("1_5a5os")
-metadata/_edit_group_ = true
+[node name="DietaryLabel" type="Label" parent="ReceiptLayer/Receipt" unique_id=827394790]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 251.0
+offset_right = 206.0
+offset_bottom = 292.0
+text = "Dietary Restrictions: "
 
 [node name="Bucket1" type="Polygon2D" parent="." unique_id=912047099]
 position = Vector2(106.530304, 575.15546)
 scale = Vector2(0.30515364, 0.39123017)
 color = Color(0.5846766, 1, 0.42359248, 1)
 polygon = PackedVector2Array(421.53967, 73.46772, 419.396, 319.9805, 84.99609, 319.9805, 84, 74)
-script = ExtResource("4_5xhq3")
+script = ExtResource("2_yt4pt")
 shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, 0)])
 
 [node name="ButtonArea" type="Area2D" parent="Bucket1" unique_id=1037901750]
@@ -89,7 +88,7 @@ position = Vector2(64.00001, 460)
 scale = Vector2(0.30515364, 0.39123017)
 color = Color(0.5846766, 1, 0.42359248, 1)
 polygon = PackedVector2Array(421.53967, 73.46772, 419.396, 319.9805, 84.99609, 319.9805, 84, 74)
-script = ExtResource("4_5xhq3")
+script = ExtResource("2_yt4pt")
 shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, 0)])
 max_food_amount = 8
 
