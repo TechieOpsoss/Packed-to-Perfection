@@ -18,6 +18,7 @@ func _process(_delta: float) -> void:
 		cursor.rotation = fmod(cursor.rotation + deg_to_rad(300), deg_to_rad(360))
 
 #TODO: shape visual
+#TODO: checkDrop. just. all of it
 
 func checkDrop(_shape: Array[Vector2i], _position: Vector2, rotation: int) -> bool:
 	return false
