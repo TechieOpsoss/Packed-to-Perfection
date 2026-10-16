@@ -1,6 +1,6 @@
 extends Button
 
-@export var shape: Array[Vector2i] = [Vector2i(0,0)]
+@export var shape: Array[Vector2i] = []
 signal produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGoFromBucket: Signal, returnToBucket: Callable)
 
 @export var heldQuantity: int = 10

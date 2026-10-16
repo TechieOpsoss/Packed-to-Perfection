@@ -6,8 +6,21 @@
 [node name="Lunchbox" type="Node2D" unique_id=1586488118]
 
 [node name="Grid" parent="." unique_id=1446597112 instance=ExtResource("2_y3hra")]
-position = Vector2(600, 512)
+position = Vector2(568, 309)
 
 [node name="Bucket" parent="." unique_id=899398795 instance=ExtResource("3_l4vu7")]
+offset_left = 40.0
+offset_top = 29.0
+offset_right = 151.0
+offset_bottom = 237.0
+shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2)])
+
+[node name="Bucket2" parent="." unique_id=1732722692 instance=ExtResource("3_l4vu7")]
+offset_left = 195.0
+offset_top = 69.0
+offset_right = 290.0
+offset_bottom = 247.0
+shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)])
 
 [connection signal="produceShape" from="Bucket" to="Grid" method="produceShape"]
+[connection signal="produceShape" from="Bucket2" to="Grid" method="produceShape"]

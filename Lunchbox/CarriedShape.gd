@@ -1,11 +1,12 @@
 extends Node2D
 
+var setPreview: Callable
 var tryDrop: Callable
 signal dropSuccess()
 signal dropFailure()
 
 @export var shape: Array[Vector2i]
-@export var triangle_width: float = 56
+@export var triangle_width: float = 64
 @export var spacing: float = 3
 
 # Delete when dropped.
@@ -22,6 +23,10 @@ func _input(event):
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			dropHard()
 			get_viewport().set_input_as_handled()
+
+func _process(_delta: float) -> void:
+	if not is_queued_for_deletion():
+		setPreview.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6)
 
 #TODO: ghost preview
 
