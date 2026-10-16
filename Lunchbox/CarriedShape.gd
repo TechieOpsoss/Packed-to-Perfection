@@ -7,7 +7,7 @@ signal dropFailure()
 
 @export var shape: Array[Vector2i]
 @export var triangle_width: float = 64
-@export var spacing: float = 3
+@export var spacing: float = 32
 
 # Delete when dropped.
 func _ready() -> void:
@@ -31,12 +31,10 @@ func _process(_delta: float) -> void:
 #TODO: ghost preview
 
 func dropSoft():
-	print("soft drop")
 	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6):
 		dropSuccess.emit()
 
 func dropHard():
-	print("hard drop")
 	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6):
 		dropSuccess.emit()
 	else:

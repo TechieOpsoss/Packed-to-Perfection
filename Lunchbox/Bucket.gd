@@ -5,14 +5,17 @@ signal produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGo
 
 @export var heldQuantity: int = 10
 
+func _ready():
+	tooltip_text = str(heldQuantity)
+
 # Increment quantity stored in bucket.
 func returnShape():
 	heldQuantity += 1
-	print(heldQuantity)
+	tooltip_text = str(heldQuantity)
 
 # Decrement quantity stored in bucket and attempt to produce shape.
 func _pressed() -> void:
 	if (heldQuantity > 0):
 		heldQuantity = heldQuantity - 1
-		print(heldQuantity)
+		tooltip_text = str(heldQuantity)
 		produceShape.emit(shape, Vector2(0,0), button_up, returnShape)
