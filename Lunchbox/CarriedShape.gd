@@ -1,6 +1,6 @@
 extends Node2D
 
-var checkDrop: Callable
+var tryDrop: Callable
 signal dropSuccess()
 signal dropFailure()
 
@@ -27,12 +27,12 @@ func _input(event):
 
 func dropSoft():
 	print("soft drop")
-	if checkDrop.call(shape, position, (roundi(global_rotation_degrees / 60) + 6) % 6):
+	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6):
 		dropSuccess.emit()
 
 func dropHard():
 	print("hard drop")
-	if checkDrop.call(shape, position, (roundi(global_rotation_degrees / 60) + 6) % 6):
+	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6):
 		dropSuccess.emit()
 	else:
 		dropFailure.emit()

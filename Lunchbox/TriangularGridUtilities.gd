@@ -46,6 +46,16 @@ static func combine_meshes(meshes: Array[PackedVector2Array]) -> Array:
 		combinedMeshes.append_array(mesh)
 	return [combinedMeshes, combinedIndices]
 
+static func offset_grid(shape: Array[Vector2i], offset: Vector2i) -> Array[Vector2i]:
+	var offsetShape: Array[Vector2i] = []
+	for cell: Vector2i in shape:
+		offsetShape.append(cell + offset)
+	return offsetShape
+
+#TODO (important)
+static func rotate_grid(shape: Array[Vector2i], rotation: int) -> Array[Vector2i]:
+	return shape
+
 static func screen_to_grid(screenSpace: Vector2, pointsDown: bool, triangle_width: float) -> Vector2i:
 	# Grid measurements
 	var triangle_height: float = triangle_width * sin(deg_to_rad(60))
@@ -53,7 +63,7 @@ static func screen_to_grid(screenSpace: Vector2, pointsDown: bool, triangle_widt
 	# Find nearest cell (centroid)
 	var cellY: int = round(screenSpace.y / triangle_grid_size.y)
 	# Horizontally offset grid snap if on an odd row, or upside down
-	var horizontalOffset: int = (1 if ((cellY % 2 == 0) != pointsDown) else 0)
+	var horizontalOffset: int = (1 if ((cellY % 2 == 1) != pointsDown) else 0)
 	var cellX: int = round((float(screenSpace.x)/triangle_grid_size.x + horizontalOffset)/2.0)*2 - horizontalOffset
 	return Vector2i(cellX, cellY)
 
