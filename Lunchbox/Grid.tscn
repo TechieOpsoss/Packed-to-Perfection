@@ -6,3 +6,5 @@
 script = ExtResource("1_qlebx")
 
 [node name="Cursor" type="Node2D" parent="." unique_id=2066253851]
+
+[node name="Render Polygon" type="Polygon2D" parent="." unique_id=342341943]

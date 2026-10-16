@@ -6,6 +6,7 @@
 [node name="Lunchbox" type="Node2D" unique_id=1586488118]
 
 [node name="Grid" parent="." unique_id=1446597112 instance=ExtResource("2_y3hra")]
+position = Vector2(600, 512)
 
 [node name="Bucket" parent="." unique_id=899398795 instance=ExtResource("3_l4vu7")]
 
