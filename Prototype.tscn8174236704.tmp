@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bfikv08fm2t5y"]
+
+[ext_resource type="Script" uid="uid://b2nyp7s06lp1n" path="res://ShapeDuplicator.gd" id="2_4d5uw"]
+
+[node name="Prototype" type="Node2D" unique_id=126277312]
+
+[node name="Duplicator" type="Polygon2D" parent="." unique_id=257364418]
+color = Color(0, 1, 1, 1)
+polygon = PackedVector2Array(421, 92, 125.388885, 119.449, 110, 337, 84, 74)
+script = ExtResource("2_4d5uw")
+shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, 0)])
+
+[node name="ButtonArea" type="Area2D" parent="Duplicator" unique_id=1500422715]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Duplicator/ButtonArea" unique_id=1317311821]

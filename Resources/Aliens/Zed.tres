@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Alien" format=3 uid="uid://bdg6v0c7uuxmt"]
+
+[ext_resource type="Script" uid="uid://dy6by1k5b1e3l" path="res://alienClass.gd" id="1_bnhgw"]
+[ext_resource type="Texture2D" uid="uid://4dmx53co6ssb" path="res://Resources/Alien Icons/CHR_Alien3_V1.png" id="2_hlbla"]
+
+[resource]
+script = ExtResource("1_bnhgw")
+name = "Zed"
+texture = ExtResource("2_hlbla")
+calories = 800
+macronutrients = {
+"Carbohydrates": 30,
+"Fat": 20,
+"Protein": 10
+}
+metadata/_custom_type_script = "uid://dy6by1k5b1e3l"

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cpfb7el5tja6u"]
+
+[ext_resource type="Script" uid="uid://dnx51fpktla7o" path="res://level_1.gd" id="1_xrdnt"]
+[ext_resource type="Script" uid="uid://dy6by1k5b1e3l" path="res://alienClass.gd" id="2_wrinw"]
+[ext_resource type="Resource" uid="uid://bmwyk0w7pq6eq" path="res://Resources/Aliens/Cassie.tres" id="3_chwpn"]
+[ext_resource type="Resource" uid="uid://bdg6v0c7uuxmt" path="res://Resources/Aliens/Zed.tres" id="4_af3po"]
+[ext_resource type="Resource" uid="uid://8mlm2t25mvpd" path="res://Resources/Aliens/Broady.tres" id="5_uy8f0"]
+[ext_resource type="Resource" uid="uid://ybkxvsm7uml0" path="res://Resources/Aliens/Vance.tres" id="6_6r07y"]
+[ext_resource type="PackedScene" uid="uid://bsfjjax2fgsbs" path="res://Scenes/AlienScene.tscn" id="7_6ioyp"]
+[ext_resource type="PackedScene" uid="uid://bo54l81j2v7u0" path="res://Scenes/AlienContainer.tscn" id="8_oovug"]
+
+[node name="Level1" type="Node2D" unique_id=1098843605 node_paths=PackedStringArray("alien_container")]
+script = ExtResource("1_xrdnt")
+aliens = Array[ExtResource("2_wrinw")]([ExtResource("3_chwpn"), ExtResource("4_af3po"), ExtResource("5_uy8f0"), ExtResource("6_6r07y")])
+alien_scene = ExtResource("7_6ioyp")
+alien_container = NodePath("AlienContainer")
+
+[node name="AlienContainer" parent="." unique_id=1584341472 instance=ExtResource("8_oovug")]
