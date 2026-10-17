@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bo54l81j2v7u0"]
 
 [ext_resource type="Script" uid="uid://c6dvhgvgsuwmx" path="res://receipt_layer.gd" id="1_vx8cy"]
-[ext_resource type="Script" uid="uid://b2nyp7s06lp1n" path="res://ShapeDuplicator.gd" id="2_yt4pt"]
+[ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Lunchbox/Lunchbox.tscn" id="2_vx8cy"]
 
 [node name="AlienContainer" type="Node2D" unique_id=1584341472]
 
@@ -9,7 +9,7 @@
 script = ExtResource("1_vx8cy")
 
 [node name="Receipt" type="Panel" parent="ReceiptLayer" unique_id=384934691]
-offset_right = 242.0
+offset_right = 263.0
 offset_bottom = 300.0
 
 [node name="ReceiptHeader" type="Label" parent="ReceiptLayer/Receipt" unique_id=241148720]
@@ -60,49 +60,4 @@ offset_right = 206.0
 offset_bottom = 292.0
 text = "Dietary Restrictions: "
 
-[node name="Bucket1" type="Polygon2D" parent="." unique_id=912047099]
-position = Vector2(106.530304, 575.15546)
-scale = Vector2(0.30515364, 0.39123017)
-color = Color(0.5846766, 1, 0.42359248, 1)
-polygon = PackedVector2Array(421.53967, 73.46772, 419.396, 319.9805, 84.99609, 319.9805, 84, 74)
-script = ExtResource("2_yt4pt")
-shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, 0)])
-
-[node name="ButtonArea" type="Area2D" parent="Bucket1" unique_id=1037901750]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bucket1/ButtonArea" unique_id=1386476957]
-
-[node name="Bucket_Label" type="Label" parent="Bucket1" unique_id=216423767]
-offset_left = -24.677082
-offset_top = 63.503708
-offset_right = 34.309612
-offset_bottom = 132.50371
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Bucket2" type="Polygon2D" parent="." unique_id=2134845734]
-position = Vector2(64.00001, 460)
-scale = Vector2(0.30515364, 0.39123017)
-color = Color(0.5846766, 1, 0.42359248, 1)
-polygon = PackedVector2Array(421.53967, 73.46772, 419.396, 319.9805, 84.99609, 319.9805, 84, 74)
-script = ExtResource("2_yt4pt")
-shape = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, 0)])
-max_food_amount = 8
-
-[node name="ButtonArea" type="Area2D" parent="Bucket2" unique_id=273748999]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bucket2/ButtonArea" unique_id=735423723]
-
-[node name="Bucket_Label" type="Label" parent="Bucket2" unique_id=2125693663]
-offset_left = -24.677082
-offset_top = 63.503708
-offset_right = 34.309612
-offset_bottom = 132.50371
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Lunchbox" parent="." unique_id=1586488118 instance=ExtResource("2_vx8cy")]
