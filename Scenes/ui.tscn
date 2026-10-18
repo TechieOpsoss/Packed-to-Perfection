@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bf70tncuosq5l"]
+
+[ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Lunchbox/Lunchbox.tscn" id="1_jxero"]
+
+[node name="UI" type="Node2D" unique_id=1706116420]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1373216786]
+
+[node name="Lunchbox" parent="CanvasLayer" unique_id=1586488118 instance=ExtResource("1_jxero")]
+
+[node name="Lunch_Bar" type="CanvasLayer" parent="." unique_id=1857360643]
+layer = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="Lunch_Bar" unique_id=1769042354]
+z_index = -1
+position = Vector2(6.136879, 367.12808)
+scale = Vector2(6.189339, 3.2108788)
+color = Color(0.1595507, 0.59561366, 0.6504701, 1)
+polygon = PackedVector2Array(-1.3146604, -0.66278076, 185.29651, -0.66278076, 185.29651, 42.9254, 185.29654, 87.4751, -1.3146591, 87.47508)
+
+[node name="Submit_Button" type="Button" parent="Lunch_Bar" unique_id=1606326835]
+offset_left = 1049.9999
+offset_top = 540.0
+offset_right = 1145.9999
+offset_bottom = 576.0
+text = "Submit"
+
+[node name="Main_Menu_Button" type="Button" parent="Lunch_Bar" unique_id=1740705727]
+offset_left = 1051.0
+offset_top = 592.0
+offset_right = 1147.0
+offset_bottom = 628.0
+text = "Main Menu"

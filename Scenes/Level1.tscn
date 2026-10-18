@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://ybkxvsm7uml0" path="res://Resources/Aliens/Vance.tres" id="6_6r07y"]
 [ext_resource type="PackedScene" uid="uid://bsfjjax2fgsbs" path="res://Scenes/AlienScene.tscn" id="7_6ioyp"]
 [ext_resource type="PackedScene" uid="uid://bo54l81j2v7u0" path="res://Scenes/AlienContainer.tscn" id="8_oovug"]
+[ext_resource type="PackedScene" uid="uid://bf70tncuosq5l" path="res://Scenes/ui.tscn" id="9_kylad"]
 
 [node name="Level1" type="Node2D" unique_id=1098843605 node_paths=PackedStringArray("alien_container")]
 script = ExtResource("1_xrdnt")
@@ -16,3 +17,5 @@ alien_scene = ExtResource("7_6ioyp")
 alien_container = NodePath("AlienContainer")
 
 [node name="AlienContainer" parent="." unique_id=1584341472 instance=ExtResource("8_oovug")]
+
+[node name="UI" parent="." unique_id=1706116420 instance=ExtResource("9_kylad")]
