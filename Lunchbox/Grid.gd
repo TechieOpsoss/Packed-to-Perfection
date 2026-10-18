@@ -3,7 +3,7 @@ extends Node2D
 
 @export var gridShape: Array[Vector2i] = [Vector2i(0,0)]
 var freeCells: Array[Vector2i]
-@export var triangleWidth: float = 96
+@export var triangleWidth: float = 64
 @export var gridCellSpacing: float = 8
 @export var previewCellSpacing: float = 8
 var cursor: Node2D
