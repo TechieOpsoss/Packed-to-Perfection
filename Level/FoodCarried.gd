@@ -7,8 +7,8 @@ var tryDrop: Callable
 signal dropSuccess()
 signal dropFailure()
 signal softFailure()
-
 @export var shape: Array[Vector2i]
+
 @export var triangle_width: float = 48
 @export var spacing: float = 4
 

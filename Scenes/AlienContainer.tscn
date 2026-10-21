@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bo54l81j2v7u0"]
 
-[ext_resource type="Script" uid="uid://c6dvhgvgsuwmx" path="res://receipt_layer.gd" id="1_vx8cy"]
-[ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Level/Level.tscn" id="2_vx8cy"]
+[ext_resource type="Script" uid="uid://c6dvhgvgsuwmx" path="res://UI-Elements/receipt_layer.gd" id="1_vx8cy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxyu"]
 bg_color = Color(0.627451, 0.34117648, 0.8627451, 0.80784315)

@@ -4,7 +4,6 @@ extends Button
 @export var foodItemNamePlural: String
 @export var shape: Array[Vector2i]
 signal produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGoFromBucket: Signal, returnToBucket: Callable)
-
 @export var heldQuantity: int = 10
 @onready var food_label: Label = $Bucket_Label
 
