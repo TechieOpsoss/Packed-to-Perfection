@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bf70tncuosq5l"]
 
 [ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Lunchbox/Lunchbox.tscn" id="1_jxero"]
+[ext_resource type="Script" uid="uid://bkvp6rgxvjmr2" path="res://Scenes/ui.gd" id="1_qdvrb"]
+[ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="3_nf4gj"]
 
 [node name="UI" type="Node2D" unique_id=1706116420]
+script = ExtResource("1_qdvrb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1373216786]
 
@@ -12,10 +15,9 @@
 layer = 0
 
 [node name="Polygon2D" type="Polygon2D" parent="Lunch_Bar" unique_id=1769042354]
-z_index = -1
-position = Vector2(6.136879, 367.12808)
-scale = Vector2(6.189339, 3.2108788)
-color = Color(0.1595507, 0.59561366, 0.6504701, 1)
+position = Vector2(6.136879, 451.48892)
+scale = Vector2(6.189339, 2.2464805)
+color = Color(0.5216713, 0.34564495, 0.9069582, 1)
 polygon = PackedVector2Array(-1.3146604, -0.66278076, 185.29651, -0.66278076, 185.29651, 42.9254, 185.29654, 87.4751, -1.3146591, 87.47508)
 
 [node name="Submit_Button" type="Button" parent="Lunch_Bar" unique_id=1606326835]
@@ -31,3 +33,17 @@ offset_top = 592.0
 offset_right = 1147.0
 offset_bottom = 628.0
 text = "Main Menu"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1249072640]
+layer = -7
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2" unique_id=1852659774]
+z_index = -5
+offset_top = -29.0
+offset_right = 1152.0
+offset_bottom = 619.0
+texture = ExtResource("3_nf4gj")
+expand_mode = 1
+
+[connection signal="pressed" from="Lunch_Bar/Submit_Button" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="Lunch_Bar/Main_Menu_Button" to="." method="_on_main_menu_button_pressed"]
