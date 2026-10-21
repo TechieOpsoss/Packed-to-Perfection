@@ -1,16 +1,31 @@
 [gd_scene format=3 uid="uid://bf70tncuosq5l"]
 
-[ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Lunchbox/Lunchbox.tscn" id="1_jxero"]
-[ext_resource type="Script" uid="uid://bkvp6rgxvjmr2" path="res://ui.gd" id="1_qdvrb"]
-[ext_resource type="Script" uid="uid://48qr2ls00mix" path="res://submit_button.gd" id="3_2246s"]
+[ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Level/Level.tscn" id="1_jxero"]
+[ext_resource type="Script" uid="uid://b2obvolgab5c3" path="res://Scenes/gridLayer.gd" id="1_q7pk6"]
+[ext_resource type="Script" uid="uid://drrd6w70lblww" path="res://UI-Elements/ScoreClass.gd" id="3_2246s"]
 [ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="3_nf4gj"]
+[ext_resource type="Script" uid="uid://brwxo3jth1frl" path="res://UI-Elements/main_menu_button.gd" id="4_q7pk6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1wfr"]
+bg_color = Color(0, 0.6901961, 0.67058825, 0.84705883)
 
 [node name="UI" type="Node2D" unique_id=1706116420]
-script = ExtResource("1_qdvrb")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1373216786]
+[node name="GridLayer" type="CanvasLayer" parent="." unique_id=1373216786]
+script = ExtResource("1_q7pk6")
 
-[node name="Lunchbox" parent="CanvasLayer" unique_id=1586488118 instance=ExtResource("1_jxero")]
+[node name="Lunchbox" parent="GridLayer" unique_id=1586488118 instance=ExtResource("1_jxero")]
+
+[node name="ScoreBox" type="PanelContainer" parent="GridLayer" unique_id=1768235012]
+offset_left = 29.0
+offset_top = 470.0
+offset_right = 396.0
+offset_bottom = 636.0
+
+[node name="TextEdit" type="TextEdit" parent="GridLayer/ScoreBox" unique_id=765430588]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1wfr")
+text = "Score"
 
 [node name="Lunch_Bar" type="CanvasLayer" parent="." unique_id=1857360643]
 layer = 0
@@ -35,11 +50,12 @@ offset_top = 592.0
 offset_right = 1147.0
 offset_bottom = 628.0
 text = "Main Menu"
+script = ExtResource("4_q7pk6")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1249072640]
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1249072640]
 layer = -7
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer2" unique_id=1852659774]
+[node name="Background" type="TextureRect" parent="BackgroundLayer" unique_id=1852659774]
 z_index = -5
 offset_top = -29.0
 offset_right = 1152.0
@@ -47,5 +63,5 @@ offset_bottom = 619.0
 texture = ExtResource("3_nf4gj")
 expand_mode = 1
 
-[connection signal="pressed" from="Lunch_Bar/Submit_Button" to="." method="_on_submit_button_pressed"]
-[connection signal="pressed" from="Lunch_Bar/Main_Menu_Button" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Lunch_Bar/Submit_Button" to="Lunch_Bar/Submit_Button" method="_on_pressed"]
+[connection signal="pressed" from="Lunch_Bar/Main_Menu_Button" to="Lunch_Bar/Main_Menu_Button" method="_on_pressed"]

@@ -18,6 +18,7 @@ func choose_alien():
 	alien.setup(alien_data)
 	print("Alien added to tree!")
 	$AlienContainer/ReceiptLayer.create_receipt(alien)
+	$UI/Lunch_Bar/Submit_Button.get_alien(alien)
 
 
 func _ready() -> void:
