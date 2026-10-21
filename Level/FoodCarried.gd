@@ -1,6 +1,6 @@
 extends Node2D
 
-var setPreview: Callable
+var updatePreview: Callable
 var tryDrop: Callable
 
 # TODO: Sounds on signals
@@ -28,7 +28,7 @@ func _input(event):
 
 func _process(_delta: float) -> void:
 	if not is_queued_for_deletion():
-		setPreview.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6)
+		updatePreview.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6)
 
 #TODO: ghost preview
 
