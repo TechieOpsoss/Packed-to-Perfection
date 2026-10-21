@@ -16,10 +16,9 @@ signal softFailure()
 func _ready() -> void:
 	dropSuccess.connect(queue_free)
 	dropFailure.connect(queue_free)
-	var polygon2D: Polygon2D = find_child("Render Polygon")
-	var combinedMeshes = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(shape, triangle_width, spacing))
-	polygon2D.polygon = combinedMeshes[0]
-	polygon2D.polygons = combinedMeshes[1]
+	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(shape, triangle_width, spacing))
+	$Visual.polygon = verticesAndIndices[0]
+	$Visual.polygons = verticesAndIndices[1]
 
 func _input(event):
 	if event is InputEventMouseButton:

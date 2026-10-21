@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://dtwny5uv3g7p"]
-
-[ext_resource type="Script" uid="uid://cqkp8yi1pw0dq" path="res://Lunchbox/CarriedShape.gd" id="1_ced2o"]
-
-[node name="Carried Shape" type="Node2D" unique_id=2049523459]
-script = ExtResource("1_ced2o")
-
-[node name="Render Polygon" type="Polygon2D" parent="." unique_id=1822289850]
-color = Color(0, 1, 1, 0.53333336)
