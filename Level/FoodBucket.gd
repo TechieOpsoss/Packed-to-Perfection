@@ -5,8 +5,6 @@ var foodItem: Scoring.FoodItemStats
 @export var foodItemNamePlural: String
 @export var shape: Array[Vector2i]
 @export var grid: FoodGrid
-#signal produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGoFromBucket: Signal, returnToBucket: Callable)
-
 
 # Carried shape production.
 const carriedFoodScene: Resource = preload("res://Level/FoodCarried.tscn")
