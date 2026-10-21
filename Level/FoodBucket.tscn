@@ -9,3 +9,11 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 focus_mode = 0
 action_mode = 0
 script = ExtResource("1_ipa7w")
+
+[node name="Label" type="Label" parent="." unique_id=1783574177]
+layout_mode = 0
+offset_right = 504.00012
+offset_bottom = 215.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+horizontal_alignment = 1
+vertical_alignment = 1
