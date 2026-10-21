@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bf70tncuosq5l"]
 
 [ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Lunchbox/Lunchbox.tscn" id="1_jxero"]
-[ext_resource type="Script" uid="uid://bkvp6rgxvjmr2" path="res://Scenes/ui.gd" id="1_qdvrb"]
+[ext_resource type="Script" uid="uid://bkvp6rgxvjmr2" path="res://ui.gd" id="1_qdvrb"]
+[ext_resource type="Script" uid="uid://48qr2ls00mix" path="res://submit_button.gd" id="3_2246s"]
 [ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="3_nf4gj"]
 
 [node name="UI" type="Node2D" unique_id=1706116420]
@@ -26,6 +27,7 @@ offset_top = 540.0
 offset_right = 1145.9999
 offset_bottom = 576.0
 text = "Submit"
+script = ExtResource("3_2246s")
 
 [node name="Main_Menu_Button" type="Button" parent="Lunch_Bar" unique_id=1740705727]
 offset_left = 1051.0
