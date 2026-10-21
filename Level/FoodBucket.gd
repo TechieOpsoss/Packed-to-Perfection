@@ -1,6 +1,6 @@
 extends Button
 
-var foodItem: Scoring.FoodItem
+var foodItem: Scoring.FoodItemStats
 @export var foodItemName: String
 @export var foodItemNamePlural: String
 @export var shape: Array[Vector2i]
