@@ -2,8 +2,11 @@ extends Node2D
 
 var setPreview: Callable
 var tryDrop: Callable
+
+# TODO: Sounds on signals
 signal dropSuccess()
 signal dropFailure()
+signal softFailure()
 
 @export var shape: Array[Vector2i]
 @export var triangle_width: float = 48
@@ -33,6 +36,8 @@ func _process(_delta: float) -> void:
 func dropSoft():
 	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6):
 		dropSuccess.emit()
+	else:
+		softFailure.emit()
 
 func dropHard():
 	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6):
