@@ -1,4 +1,4 @@
-class_name TriGridUtils extends Node
+class_name TriGridUtils
 
 static func make_meshes(gridSpaceCellPositions: Array[Vector2i], triangle_width: float, spacing: float) -> Array[PackedVector2Array]:
 	# Grid measurements

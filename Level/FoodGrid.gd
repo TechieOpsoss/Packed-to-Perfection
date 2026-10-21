@@ -10,12 +10,15 @@ var filledCells: Array[Vector2i]
 @export var previewCellSpacing: float = 0
 
 func updateGridVisuals() -> void:
+	# Background
 	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(gridShape, triangleWidth, 0))
 	$CellBackgroundVisual.polygon = verticesAndIndices[0]
 	$CellBackgroundVisual.polygons = verticesAndIndices[1]
+	# Empty cells
 	verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(emptyCells, triangleWidth, emptyCellSpacing))
 	$EmptyCellVisual.polygon = verticesAndIndices[0]
 	$EmptyCellVisual.polygons = verticesAndIndices[1]
+	# Filled cells TODO: UV and texture
 	verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(filledCells, triangleWidth, filledCellSpacing))
 	$FilledCellVisual.polygon = verticesAndIndices[0]
 	$FilledCellVisual.polygons = verticesAndIndices[1]
@@ -43,7 +46,7 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 		if emptyCells.find(transformedCell) == -1:
 			return false
 	
-	#TODO: add DroppedShape at corresponding location
+	# TODO: store UV corresponding to food item texture
 	
 	for transformedCell: Vector2i in transformedShape:
 		emptyCells.remove_at(emptyCells.find(transformedCell))

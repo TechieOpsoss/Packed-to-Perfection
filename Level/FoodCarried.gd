@@ -12,10 +12,11 @@ signal softFailure()
 @export var triangle_width: float = 48
 @export var spacing: float = 4
 
-# Delete when dropped.
 func _ready() -> void:
+	# Delete when dropped.
 	dropSuccess.connect(queue_free)
 	dropFailure.connect(queue_free)
+	# Setup visuals
 	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(shape, triangle_width, spacing))
 	$Visual.polygon = verticesAndIndices[0]
 	$Visual.polygons = verticesAndIndices[1]
@@ -29,8 +30,6 @@ func _input(event):
 func _process(_delta: float) -> void:
 	if not is_queued_for_deletion():
 		updatePreview.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6)
-
-#TODO: ghost preview
 
 func dropSoft():
 	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6):
