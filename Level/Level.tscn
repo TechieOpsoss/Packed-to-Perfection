@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c07fu7134iygg"]
 
-[ext_resource type="PackedScene" uid="uid://dwy44bgksy46j" path="res://Lunchbox/Grid.tscn" id="2_y3hra"]
-[ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Lunchbox/Bucket.tscn" id="3_l4vu7"]
+[ext_resource type="PackedScene" uid="uid://dwy44bgksy46j" path="res://Level/FoodGrid.tscn" id="2_y3hra"]
+[ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Level/FoodBucket.tscn" id="3_l4vu7"]
 
-[node name="Lunchbox" type="Node2D" unique_id=1586488118]
+[node name="Level" type="Node2D" unique_id=1586488118]
 
 [node name="Grid" parent="." unique_id=1446597112 instance=ExtResource("2_y3hra")]
 position = Vector2(591, 550)
