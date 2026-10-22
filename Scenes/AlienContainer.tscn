@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c6dvhgvgsuwmx" path="res://UI-Elements/receipt_layer.gd" id="1_vx8cy"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxyu"]
-bg_color = Color(0.627451, 0.34117648, 0.8627451, 0.80784315)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ojud"]
+bg_color = Color(0.6605958, 0.2263282, 0.773321, 0.84313726)
 
 [node name="AlienContainer" type="Node2D" unique_id=1584341472]
 z_index = -3
@@ -11,55 +11,37 @@ z_index = -3
 [node name="ReceiptLayer" type="CanvasLayer" parent="." unique_id=1798305892]
 script = ExtResource("1_vx8cy")
 
-[node name="Receipt" type="Panel" parent="ReceiptLayer" unique_id=384934691]
-offset_right = 263.0
-offset_bottom = 300.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_efxyu")
+[node name="PanelContainer" type="PanelContainer" parent="ReceiptLayer" unique_id=1386405105]
+offset_right = 264.0
+offset_bottom = 299.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ojud")
 
-[node name="ReceiptHeader" type="Label" parent="ReceiptLayer/Receipt" unique_id=241148720]
-layout_mode = 0
-offset_right = 205.0
-offset_bottom = 36.0
+[node name="VBoxContainer" type="VBoxContainer" parent="ReceiptLayer/PanelContainer" unique_id=1937867008]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="ReceiptHeader" type="Label" parent="ReceiptLayer/PanelContainer/VBoxContainer" unique_id=241148720]
+layout_mode = 2
 text = "Receipt"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ProteinsLabel" type="Label" parent="ReceiptLayer/Receipt" unique_id=230542579]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 65.0
-offset_right = 206.0
-offset_bottom = 106.0
+[node name="ProteinsLabel" type="Label" parent="ReceiptLayer/PanelContainer/VBoxContainer" unique_id=230542579]
+layout_mode = 2
 text = "Proteins: "
 
-[node name="CarbohydratesLabel" type="Label" parent="ReceiptLayer/Receipt" unique_id=55471003]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 111.0
-offset_right = 207.0
-offset_bottom = 152.0
+[node name="CarbohydratesLabel" type="Label" parent="ReceiptLayer/PanelContainer/VBoxContainer" unique_id=55471003]
+layout_mode = 2
 text = "Carbohydrates: "
 
-[node name="FatsLabel" type="Label" parent="ReceiptLayer/Receipt" unique_id=36892931]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 161.0
-offset_right = 207.0
-offset_bottom = 202.0
+[node name="FatsLabel" type="Label" parent="ReceiptLayer/PanelContainer/VBoxContainer" unique_id=36892931]
+layout_mode = 2
 text = "Fats: "
 
-[node name="CaloriesLabel" type="Label" parent="ReceiptLayer/Receipt" unique_id=170106758]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 206.0
-offset_right = 204.0
-offset_bottom = 247.0
+[node name="CaloriesLabel" type="Label" parent="ReceiptLayer/PanelContainer/VBoxContainer" unique_id=170106758]
+layout_mode = 2
 text = "Calories: "
 
-[node name="DietaryLabel" type="Label" parent="ReceiptLayer/Receipt" unique_id=827394790]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 251.0
-offset_right = 206.0
-offset_bottom = 292.0
+[node name="DietaryLabel" type="Label" parent="ReceiptLayer/PanelContainer/VBoxContainer" unique_id=827394790]
+layout_mode = 2
 text = "Dietary Restrictions: "
