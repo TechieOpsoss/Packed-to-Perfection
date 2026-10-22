@@ -5,15 +5,15 @@ func _ready() -> void:
 	pass
 
 func create_receipt(alien: Node2D) -> void:
-	$Receipt/ReceiptHeader.text = str(alien.alien_data.name) + "'s Receipt"
-	$Receipt/ProteinsLabel.text = "Proteins: " + str(alien.alien_data.macronutrients["Protein"])
-	$Receipt/CarbohydratesLabel.text = "Carbohydrates: " + str(alien.alien_data.macronutrients["Carbohydrates"])
-	$Receipt/FatsLabel.text = "Fats: " + str(alien.alien_data.macronutrients["Fat"])
-	$Receipt/CaloriesLabel.text = "Calories: " + str(alien.alien_data.calories)
+	$PanelContainer/VBoxContainer/ReceiptHeader.text = str(alien.alien_data.name) + "'s Receipt"
+	$PanelContainer/VBoxContainer/ProteinsLabel.text = "Proteins: " + str(alien.alien_data.macronutrients["Protein"])
+	$PanelContainer/VBoxContainer/CarbohydratesLabel.text = "Carbohydrates: " + str(alien.alien_data.macronutrients["Carbohydrates"])
+	$PanelContainer/VBoxContainer/FatsLabel.text = "Fats: " + str(alien.alien_data.macronutrients["Fat"])
+	$PanelContainer/VBoxContainer/CaloriesLabel.text = "Calories: " + str(alien.alien_data.calories)
 	if(alien.alien_data.has_restriction && alien.alien_data.tag.find_key(1) != null):
-		$Receipt/DietaryLabel.text = "Dietary Restrictions: " + str(alien.alien_data.tag.find_key(1))
+		$PanelContainer/VBoxContainer/DietaryLabel.text = "Dietary Restrictions: " + str(alien.alien_data.tag.find_key(1))
 	else:
-		$Receipt/DietaryLabel.text = ""
+		$PanelContainer/VBoxContainer/DietaryLabel.text = ""
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
