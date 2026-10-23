@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c25gio67u3cts"]
+
+[ext_resource type="Script" uid="uid://dofy6pt7nbvft" path="res://Level/FoodDropped.gd" id="1_14foq"]
+
+[node name="FoodDropped" type="Area2D" unique_id=2136252364]
+script = ExtResource("1_14foq")
+
+[node name="Visual" type="Polygon2D" parent="." unique_id=482609018]
+color = Color(0, 0, 1, 1)

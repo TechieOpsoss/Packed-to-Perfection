@@ -3,28 +3,8 @@ class_name FoodBucket extends Button
 @export var stats: FoodItemStats
 @export var foodItemName: String
 @export var foodItemNamePlural: String
-@export var shape: Array[Vector2i]
+@export var producedShape: Array[Vector2i]
 @export var grid: FoodGrid
-
-# Carried shape production.
-const carriedFoodScene: Resource = preload("res://Level/FoodCarried.tscn")
-func produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGoFromBucket: Signal, returnToBucket: Callable):
-	# Create and initialize instance.
-	var carriedFoodInstance: FoodCarried = carriedFoodScene.instantiate()
-	carriedFoodInstance.shape = producedShape
-	carriedFoodInstance.position += cursorOffset
-	carriedFoodInstance.stats = stats
-	
-	carriedFoodInstance.tryDrop = grid.tryDrop
-	carriedFoodInstance.grid = grid
-	
-	# When bucket button released, drop softly.
-	letGoFromBucket.connect(carriedFoodInstance.dropSoft)
-	
-	# When unsuccessfully dropped, return to bucket.
-	carriedFoodInstance.dropFailure.connect(returnToBucket)
-	
-	grid.find_child("Cursor").add_child(carriedFoodInstance)
 
 @export var heldQuantity: int = 10
 
@@ -36,6 +16,22 @@ func _ready():
 		tooltip_text = str(heldQuantity, " ", foodItemNamePlural)
 		$Label.text = str(heldQuantity, " ", foodItemNamePlural)
 	$Label.size = size
+
+# Carried shape production.
+const carriedFoodScene: Resource = preload("res://Level/FoodCarried.tscn")
+func produceShape() -> void:
+	# Create and initialize instance.
+	var carriedFoodInstance: FoodCarried = carriedFoodScene.instantiate()
+	carriedFoodInstance.shape = producedShape
+	carriedFoodInstance.stats = stats
+	carriedFoodInstance.tryDrop = grid.tryDrop
+	carriedFoodInstance.grid = grid
+	carriedFoodInstance.returnShape = returnShape
+	
+	# When unsuccessfully dropped, return to bucket.
+	carriedFoodInstance.dropFailure.connect(returnShape)
+	
+	grid.find_child("Cursor").add_child(carriedFoodInstance)
 
 # Increment quantity stored in bucket.
 func returnShape():
@@ -57,4 +53,4 @@ func _pressed() -> void:
 		else:
 			tooltip_text = str(heldQuantity, " ", foodItemNamePlural)
 			$Label.text = str(heldQuantity, " ", foodItemNamePlural)
-		produceShape(shape, Vector2(0,0), button_up, returnShape)
+		produceShape()

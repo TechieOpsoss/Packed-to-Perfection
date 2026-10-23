@@ -1,18 +1,20 @@
 class_name FoodCarried extends Node2D
 
 @export var grid: FoodGrid
+@export var stats: FoodItemStats
+@export var shape: Array[Vector2i]
+@export var triangle_width: float = 48
+@export var spacing: float = 4
+@export var tryDrop: Callable
+@export var returnShape: Callable
+
 var previewPolygon: Polygon2D
-var tryDrop: Callable
+var hardDropOnRelease: bool
 
 # TODO: Sounds on signals
 signal dropSuccess()
 signal dropFailure()
 signal softFailure()
-
-var stats: FoodItemStats
-@export var shape: Array[Vector2i]
-@export var triangle_width: float = 48
-@export var spacing: float = 4
 
 func updatePreview(previewShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: int): 
 	var originPos: Vector2i = TriGridUtils.screen_to_grid(heldPosition - grid.global_position, (shapeRotation % 2) == 1, grid.triangleWidth)
@@ -40,25 +42,35 @@ func _ready() -> void:
 		previewPolygon.polygon = []
 		previewPolygon.polygons = []
 	)
+	hardDropOnRelease = false
+	await get_tree().create_timer(0.5).timeout
+	hardDropOnRelease = true
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			dropHard()
-			get_viewport().set_input_as_handled()
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				dropHard()
+				get_viewport().set_input_as_handled()
+			else:
+				if hardDropOnRelease:
+					dropHard()
+				else:
+					dropSoft()
+				get_viewport().set_input_as_handled()
 
 func _process(_delta: float) -> void:
 	if not is_queued_for_deletion():
 		updatePreview(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6)
 
 func dropSoft():
-	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6, stats):
+	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6, stats, returnShape):
 		dropSuccess.emit()
 	else:
 		softFailure.emit()
 
 func dropHard():
-	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6, stats):
+	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6, stats, returnShape):
 		dropSuccess.emit()
 	else:
 		dropFailure.emit()

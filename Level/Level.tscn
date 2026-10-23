@@ -26,9 +26,8 @@ offset_bottom = 636.0
 stats = SubResource("Resource_5noo7")
 foodItemName = "Squibbly"
 foodItemNamePlural = "Squibblies"
-shape = Array[Vector2i]([Vector2i(0, -1), Vector2i(0, 0), Vector2i(0, 1)])
+producedShape = Array[Vector2i]([Vector2i(0, 0)])
 grid = NodePath("../Grid")
-heldQuantity = null
 
 [node name="Bucket2" parent="." unique_id=1732722692 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
 offset_left = 174.0
@@ -38,6 +37,5 @@ offset_bottom = 631.0
 stats = SubResource("Resource_u0wck")
 foodItemName = "Boungous"
 foodItemNamePlural = "Boungi"
-shape = Array[Vector2i]([Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0)])
+producedShape = Array[Vector2i]([Vector2i(0, 0)])
 grid = NodePath("../Grid")
-heldQuantity = null
