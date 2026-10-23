@@ -46,8 +46,9 @@ func produceShape():
 
 # Decrement quantity stored in producer and attempt to produce shape.
 func onInputEvent(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed and heldQuantity > 0:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and heldQuantity > 0:
 		heldQuantity = heldQuantity - 1
 		if heldQuantity == 0:
 			depleted.emit()
 		produceShape()
+		get_viewport().set_input_as_handled()

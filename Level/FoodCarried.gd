@@ -42,22 +42,20 @@ func _ready() -> void:
 		previewPolygon.polygon = []
 		previewPolygon.polygons = []
 	)
-	hardDropOnRelease = false
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.25).timeout
 	hardDropOnRelease = true
 
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			dropHard()
+			get_viewport().set_input_as_handled()
+		else:
+			if hardDropOnRelease:
 				dropHard()
-				get_viewport().set_input_as_handled()
 			else:
-				if hardDropOnRelease:
-					dropHard()
-				else:
-					dropSoft()
-				get_viewport().set_input_as_handled()
+				dropSoft()
+			get_viewport().set_input_as_handled()
 
 func _process(_delta: float) -> void:
 	if not is_queued_for_deletion():
