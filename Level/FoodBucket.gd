@@ -1,8 +1,6 @@
 class_name FoodBucket extends Button
 
 @export var stats: FoodItemStats
-@export var foodItemName: String
-@export var foodItemNamePlural: String
 @export var producedShape: Array[Vector2i]
 @export var grid: FoodGrid
 
@@ -10,9 +8,9 @@ class_name FoodBucket extends Button
 
 func _ready():
 	if heldQuantity == 1:
-		$Label.text = str(heldQuantity, " ", foodItemName)
+		$Label.text = str(heldQuantity, " ", stats.foodItemName)
 	else:
-		$Label.text = str(heldQuantity, " ", foodItemNamePlural)
+		$Label.text = str(heldQuantity, " ", stats.foodItemNamePlural)
 	$Label.size = size
 
 # Carried shape production.
@@ -36,16 +34,16 @@ func produceShape() -> void:
 func returnShape():
 	heldQuantity += 1
 	if heldQuantity == 1:
-		$Label.text = str(heldQuantity, " ", foodItemName)
+		$Label.text = str(heldQuantity, " ", stats.foodItemName)
 	else:
-		$Label.text = str(heldQuantity, " ", foodItemNamePlural)
+		$Label.text = str(heldQuantity, " ", stats.foodItemNamePlural)
 
 # Decrement quantity stored in bucket and attempt to produce shape.
 func _pressed() -> void:
 	if (heldQuantity > 0):
 		heldQuantity = heldQuantity - 1
 		if heldQuantity == 1:
-			$Label.text = str(heldQuantity, " ", foodItemName)
+			$Label.text = str(heldQuantity, " ", stats.foodItemName)
 		else:
-			$Label.text = str(heldQuantity, " ", foodItemNamePlural)
+			$Label.text = str(heldQuantity, " ", stats.foodItemNamePlural)
 		produceShape()

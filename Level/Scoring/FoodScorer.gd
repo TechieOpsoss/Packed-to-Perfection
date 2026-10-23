@@ -8,6 +8,3 @@ class_name Scoring
 @export var restrictTagA: bool
 @export var restrictTagB: bool
 @export var restrictTagC: bool
-
-func score(_lunchBox: Array[FoodItemStats]) -> int:
-	return 0 #TODO

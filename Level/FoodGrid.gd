@@ -10,6 +10,12 @@ class_name FoodGrid extends Node2D
 var emptyCells: Array[Vector2i]
 var placedFoodStats: Array[FoodItemStats]
 
+func totalStats() -> FoodItemStats:
+	var sum: FoodItemStats = FoodItemStats.new()
+	for placedFoodStat: FoodItemStats in placedFoodStats:
+		sum.add(placedFoodStat)
+	return sum
+
 func updateGridVisuals() -> void:
 	# Background
 	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(gridShape, triangleWidth, 0))
