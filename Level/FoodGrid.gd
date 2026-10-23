@@ -54,6 +54,7 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 	droppedFood.depleted.connect(func():
 		for transformedCell: Vector2i in transformedShape:
 			emptyCells.append(transformedCell)
+		placedFoodStats.remove_at(placedFoodStats.find(stats))
 		updateGridVisuals()
 	)
 	
