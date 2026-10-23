@@ -10,10 +10,8 @@ class_name FoodBucket extends Button
 
 func _ready():
 	if heldQuantity == 1:
-		tooltip_text = str(heldQuantity, " ", foodItemName)
 		$Label.text = str(heldQuantity, " ", foodItemName)
 	else:
-		tooltip_text = str(heldQuantity, " ", foodItemNamePlural)
 		$Label.text = str(heldQuantity, " ", foodItemNamePlural)
 	$Label.size = size
 
@@ -37,10 +35,8 @@ func produceShape() -> void:
 func returnShape():
 	heldQuantity += 1
 	if heldQuantity == 1:
-		tooltip_text = str(heldQuantity, " ", foodItemName)
 		$Label.text = str(heldQuantity, " ", foodItemName)
 	else:
-		tooltip_text = str(heldQuantity, " ", foodItemNamePlural)
 		$Label.text = str(heldQuantity, " ", foodItemNamePlural)
 
 # Decrement quantity stored in bucket and attempt to produce shape.
@@ -48,9 +44,7 @@ func _pressed() -> void:
 	if (heldQuantity > 0):
 		heldQuantity = heldQuantity - 1
 		if heldQuantity == 1:
-			tooltip_text = str(heldQuantity, " ", foodItemName)
 			$Label.text = str(heldQuantity, " ", foodItemName)
 		else:
-			tooltip_text = str(heldQuantity, " ", foodItemNamePlural)
 			$Label.text = str(heldQuantity, " ", foodItemNamePlural)
 		produceShape()
