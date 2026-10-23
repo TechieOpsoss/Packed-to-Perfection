@@ -8,6 +8,7 @@ var filledCells: Array[Vector2i]
 @export var emptyCellSpacing: float = 6
 @export var filledCellSpacing: float = 6
 @export var previewCellSpacing: float = 0
+var placedFoodStats: Array[FoodItemStats]
 
 func updateGridVisuals() -> void:
 	# Background
@@ -39,7 +40,7 @@ func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("ui_left")):
 		$Cursor.rotation = fmod($Cursor.rotation + deg_to_rad(300), deg_to_rad(360))
 	
-func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: int) -> bool:
+func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: int, stats: FoodItemStats) -> bool:
 	var originPos: Vector2i = TriGridUtils.screen_to_grid(heldPosition - global_position, (shapeRotation % 2) == 1, triangleWidth)
 	var transformedShape: Array[Vector2i] = TriGridUtils.offset_grid(TriGridUtils.rotate_grid(tryShape, shapeRotation), originPos)
 	for transformedCell: Vector2i in transformedShape:
@@ -47,6 +48,12 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 			return false
 	
 	# TODO: store UV corresponding to food item texture
+	
+	# Add stats
+	placedFoodStats.append(stats)
+	
+	# Reset fetched rotation for consistency.
+	$Cursor.rotation = 0
 	
 	for transformedCell: Vector2i in transformedShape:
 		emptyCells.remove_at(emptyCells.find(transformedCell))

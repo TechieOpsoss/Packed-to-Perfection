@@ -1,6 +1,6 @@
 class_name FoodBucket extends Button
 
-var foodItem: Scoring.FoodItemStats
+@export var stats: FoodItemStats
 @export var foodItemName: String
 @export var foodItemNamePlural: String
 @export var shape: Array[Vector2i]
@@ -13,6 +13,7 @@ func produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGoFr
 	var carriedFoodInstance: FoodCarried = carriedFoodScene.instantiate()
 	carriedFoodInstance.shape = producedShape
 	carriedFoodInstance.position += cursorOffset
+	carriedFoodInstance.stats = stats
 	
 	carriedFoodInstance.tryDrop = grid.tryDrop
 	carriedFoodInstance.grid = grid
@@ -23,10 +24,7 @@ func produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGoFr
 	# When unsuccessfully dropped, return to bucket.
 	carriedFoodInstance.dropFailure.connect(returnToBucket)
 	
-	# Reset fetched rotation for consistency.
-	$Cursor.rotation = 0
-	
-	$Cursor.add_child(carriedFoodInstance)
+	grid.find_child("Cursor").add_child(carriedFoodInstance)
 
 @export var heldQuantity: int = 10
 

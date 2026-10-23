@@ -9,6 +9,7 @@ signal dropSuccess()
 signal dropFailure()
 signal softFailure()
 
+var stats: FoodItemStats
 @export var shape: Array[Vector2i]
 @export var triangle_width: float = 48
 @export var spacing: float = 4
@@ -51,13 +52,13 @@ func _process(_delta: float) -> void:
 		updatePreview(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6)
 
 func dropSoft():
-	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6):
+	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6, stats):
 		dropSuccess.emit()
 	else:
 		softFailure.emit()
 
 func dropHard():
-	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6):
+	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6, stats):
 		dropSuccess.emit()
 	else:
 		dropFailure.emit()

@@ -1,13 +1,5 @@
 class_name Scoring
 
-class FoodItemStats:
-	var calories: int
-	var nutrientA: int
-	var nutrientB: int
-	var nutrientC: int
-	var tagA: bool
-	var tagB: bool
-	var tagC: bool
 
 @export var minCalories: int
 @export var minNutrientA: int
