@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwy44bgksy46j"]
 
-[ext_resource type="Script" uid="uid://b5rqyq50k0ykf" path="res://Level/FoodGrid.gd" id="1_p7f57"]
+[ext_resource type="Script" uid="uid://b5rqyq50k0ykf" path="res://Level/Food/FoodGrid.gd" id="1_p7f57"]
 
 [node name="Grid" type="Node2D" unique_id=1446597112]
 script = ExtResource("1_p7f57")

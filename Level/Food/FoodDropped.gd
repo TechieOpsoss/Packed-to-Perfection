@@ -26,7 +26,7 @@ func _ready():
 	depleted.connect(queue_free)
 
 # Carried shape production.
-const carriedFoodScene: Resource = preload("res://Level/FoodCarried.tscn")
+const carriedFoodScene: Resource = preload("res://Level/Food/FoodCarried.tscn")
 func produceShape():
 	# Create and initialize instance.
 	var carriedFoodInstance: FoodCarried = carriedFoodScene.instantiate()

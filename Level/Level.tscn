@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c07fu7134iygg"]
 
-[ext_resource type="PackedScene" uid="uid://dwy44bgksy46j" path="res://Level/FoodGrid.tscn" id="2_y3hra"]
+[ext_resource type="PackedScene" uid="uid://dwy44bgksy46j" path="res://Level/Food/FoodGrid.tscn" id="2_y3hra"]
 [ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="3_cyxyq"]
-[ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Level/FoodBucket.tscn" id="3_l4vu7"]
+[ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Level/Food/FoodBucket.tscn" id="3_l4vu7"]
 
 [sub_resource type="Resource" id="Resource_5noo7"]
 script = ExtResource("3_cyxyq")

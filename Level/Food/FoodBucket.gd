@@ -14,7 +14,7 @@ func _ready():
 	$Label.size = size
 
 # Carried shape production.
-const carriedFoodScene: Resource = preload("res://Level/FoodCarried.tscn")
+const carriedFoodScene: Resource = preload("res://Level/Food/FoodCarried.tscn")
 func produceShape() -> void:
 	# Create and initialize instance.
 	var carriedFoodInstance: FoodCarried = carriedFoodScene.instantiate()

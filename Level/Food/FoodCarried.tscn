@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtwny5uv3g7p"]
 
-[ext_resource type="Script" uid="uid://cqkp8yi1pw0dq" path="res://Level/FoodCarried.gd" id="1_p2bug"]
+[ext_resource type="Script" uid="uid://cqkp8yi1pw0dq" path="res://Level/Food/FoodCarried.gd" id="1_p2bug"]
 
 [node name="Carried Food Item" type="Node2D" unique_id=2049523459]
 script = ExtResource("1_p2bug")

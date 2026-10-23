@@ -48,7 +48,7 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 		if emptyCells.find(transformedCell) == -1:
 			return false
 	
-	var droppedFood: FoodProducer = preload("res://Level/FoodDropped.tscn").instantiate()
+	var droppedFood: FoodProducer = preload("res://Level/Food/FoodDropped.tscn").instantiate()
 	
 	droppedFood.foodStats = stats
 	droppedFood.producerShape = transformedShape
