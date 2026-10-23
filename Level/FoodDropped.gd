@@ -39,6 +39,7 @@ func produceShape():
 	# When unsuccessfully dropped, return to producer.
 	carriedFoodInstance.dropFailure.connect(returnShape)
 	
+	grid.find_child("Cursor").rotation = 0
 	grid.find_child("Cursor").add_child(carriedFoodInstance)
 	
 	return carriedFoodInstance
