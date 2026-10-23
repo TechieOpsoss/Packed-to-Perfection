@@ -3,8 +3,8 @@ class_name FoodProducer extends Area2D
 @export var foodStats: FoodItemStats
 @export var producerShape: Array[Vector2i]
 @export var producedShape: Array[Vector2i]
-@export var triangleWidth: float = 96
-@export var cellSpacing: float = 6
+@export var triangleWidth: float
+@export var cellSpacing: float
 @export var grid: FoodGrid
 @export var returnShape: Callable
 

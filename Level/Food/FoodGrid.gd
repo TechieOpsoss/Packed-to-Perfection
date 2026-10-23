@@ -2,7 +2,7 @@
 class_name FoodGrid extends Node2D
 
 @export var gridShape: Array[Vector2i] = [Vector2i(0,0)]
-@export var triangleWidth: float = 96
+@export var triangleWidth: float = 48
 @export var emptyCellSpacing: float = 6
 @export var filledCellSpacing: float = 6
 @export var previewCellSpacing: float = 0
@@ -40,7 +40,15 @@ func _process(_delta: float) -> void:
 		$Cursor.rotation = fmod($Cursor.rotation + deg_to_rad(60), deg_to_rad(360))
 	if (Input.is_action_just_pressed("shape_rotate_ccw")):
 		$Cursor.rotation = fmod($Cursor.rotation + deg_to_rad(300), deg_to_rad(360))
-	
+
+func checkDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: int) -> bool:
+	var originPos: Vector2i = TriGridUtils.screen_to_grid(heldPosition - global_position, (shapeRotation % 2) == 1, triangleWidth)
+	var transformedShape: Array[Vector2i] = TriGridUtils.offset_grid(TriGridUtils.rotate_grid(tryShape, shapeRotation), originPos)
+	for transformedCell: Vector2i in transformedShape:
+		if emptyCells.find(transformedCell) == -1:
+			return false
+	return true
+
 func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: int, stats: FoodItemStats, returnShape: Callable) -> bool:
 	var originPos: Vector2i = TriGridUtils.screen_to_grid(heldPosition - global_position, (shapeRotation % 2) == 1, triangleWidth)
 	var transformedShape: Array[Vector2i] = TriGridUtils.offset_grid(TriGridUtils.rotate_grid(tryShape, shapeRotation), originPos)
