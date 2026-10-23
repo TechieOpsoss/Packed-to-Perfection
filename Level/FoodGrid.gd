@@ -30,9 +30,9 @@ func _process(_delta: float) -> void:
 	# Move cursor to cursor position.
 	$Cursor.global_position = get_viewport().get_mouse_position()
 	# Rotate cursor.
-	if (Input.is_action_just_pressed("ui_right")):
+	if (Input.is_action_just_pressed("shape_rotate_cw")):
 		$Cursor.rotation = fmod($Cursor.rotation + deg_to_rad(60), deg_to_rad(360))
-	if (Input.is_action_just_pressed("ui_left")):
+	if (Input.is_action_just_pressed("shape_rotate_ccw")):
 		$Cursor.rotation = fmod($Cursor.rotation + deg_to_rad(300), deg_to_rad(360))
 	
 func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: int, stats: FoodItemStats, returnShape: Callable) -> bool:
