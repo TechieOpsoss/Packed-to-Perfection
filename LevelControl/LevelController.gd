@@ -10,6 +10,7 @@ func _ready():
 		loadLevel(levels[currentLevel])
 	completedAll.connect($Level.queue_free)
 	completedAll.connect(func(): get_tree().change_scene_to_file("res://Menu/Menu.tscn"))
+	LocalAudioManager.play_music("res://Audio/Music/Lunchbox.ogg")
 
 func loadLevel(level: Level):
 	$Level/Container/ScoreCard.restrictions = level.restrictions
