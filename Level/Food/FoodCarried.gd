@@ -34,6 +34,7 @@ func _ready() -> void:
 	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(item.shape, triangle_width, spacing))
 	$Visual.polygon = verticesAndIndices[0]
 	$Visual.polygons = verticesAndIndices[1]
+	$Visual.color = item.color
 	
 	previewPolygon = grid.find_child("DropPreview")
 	

@@ -18,6 +18,7 @@ func _ready():
 	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(producerShape, triangleWidth, cellSpacing))
 	$Visual.polygon = verticesAndIndices[0]
 	$Visual.polygons = verticesAndIndices[1]
+	$Visual.color = item.color
 	for polygon in clickPolygons:
 		var collisionPolygon: CollisionPolygon2D = CollisionPolygon2D.new()
 		collisionPolygon.polygon = polygon

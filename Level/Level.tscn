@@ -37,8 +37,9 @@ mouse_filter = 1
 mouse_behavior_recursive = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_e56cd")
 
-[node name="Grid" parent="Container" unique_id=1446597112 instance=ExtResource("2_y3hra")]
+[node name="Grid" parent="Container" unique_id=1446597112 node_paths=PackedStringArray("receiptLayer") instance=ExtResource("2_y3hra")]
 position = Vector2(836, 256)
+receiptLayer = NodePath("../../ReceiptLayer")
 
 [node name="BucketTray" type="Node2D" parent="Container" unique_id=1378077383]
 position = Vector2(0, -379)

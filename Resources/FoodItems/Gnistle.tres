@@ -17,4 +17,5 @@ foodStartQuantity = 20
 foodItemName = "Gnistle"
 foodItemNamePlural = "Gnistles"
 stats = SubResource("Resource_x7q1p")
+color = Color(0.5176471, 0, 0, 1)
 metadata/_custom_type_script = "uid://crn8imolnvuea"

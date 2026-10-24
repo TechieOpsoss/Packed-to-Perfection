@@ -1,6 +1,8 @@
 # Attached to blank node that acts as cursor and carries shapes.
 class_name FoodGrid extends Node2D
 
+@export var requirements: FoodItemStats
+@export var receiptLayer: ReceiptLayer
 @export var gridShape: Array[Vector2i] = [Vector2i(0,0)]
 @export var triangleWidth: float = 36
 @export var emptyCellSpacing: float = 6
@@ -77,6 +79,7 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 		for transformedCell: Vector2i in transformedShape:
 			emptyCells.append(transformedCell)
 		placedFoodStats.remove_at(placedFoodStats.find(item.stats))
+		receiptLayer.update(totalStats(), requirements)
 		updateGridVisuals()
 	)
 	
@@ -84,6 +87,7 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 	
 	# Add stats
 	placedFoodStats.append(item.stats)
+	receiptLayer.update(totalStats(), requirements)
 	
 	for transformedCell: Vector2i in transformedShape:
 		emptyCells.remove_at(emptyCells.find(transformedCell))
