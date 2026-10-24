@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://ci3pa5lmybqls"]
-
-[ext_resource type="PackedScene" uid="uid://crnc13a1nqb50" path="res://LevelControl/LevelController.tscn" id="1_glv2v"]
-
-[node name="Main Scene" type="Node2D" unique_id=1693905958]
-
-[node name="LevelController" parent="." unique_id=436989991 instance=ExtResource("1_glv2v")]

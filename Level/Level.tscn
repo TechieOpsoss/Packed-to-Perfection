@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="5_u0wck"]
 [ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Resources/Alien Icons/Alien1.png" id="7_6lumq"]
 [ext_resource type="PackedScene" uid="uid://0kgjw0ttvahu" path="res://Level/ReceiptLayer.tscn" id="8_chl2c"]
+[ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="10_wp1u0"]
 
 [sub_resource type="Resource" id="Resource_2ld0w"]
 script = ExtResource("5_u0wck")
@@ -204,11 +205,18 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Customer" type="Sprite2D" parent="." unique_id=970706866]
-position = Vector2(576, 150)
-scale = Vector2(0.138, 0.138)
+position = Vector2(576, 269.29)
+scale = Vector2(0.223, 0.223)
 texture = ExtResource("7_6lumq")
 
 [node name="ReceiptLayer" parent="." unique_id=1584341472 instance=ExtResource("8_chl2c")]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1958186854]
+z_index = -3
+offset_right = 1158.0
+offset_bottom = 648.0
+texture = ExtResource("10_wp1u0")
+expand_mode = 1
 
 [connection signal="button_down" from="BucketTray/FinishButton" to="Grid" method="freezeDroppedFood"]
 [connection signal="button_down" from="BucketTray/FinishButton" to="BucketTray" method="_hide"]

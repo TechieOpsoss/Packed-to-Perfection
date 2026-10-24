@@ -1,3 +1,77 @@
-[gd_scene format=3 uid="uid://5tu36pgercnq"]
+[gd_scene format=3 uid="uid://dxqjr8pygo76o"]
 
-[node name="Menu" type="Node2D" unique_id=566443516]
+[ext_resource type="Script" uid="uid://ckh1b34xr0vdq" path="res://Menu/Menu.gd" id="1_r150o"]
+[ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="2_idj7w"]
+
+[node name="Menu" type="Node2D" unique_id=1693905958]
+script = ExtResource("1_r150o")
+
+[node name="Control" type="Control" parent="." unique_id=1365138762]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 1156.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1626736021]
+z_index = -3
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 648.0
+texture = ExtResource("2_idj7w")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=534737610]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.4953037, 0.09878238, 0.76142764, 1)
+theme_override_colors/font_shadow_color = Color(0.19291618, 0.12488251, 0.99999994, 1)
+theme_override_font_sizes/normal_font_size = 33
+text = "Feed Me, Earthling!"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1841626447]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.5
+offset_top = -47.0
+offset_right = 110.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Play_Button" type="Button" parent="Control/VBoxContainer" unique_id=853432094]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Play"
+
+[node name="Exit_Button" type="Button" parent="Control/VBoxContainer" unique_id=2085437241]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[connection signal="pressed" from="Control/VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
