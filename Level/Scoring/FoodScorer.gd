@@ -35,6 +35,8 @@ func cal_deduction() -> int: # -1 for every 10 off by
 	return floor(overUnder) as int
 
 func calculate_score() -> int:
+	if currentStats.calories == 0 and currentStats.nutrientA == 0 and currentStats.nutrientB == 0 and currentStats.nutrientC == 0:
+		return 0
 	var score: int = 100
 	if currentStats.calories < restrictions.calories || currentStats.calories > restrictions.calories : #update
 		score -= cal_deduction()
