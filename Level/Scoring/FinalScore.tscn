@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b38b80x4p83mf"]
+
+[ext_resource type="Script" uid="uid://bjegubchho80o" path="res://Level/Scoring/final_score.gd" id="1_t7bm7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ojud"]
+bg_color = Color(0, 0.77254903, 0.76862746, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hogcy"]
+bg_color = Color(0.8301218, 0.5268958, 0.7371098, 1)
+
+[node name="FinalScore" type="Control" unique_id=63706070]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7bm7")
+
+[node name="Background" type="PanelContainer" parent="." unique_id=1983866460]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ojud")
+
+[node name="FinalScoreLabel" type="RichTextLabel" parent="Background" unique_id=1408399831]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 68
+text = "Final Score:"
+horizontal_alignment = 1
+
+[node name="ExitButton" type="Button" parent="." unique_id=813947280]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -42.0
+offset_right = 88.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hogcy")
+text = "Main Menu"
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_pressed"]

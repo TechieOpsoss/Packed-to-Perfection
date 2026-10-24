@@ -9,8 +9,13 @@ func _ready():
 	if currentLevel < levels.size():
 		loadLevel(levels[currentLevel])
 	completedAll.connect($Level.queue_free)
-	completedAll.connect(func(): get_tree().change_scene_to_file("res://Menu/Menu.tscn"))
-	LocalAudioManager.play_music("res://Audio/Music/Lunchbox.ogg", 0.5)
+	
+	completedAll.connect(func():
+		var endScreen = preload("res://Level/Scoring/FinalScore.tscn").instantiate()
+		$Level/Container/ScoreCard.end_score(endScreen.find_child("Background").find_child("FinalScoreLabel"))
+		get_tree().change_scene_to_node(endScreen)
+	)
+  LocalAudioManager.play_music("res://Audio/Music/Lunchbox.ogg", 0.5)
 
 func loadLevel(level: Level):
 	$Level/Container/ScoreCard.restrictions = level.restrictions

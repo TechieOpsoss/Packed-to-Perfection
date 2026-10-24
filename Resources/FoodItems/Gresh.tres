@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_6fg3j"]
 script = ExtResource("2_m54r8")
 calories = 70
-nutrientA = 1
+nutrientProtein = 1
 nutrientB = 3
 tagB = true
 metadata/_custom_type_script = "uid://vvkn4ax4t010"

@@ -160,11 +160,12 @@ action_mode = 0
 text = "-->"
 metadata/_edit_use_anchors_ = true
 
-[node name="ScorePlaceholder" type="Label" parent="Container/ScoreCard" unique_id=1313200512]
-offset_left = 67.0
-offset_top = 439.0
-offset_right = 384.0
-offset_bottom = 596.0
+[node name="ScoreBox" type="PanelContainer" parent="Container/ScoreCard" unique_id=2132067959]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="Container/ScoreCard/ScoreBox" unique_id=1313200512]
+layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
