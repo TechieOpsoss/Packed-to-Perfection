@@ -15,13 +15,15 @@ func _ready():
 		$Level/Container/ScoreCard.end_score(endScreen.find_child("Background").find_child("FinalScoreLabel"))
 		get_tree().change_scene_to_node(endScreen)
 	)
+  LocalAudioManager.play_music("res://Audio/Music/Lunchbox.ogg", 0.5)
 
 func loadLevel(level: Level):
 	$Level/Container/ScoreCard.restrictions = level.restrictions
 	$Level/Container/Grid.gridShape = level.gridShape.duplicate()
 	$Level/Container/Grid.emptyCells = level.gridShape.duplicate()
 	$Level/Container/Grid.clearDroppedFood()
-	$Level/ReceiptLayer.update(level.customerName, level.restrictions)
+	$Level/Container/Grid.requirements = level.restrictions
+	$Level/ReceiptLayer.update($Level/Container/Grid.totalStats(), level.restrictions, level.customerName)
 	$Level/Customer.texture = level.customerTexture
 	
 	$Level/Container/Grid.updateGridVisuals()

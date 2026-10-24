@@ -1,8 +1,10 @@
 # Attached to blank node that acts as cursor and carries shapes.
 class_name FoodGrid extends Node2D
 
+@export var requirements: FoodItemStats
+@export var receiptLayer: ReceiptLayer
 @export var gridShape: Array[Vector2i] = [Vector2i(0,0)]
-@export var triangleWidth: float = 48
+@export var triangleWidth: float = 36
 @export var emptyCellSpacing: float = 6
 @export var filledCellSpacing: float = 6
 @export var previewCellSpacing: float = 0
@@ -18,6 +20,8 @@ func freezeDroppedFood():
 func clearDroppedFood():
 	for droppedFoodItem: Area2D in $DroppedFoodItems.get_children():
 		droppedFoodItem.queue_free()
+	for index in range(placedFoodStats.size(),0,-1):
+		placedFoodStats.remove_at(index)
 
 func totalStats() -> FoodItemStats:
 	var sum: FoodItemStats = FoodItemStats.new()
@@ -45,9 +49,11 @@ func _process(_delta: float) -> void:
 	# Move cursor to cursor position.
 	$Cursor.global_position = get_viewport().get_mouse_position()
 	# Rotate cursor.
-	if (Input.is_action_just_pressed("shape_rotate_cw")):
+	if ($Cursor.get_child_count() > 0 and Input.is_action_just_pressed("shape_rotate_cw")):
+		LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.1, 2 * randf_range(0.8, 1.0))
 		$Cursor.rotation = fmod($Cursor.rotation + deg_to_rad(60), deg_to_rad(360))
-	if (Input.is_action_just_pressed("shape_rotate_ccw")):
+	if ($Cursor.get_child_count() > 0 and Input.is_action_just_pressed("shape_rotate_ccw")):
+		LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.1, 1.5 * randf_range(0.8, 1.0))
 		$Cursor.rotation = fmod($Cursor.rotation + deg_to_rad(300), deg_to_rad(360))
 
 func checkDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: int) -> bool:
@@ -77,6 +83,7 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 		for transformedCell: Vector2i in transformedShape:
 			emptyCells.append(transformedCell)
 		placedFoodStats.remove_at(placedFoodStats.find(item.stats))
+		receiptLayer.update(totalStats(), requirements)
 		updateGridVisuals()
 	)
 	
@@ -84,6 +91,7 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 	
 	# Add stats
 	placedFoodStats.append(item.stats)
+	receiptLayer.update(totalStats(), requirements)
 	
 	for transformedCell: Vector2i in transformedShape:
 		emptyCells.remove_at(emptyCells.find(transformedCell))

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://l1va3dsh6ccm"]
+
+[ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Resources/Alien Icons/Alien1.png" id="1_ijeq6"]
+[ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="2_6ovpo"]
+[ext_resource type="Resource" uid="uid://j73y4ftt5bq1" path="res://Resources/FoodItems/Gresh.tres" id="2_ual1j"]
+[ext_resource type="Resource" uid="uid://x35q5a6ymwvp" path="res://Resources/FoodItems/Sloingile.tres" id="3_mbqla"]
+[ext_resource type="Script" uid="uid://bptu1jid2jp0n" path="res://LevelControl/Level.gd" id="3_tmlra"]
+[ext_resource type="Resource" uid="uid://b04nf5v6gsbra" path="res://Resources/FoodItems/Nubulus.tres" id="4_uotbs"]
+[ext_resource type="Resource" uid="uid://drpy8k63h0yj4" path="res://Resources/FoodItems/Slapall.tres" id="5_o0s4t"]
+[ext_resource type="Resource" uid="uid://djgonpk3e5w8f" path="res://Resources/FoodItems/Gnistle.tres" id="6_8iafc"]
+
+[sub_resource type="Resource" id="Resource_3rvlg"]
+script = ExtResource("2_6ovpo")
+calories = 700
+nutrientA = 25
+nutrientB = 15
+nutrientC = 10
+metadata/_custom_type_script = "uid://vvkn4ax4t010"
+
+[resource]
+script = ExtResource("3_tmlra")
+restrictions = SubResource("Resource_3rvlg")
+gridShape = Array[Vector2i]([Vector2i(-5, 0), Vector2i(-4, 0), Vector2i(-3, 0), Vector2i(-2, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(-6, -1), Vector2i(-5, -1), Vector2i(-4, -1), Vector2i(-3, -1), Vector2i(0, -1), Vector2i(3, -1), Vector2i(4, -1), Vector2i(5, -1), Vector2i(6, -1), Vector2i(-7, -2), Vector2i(-6, -2), Vector2i(-5, -2), Vector2i(-4, -2), Vector2i(-1, -2), Vector2i(0, -2), Vector2i(1, -2), Vector2i(4, -2), Vector2i(5, -2), Vector2i(6, -2), Vector2i(7, -2), Vector2i(-2, -3), Vector2i(-1, -3), Vector2i(0, -3), Vector2i(1, -3), Vector2i(2, -3), Vector2i(-2, -4), Vector2i(-1, -4), Vector2i(0, -4), Vector2i(1, -4), Vector2i(2, -4), Vector2i(-7, -5), Vector2i(-6, -5), Vector2i(-5, -5), Vector2i(-4, -5), Vector2i(-1, -5), Vector2i(0, -5), Vector2i(1, -5), Vector2i(4, -5), Vector2i(5, -5), Vector2i(6, -5), Vector2i(7, -5), Vector2i(-6, -6), Vector2i(-5, -6), Vector2i(-4, -6), Vector2i(-3, -6), Vector2i(0, -6), Vector2i(3, -6), Vector2i(4, -6), Vector2i(5, -6), Vector2i(6, -6), Vector2i(-5, -7), Vector2i(-4, -7), Vector2i(-3, -7), Vector2i(-2, -7), Vector2i(2, -7), Vector2i(3, -7), Vector2i(4, -7), Vector2i(5, -7)])
+customerName = "Cassie"
+customerTexture = ExtResource("1_ijeq6")
+resetsFoodItems = true
+newItem1 = ExtResource("2_ual1j")
+newItem2 = ExtResource("3_mbqla")
+newItem3 = ExtResource("4_uotbs")
+newItem4 = ExtResource("5_o0s4t")
+newItem5 = ExtResource("6_8iafc")
+metadata/_custom_type_script = "uid://bptu1jid2jp0n"

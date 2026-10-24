@@ -3,63 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Level/Level.tscn" id="1_5rhmw"]
 [ext_resource type="Script" uid="uid://1q13s70ugadp" path="res://LevelControl/LevelController.gd" id="1_7ka52"]
 [ext_resource type="Script" uid="uid://bptu1jid2jp0n" path="res://LevelControl/Level.gd" id="2_05t60"]
-[ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="3_d7giy"]
-[ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Resources/Alien Icons/Alien1.png" id="3_fglrw"]
-[ext_resource type="Texture2D" uid="uid://4dmx53co6ssb" path="res://Resources/Alien Icons/CHR_Alien3_V1.png" id="5_y5lma"]
-[ext_resource type="Texture2D" uid="uid://ch8cibmfm1xrs" path="res://Resources/Alien Icons/CHR_Alien2_V1.png" id="6_pnvru"]
-
-[sub_resource type="Resource" id="Resource_3rvlg"]
-script = ExtResource("3_d7giy")
-calories = 700
-nutrientProtein = 25
-nutrientB = 15
-nutrientC = 10
-metadata/_custom_type_script = "uid://vvkn4ax4t010"
-
-[sub_resource type="Resource" id="Resource_fglrw"]
-script = ExtResource("2_05t60")
-restrictions = SubResource("Resource_3rvlg")
-gridShape = Array[Vector2i]([Vector2i(-5, 0), Vector2i(-4, 0), Vector2i(-3, 0), Vector2i(-2, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(-6, -1), Vector2i(-5, -1), Vector2i(-4, -1), Vector2i(-3, -1), Vector2i(0, -1), Vector2i(3, -1), Vector2i(4, -1), Vector2i(5, -1), Vector2i(6, -1), Vector2i(-7, -2), Vector2i(-6, -2), Vector2i(-5, -2), Vector2i(-4, -2), Vector2i(-1, -2), Vector2i(0, -2), Vector2i(1, -2), Vector2i(4, -2), Vector2i(5, -2), Vector2i(6, -2), Vector2i(7, -2)])
-customerName = "Cassie"
-customerTexture = ExtResource("3_fglrw")
-metadata/_custom_type_script = "uid://bptu1jid2jp0n"
-
-[sub_resource type="Resource" id="Resource_05t60"]
-script = ExtResource("3_d7giy")
-calories = 800
-nutrientProtein = 10
-nutrientB = 30
-nutrientC = 20
-tagC = true
-metadata/_custom_type_script = "uid://vvkn4ax4t010"
-
-[sub_resource type="Resource" id="Resource_d7giy"]
-script = ExtResource("2_05t60")
-restrictions = SubResource("Resource_05t60")
-gridShape = Array[Vector2i]([Vector2i(0, 0)])
-customerName = "Zed"
-customerTexture = ExtResource("5_y5lma")
-metadata/_custom_type_script = "uid://bptu1jid2jp0n"
-
-[sub_resource type="Resource" id="Resource_y5lma"]
-script = ExtResource("3_d7giy")
-calories = 1100
-nutrientProtein = 20
-nutrientB = 30
-nutrientC = 30
-metadata/_custom_type_script = "uid://vvkn4ax4t010"
-
-[sub_resource type="Resource" id="Resource_pnvru"]
-script = ExtResource("2_05t60")
-restrictions = SubResource("Resource_y5lma")
-gridShape = Array[Vector2i]([Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0)])
-customerName = "Broady"
-customerTexture = ExtResource("6_pnvru")
-metadata/_custom_type_script = "uid://bptu1jid2jp0n"
+[ext_resource type="Resource" uid="uid://l1va3dsh6ccm" path="res://Resources/Levels/Level1.tres" id="3_3rvlg"]
+[ext_resource type="Resource" uid="uid://c00xnbvnkmjm0" path="res://Resources/Levels/Level2.tres" id="5_fglrw"]
+[ext_resource type="Resource" uid="uid://bct50c85awhmf" path="res://Resources/Levels/Level3.tres" id="5_y5lma"]
 
 [node name="LevelController" type="Node2D" unique_id=436989991]
 script = ExtResource("1_7ka52")
-levels = Array[ExtResource("2_05t60")]([SubResource("Resource_fglrw"), SubResource("Resource_d7giy"), SubResource("Resource_pnvru")])
+levels = Array[ExtResource("2_05t60")]([ExtResource("3_3rvlg"), ExtResource("5_fglrw"), ExtResource("5_y5lma")])
 
 [node name="Level" parent="." unique_id=1586488118 instance=ExtResource("1_5rhmw")]
 

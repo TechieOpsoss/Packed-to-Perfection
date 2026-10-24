@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="FoodItem" format=3 uid="uid://djgonpk3e5w8f"]
+
+[ext_resource type="Script" uid="uid://crn8imolnvuea" path="res://Level/Scoring/FoodItem.gd" id="1_6crqs"]
+[ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="2_sp7n6"]
+
+[sub_resource type="Resource" id="Resource_x7q1p"]
+script = ExtResource("2_sp7n6")
+calories = 25
+nutrientB = 1
+nutrientC = 1
+tagC = true
+metadata/_custom_type_script = "uid://vvkn4ax4t010"
+
+[resource]
+script = ExtResource("1_6crqs")
+foodStartQuantity = 20
+foodItemName = "Gnistle"
+foodItemNamePlural = "Gnistles"
+stats = SubResource("Resource_x7q1p")
+color = Color(0.5176471, 0, 0, 1)
+metadata/_custom_type_script = "uid://crn8imolnvuea"
