@@ -4,6 +4,15 @@
 [ext_resource type="Script" uid="uid://1q13s70ugadp" path="res://LevelControl/LevelController.gd" id="1_7ka52"]
 [ext_resource type="Script" uid="uid://bptu1jid2jp0n" path="res://LevelControl/Level.gd" id="2_05t60"]
 [ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="3_d7giy"]
+[ext_resource type="Script" uid="uid://bax3t7yh52gkp" path="res://Level/level.gd" id="5_3rvlg"]
+[ext_resource type="PackedScene" uid="uid://bo54l81j2v7u0" path="res://Scenes/AlienContainer.tscn" id="6_fglrw"]
+[ext_resource type="Script" uid="uid://dy6by1k5b1e3l" path="res://alienClass.gd" id="6_wo3ng"]
+[ext_resource type="PackedScene" uid="uid://bf70tncuosq5l" path="res://Scenes/ui.tscn" id="7_fglrw"]
+[ext_resource type="Resource" uid="uid://bmwyk0w7pq6eq" path="res://Resources/Aliens/Cassie.tres" id="7_hgty8"]
+[ext_resource type="Resource" uid="uid://bdg6v0c7uuxmt" path="res://Resources/Aliens/Zed.tres" id="8_ex4yn"]
+[ext_resource type="Resource" uid="uid://8mlm2t25mvpd" path="res://Resources/Aliens/Broady.tres" id="9_n0knl"]
+[ext_resource type="Resource" uid="uid://ybkxvsm7uml0" path="res://Resources/Aliens/Vance.tres" id="10_exnxx"]
+[ext_resource type="PackedScene" uid="uid://bsfjjax2fgsbs" path="res://Scenes/AlienScene.tscn" id="11_2ullu"]
 
 [sub_resource type="Resource" id="Resource_3rvlg"]
 script = ExtResource("3_d7giy")
@@ -52,7 +61,24 @@ metadata/_custom_type_script = "uid://bptu1jid2jp0n"
 script = ExtResource("1_7ka52")
 levels = Array[ExtResource("2_05t60")]([SubResource("Resource_fglrw"), SubResource("Resource_d7giy"), SubResource("Resource_pnvru")])
 
-[node name="Level" parent="." unique_id=1586488118 instance=ExtResource("1_5rhmw")]
+[node name="Level" parent="." unique_id=1586488118 node_paths=PackedStringArray("alien_container") instance=ExtResource("1_5rhmw")]
+script = ExtResource("5_3rvlg")
+aliens = Array[ExtResource("6_wo3ng")]([ExtResource("7_hgty8"), ExtResource("8_ex4yn"), ExtResource("9_n0knl"), ExtResource("10_exnxx")])
+alien_scene = ExtResource("11_2ullu")
+alien_container = NodePath("AlienContainer")
+
+[node name="Grid" parent="Level" index="0" unique_id=1446597112]
+visible = false
+
+[node name="BucketTray" parent="Level" index="1" unique_id=1378077383]
+visible = false
+
+[node name="ScoreCard" parent="Level" index="2" unique_id=1063314635]
+visible = false
+
+[node name="AlienContainer" parent="Level" unique_id=1584341472 instance=ExtResource("6_fglrw")]
+
+[node name="UI" parent="Level" unique_id=1706116420 instance=ExtResource("7_fglrw")]
 
 [connection signal="button_down" from="Level/ScoreCard/ContinueButton" to="." method="_nextLevel"]
 

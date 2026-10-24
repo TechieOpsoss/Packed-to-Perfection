@@ -8,10 +8,10 @@ var heldQuantity: int
 func _ready():
 	heldQuantity = item.foodStartQuantity
 	if heldQuantity == 1:
-		$Label.text = str(heldQuantity, " ", item.foodItemName)
+		$Bucket_Label.text = str(heldQuantity, " ", item.foodItemName)
 	else:
-		$Label.text = str(heldQuantity, " ", item.foodItemNamePlural)
-	$Label.size = size
+		$Bucket_Label.text = str(heldQuantity, " ", item.foodItemNamePlural)
+	$Bucket_Label.size = size
 
 # Carried shape production.
 const carriedFoodScene: Resource = preload("res://Level/Food/FoodCarried.tscn")
@@ -33,16 +33,16 @@ func produceShape() -> void:
 func returnShape():
 	heldQuantity += 1
 	if heldQuantity == 1:
-		$Label.text = str(heldQuantity, " ", item.foodItemName)
+		$Bucket_Label.text = str(heldQuantity, " ", item.foodItemName)
 	else:
-		$Label.text = str(heldQuantity, " ", item.foodItemNamePlural)
+		$Bucket_Label.text = str(heldQuantity, " ", item.foodItemNamePlural)
 
 # Decrement quantity stored in bucket and attempt to produce shape.
 func _pressed() -> void:
 	if (heldQuantity > 0):
 		heldQuantity = heldQuantity - 1
 		if heldQuantity == 1:
-			$Label.text = str(heldQuantity, " ", item.foodItemName)
+			$Bucket_Label.text = str(heldQuantity, " ", item.foodItemName)
 		else:
-			$Label.text = str(heldQuantity, " ", item.foodItemNamePlural)
+			$Bucket_Label.text = str(heldQuantity, " ", item.foodItemNamePlural)
 		produceShape()

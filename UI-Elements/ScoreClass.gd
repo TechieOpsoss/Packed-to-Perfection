@@ -19,7 +19,7 @@ const DIETARYDEDUCTION = 15
 @onready var scoreBox = $"GridLayer/ScoreBox"
 @onready var scoreLabel = $GridLayer/ScoreBox/ScoreLabel
 @onready var button = $Lunch_Bar/Submit_Button
-@onready var lunchbox = $GridLayer/Lunchbox
+@onready var lunchbox = $GridLayer/Grid
 #TODO I'm thinking of having a setter within shape duplicator, which then triggers an update to reciept based on food added into grid if we want the values to change in the receipt as a player inputs pieces
  
 func _ready() -> void:

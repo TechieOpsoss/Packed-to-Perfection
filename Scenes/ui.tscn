@@ -1,19 +1,105 @@
 [gd_scene format=3 uid="uid://bf70tncuosq5l"]
 
-[ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Level/Level.tscn" id="1_jxero"]
+[ext_resource type="PackedScene" uid="uid://dwy44bgksy46j" path="res://Level/Food/FoodGrid.tscn" id="2_2246s"]
 [ext_resource type="Script" uid="uid://drrd6w70lblww" path="res://UI-Elements/ScoreClass.gd" id="3_2246s"]
 [ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="3_nf4gj"]
+[ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Level/FoodBucket.tscn" id="4_m78vo"]
 [ext_resource type="Script" uid="uid://brwxo3jth1frl" path="res://UI-Elements/main_menu_button.gd" id="4_q7pk6"]
+[ext_resource type="Script" uid="uid://bpskttlgfdn1y" path="res://Level/Food/FoodBucketTray.gd" id="4_ryf15"]
+[ext_resource type="Script" uid="uid://crn8imolnvuea" path="res://Level/Scoring/FoodItem.gd" id="6_mmixe"]
+[ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="7_nt8jn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05ltl"]
 bg_color = Color(2.3102762e-06, 0.6785928, 0.74008703, 1)
+
+[sub_resource type="Resource" id="Resource_6fg3j"]
+script = ExtResource("7_nt8jn")
+calories = 70
+nutrientA = 1
+nutrientB = 3
+tagB = true
+metadata/_custom_type_script = "uid://vvkn4ax4t010"
+
+[sub_resource type="Resource" id="Resource_g0wmg"]
+script = ExtResource("6_mmixe")
+foodItemName = "Gresh"
+foodItemNamePlural = "Greshes"
+shape = Array[Vector2i]([Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, -1), Vector2i(1, -1)])
+stats = SubResource("Resource_6fg3j")
+metadata/_custom_type_script = "uid://crn8imolnvuea"
+
+[sub_resource type="Resource" id="Resource_2ld0w"]
+script = ExtResource("7_nt8jn")
+calories = 120
+nutrientA = 6
+nutrientC = 2
+tagA = true
+metadata/_custom_type_script = "uid://vvkn4ax4t010"
+
+[sub_resource type="Resource" id="Resource_4vbiv"]
+script = ExtResource("6_mmixe")
+foodStartQuantity = 5
+foodItemName = "Sloingile"
+foodItemNamePlural = "Sloingile"
+shape = Array[Vector2i]([Vector2i(-2, 0), Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(-2, 1), Vector2i(-1, 1), Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)])
+stats = SubResource("Resource_2ld0w")
+metadata/_custom_type_script = "uid://crn8imolnvuea"
+
+[sub_resource type="Resource" id="Resource_32x38"]
+script = ExtResource("7_nt8jn")
+calories = 50
+nutrientB = 1
+nutrientC = 2
+metadata/_custom_type_script = "uid://vvkn4ax4t010"
+
+[sub_resource type="Resource" id="Resource_3r70p"]
+script = ExtResource("6_mmixe")
+foodItemName = "Nubulus"
+foodItemNamePlural = "Nubuluses"
+shape = Array[Vector2i]([Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 1)])
+stats = SubResource("Resource_32x38")
+metadata/_custom_type_script = "uid://crn8imolnvuea"
+
+[sub_resource type="Resource" id="Resource_66v8m"]
+script = ExtResource("7_nt8jn")
+calories = 25
+nutrientA = 1
+nutrientC = 1
+tagA = true
+metadata/_custom_type_script = "uid://vvkn4ax4t010"
+
+[sub_resource type="Resource" id="Resource_8fs27"]
+script = ExtResource("6_mmixe")
+foodStartQuantity = 20
+foodItemName = "Slapall"
+foodItemNamePlural = "Slapalls"
+shape = Array[Vector2i]([Vector2i(-1, 0), Vector2i(1, 0)])
+stats = SubResource("Resource_66v8m")
+metadata/_custom_type_script = "uid://crn8imolnvuea"
+
+[sub_resource type="Resource" id="Resource_x7q1p"]
+script = ExtResource("7_nt8jn")
+calories = 25
+nutrientB = 1
+nutrientC = 1
+tagC = true
+metadata/_custom_type_script = "uid://vvkn4ax4t010"
+
+[sub_resource type="Resource" id="Resource_whq80"]
+script = ExtResource("6_mmixe")
+foodStartQuantity = 20
+foodItemName = "Gnistle"
+foodItemNamePlural = "Gnistles"
+stats = SubResource("Resource_x7q1p")
+metadata/_custom_type_script = "uid://crn8imolnvuea"
 
 [node name="UI" type="Node2D" unique_id=1706116420]
 script = ExtResource("3_2246s")
 
 [node name="GridLayer" type="CanvasLayer" parent="." unique_id=1373216786]
 
-[node name="Lunchbox" parent="GridLayer" unique_id=1586488118 instance=ExtResource("1_jxero")]
+[node name="Grid" parent="GridLayer" unique_id=1446597112 instance=ExtResource("2_2246s")]
+position = Vector2(639, 559)
 
 [node name="ScoreBox" type="PanelContainer" parent="GridLayer" unique_id=1768235012]
 offset_left = 29.0
@@ -52,16 +138,112 @@ offset_bottom = 628.0
 text = "Main Menu"
 script = ExtResource("4_q7pk6")
 
+[node name="BucketTray" type="Node2D" parent="Lunch_Bar" unique_id=1024623219]
+visible = false
+script = ExtResource("4_ryf15")
+
+[node name="FinishButton" type="Button" parent="Lunch_Bar/BucketTray" unique_id=324156222]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 432.0
+offset_top = 568.0
+offset_right = 496.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+action_mode = 0
+text = "-->"
+
+[node name="Bucket1" parent="Lunch_Bar/BucketTray" unique_id=899398795 node_paths=PackedStringArray("grid") instance=ExtResource("4_m78vo")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = 408.0
+offset_right = 144.0
+offset_bottom = 504.0
+grow_horizontal = 2
+grow_vertical = 2
+item = SubResource("Resource_g0wmg")
+grid = NodePath("")
+
+[node name="Bucket2" parent="Lunch_Bar/BucketTray" unique_id=1416186740 node_paths=PackedStringArray("grid") instance=ExtResource("4_m78vo")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = 408.0
+offset_right = 400.0
+offset_bottom = 504.0
+grow_horizontal = 2
+grow_vertical = 2
+item = SubResource("Resource_4vbiv")
+grid = NodePath("")
+
+[node name="Bucket3" parent="Lunch_Bar/BucketTray" unique_id=877229344 node_paths=PackedStringArray("grid") instance=ExtResource("4_m78vo")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 176.0
+offset_top = 472.0
+offset_right = 272.0
+offset_bottom = 568.0
+grow_horizontal = 2
+grow_vertical = 2
+item = SubResource("Resource_3r70p")
+grid = NodePath("")
+
+[node name="Bucket4" parent="Lunch_Bar/BucketTray" unique_id=1785969239 node_paths=PackedStringArray("grid") instance=ExtResource("4_m78vo")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = 536.0
+offset_right = 144.0
+offset_bottom = 632.0
+grow_horizontal = 2
+grow_vertical = 2
+item = SubResource("Resource_8fs27")
+grid = NodePath("")
+
+[node name="Bucket5" parent="Lunch_Bar/BucketTray" unique_id=1408417452 node_paths=PackedStringArray("grid") instance=ExtResource("4_m78vo")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = 536.0
+offset_right = 400.0
+offset_bottom = 632.0
+grow_horizontal = 2
+grow_vertical = 2
+item = SubResource("Resource_whq80")
+grid = NodePath("")
+
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1249072640]
 layer = -7
 
 [node name="Background" type="TextureRect" parent="BackgroundLayer" unique_id=1852659774]
 z_index = -5
-offset_top = -29.0
+offset_top = -5.0
 offset_right = 1152.0
-offset_bottom = 619.0
+offset_bottom = 643.0
 texture = ExtResource("3_nf4gj")
 expand_mode = 1
 
 [connection signal="pressed" from="Lunch_Bar/Submit_Button" to="." method="_on_pressed"]
 [connection signal="pressed" from="Lunch_Bar/Main_Menu_Button" to="Lunch_Bar/Main_Menu_Button" method="_on_pressed"]
+[connection signal="button_down" from="Lunch_Bar/BucketTray/FinishButton" to="Lunch_Bar/BucketTray" method="_hide"]

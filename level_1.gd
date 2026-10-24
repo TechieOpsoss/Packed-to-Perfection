@@ -41,7 +41,3 @@ func _ready() -> void:
 	print("total aliens: ", total_aliens)
 	$UI.select_alien.connect(changeAlien)
 	changeAlien()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
