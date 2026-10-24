@@ -13,9 +13,6 @@ levels = Array[ExtResource("2_05t60")]([ExtResource("3_3rvlg"), ExtResource("5_f
 
 [node name="Level" parent="." unique_id=1586488118 instance=ExtResource("1_5rhmw")]
 
-[node name="ScoreCard" parent="Level/Container" parent_id_path=PackedInt32Array(1586488118, 2064847995) index="2" unique_id=1063314635]
-position = Vector2(1, -378)
-
 [connection signal="button_down" from="Level/Container/ScoreCard/ContinueButton" to="." method="_nextLevel"]
 
 [editable path="Level"]

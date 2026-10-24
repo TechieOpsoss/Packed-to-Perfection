@@ -31,9 +31,9 @@ texture = ExtResource("10_wp1u0")
 expand_mode = 1
 
 [node name="Container" type="PanelContainer" parent="." unique_id=2064847995]
-offset_top = 367.0
+offset_top = 368.0
 offset_right = 1152.0
-offset_bottom = 647.0
+offset_bottom = 648.0
 focus_behavior_recursive = 1
 mouse_filter = 1
 mouse_behavior_recursive = 1
@@ -155,7 +155,6 @@ grid = NodePath("../../Grid")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreCard" type="Node2D" parent="Container" unique_id=1063314635 node_paths=PackedStringArray("toScore")]
-visible = false
 position = Vector2(0, -379)
 script = ExtResource("4_i5eh5")
 toScore = NodePath("../Grid")
@@ -178,10 +177,10 @@ text = "-->"
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreBox" type="PanelContainer" parent="Container/ScoreCard" unique_id=2132067959]
-offset_left = 14.0
+offset_left = 48.0
 offset_top = 408.0
-offset_right = 394.0
-offset_bottom = 431.0
+offset_right = 400.0
+offset_bottom = 632.0
 
 [node name="ScoreLabel" type="Label" parent="Container/ScoreCard/ScoreBox" unique_id=1313200512]
 layout_mode = 2
