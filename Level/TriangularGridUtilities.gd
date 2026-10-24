@@ -68,14 +68,18 @@ static func rotate_grid(shape: Array[Vector2i], rotation: int) -> Array[Vector2i
 			for cell: Vector2i in shape:
 				# Crazy math based off first difference
 				rotatedShape.append(
-						Vector2i(ceil(cell.x / 2.0), floor(cell.x / 2.0)) +
+						(Vector2i(ceil(cell.x / 2.0), floor(cell.x / 2.0))
+						if (cell.y % 2 == 0) else
+						Vector2i(floor(cell.x / 2.0), ceil(cell.x / 2.0))) +
 						Vector2i(-cell.y-floor(cell.y / 2.0),floor(cell.y / 2.0))
 					)
 		2: #CW 2
 			for cell: Vector2i in shape:
 				# Crazy math based off first difference
 				rotatedShape.append(
-						Vector2i(-floor(cell.x / 2.0), ceil(cell.x / 2.0)) +
+						(Vector2i(-floor(cell.x / 2.0), ceil(cell.x / 2.0))
+						if (cell.y % 2 == 0) else
+						Vector2i(-ceil(cell.x / 2.0), floor(cell.x / 2.0))) +
 						Vector2i(-cell.y-floor(cell.y / 2.0),-floor(cell.y / 2.0))
 					)
 		3: #180 degrees
@@ -85,14 +89,18 @@ static func rotate_grid(shape: Array[Vector2i], rotation: int) -> Array[Vector2i
 			for cell: Vector2i in shape:
 				# Crazy math based off first difference
 				rotatedShape.append(
-						Vector2i(-ceil(cell.x / 2.0), -floor(cell.x / 2.0)) +
+						(Vector2i(-ceil(cell.x / 2.0), -floor(cell.x / 2.0))
+						if (cell.y % 2 == 0) else
+						Vector2i(-floor(cell.x / 2.0), -ceil(cell.x / 2.0))) +
 						Vector2i(cell.y+floor(cell.y / 2.0),-floor(cell.y / 2.0))
 					)
 		5: #CCW 1
 			for cell: Vector2i in shape:
 				# Crazy math based off first difference
 				rotatedShape.append(
-						Vector2i(floor(cell.x / 2.0), -ceil(cell.x / 2.0)) +
+						(Vector2i(floor(cell.x / 2.0), -ceil(cell.x / 2.0))
+						if (cell.y % 2 == 0) else
+						Vector2i(ceil(cell.x / 2.0), -floor(cell.x / 2.0))) +
 						Vector2i(cell.y+floor(cell.y / 2.0),floor(cell.y / 2.0))
 					)
 	return rotatedShape
