@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bf70tncuosq5l"]
 
 [ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Level/Level.tscn" id="1_jxero"]
-[ext_resource type="Script" uid="uid://b2obvolgab5c3" path="res://Scenes/gridLayer.gd" id="1_q7pk6"]
 [ext_resource type="Script" uid="uid://drrd6w70lblww" path="res://UI-Elements/ScoreClass.gd" id="3_2246s"]
 [ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="3_nf4gj"]
 [ext_resource type="Script" uid="uid://brwxo3jth1frl" path="res://UI-Elements/main_menu_button.gd" id="4_q7pk6"]
@@ -13,7 +12,6 @@ bg_color = Color(2.3102762e-06, 0.6785928, 0.74008703, 1)
 script = ExtResource("3_2246s")
 
 [node name="GridLayer" type="CanvasLayer" parent="." unique_id=1373216786]
-script = ExtResource("1_q7pk6")
 
 [node name="Lunchbox" parent="GridLayer" unique_id=1586488118 instance=ExtResource("1_jxero")]
 

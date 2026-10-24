@@ -4,6 +4,7 @@ enum uiState {
 	GAMEPLAY,
 	SCORING
 }
+signal select_alien()
 var currentState = uiState.GAMEPLAY
 @export var alienScore : int
 @export var alienCal : int
@@ -12,6 +13,7 @@ var currentState = uiState.GAMEPLAY
 @export var currentCals : int #number of calories per food item
 @export var currentMacros : Dictionary = {"Protein": 0, "Carbohydrates": 0, "Fat": 0}
 @export var tagsFound : Array[String] #can only be "Dairy", "Vegetarian", or "Gluten"
+var totalScore : int = 0
 const MACRODEDUCTION = 10
 const DIETARYDEDUCTION = 15
 @onready var scoreBox = $"GridLayer/ScoreBox"
@@ -23,6 +25,7 @@ const DIETARYDEDUCTION = 15
 func _ready() -> void:
 	scoreBox.hide()
 	button.text = "Submit"
+	$"..".end_level.connect(end_score)
 
 #called after alien created
 func get_alien(alien: Node2D): 
@@ -48,6 +51,7 @@ func show_results():
 	calculate_score()
 	lunchbox.hide()
 	scoreLabel.text = "Score: " + str(alienScore) #TODO: Update with breakdown of scoring
+	totalScore += alienScore
 	scoreBox.show()
 	button.text = "Continue"
 	currentState = uiState.SCORING
@@ -68,4 +72,14 @@ func calculate_score():
 
 func next_level():
 	print("on to the next level")
+	select_alien.emit()
+	scoreBox.hide()
+	lunchbox.show()
+	button.text = "Submit"
+	currentState = uiState.GAMEPLAY
+	pass
+	
+func end_score():
+	get_tree().change_scene_to_file("res://Scenes/EndScore.tscn")
+	print("end game")
 	pass
