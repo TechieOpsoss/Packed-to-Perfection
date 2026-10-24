@@ -20,7 +20,7 @@ func freezeDroppedFood():
 func clearDroppedFood():
 	for droppedFoodItem: Area2D in $DroppedFoodItems.get_children():
 		droppedFoodItem.queue_free()
-	for index in placedFoodStats.size():
+	for index in range(placedFoodStats.size(),0,-1):
 		placedFoodStats.remove_at(index)
 
 func totalStats() -> FoodItemStats:
