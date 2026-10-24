@@ -8,8 +8,9 @@
 [ext_resource type="Resource" uid="uid://b04nf5v6gsbra" path="res://Resources/FoodItems/Nubulus.tres" id="4_uotbs"]
 [ext_resource type="Resource" uid="uid://drpy8k63h0yj4" path="res://Resources/FoodItems/Slapall.tres" id="5_o0s4t"]
 [ext_resource type="Resource" uid="uid://djgonpk3e5w8f" path="res://Resources/FoodItems/Gnistle.tres" id="6_8iafc"]
+[ext_resource type="Resource" uid="uid://cvcvpav0ms3x6" path="res://Resources/FoodItems/Umble.tres" id="7_mbqla"]
 
-[sub_resource type="Resource" id="Resource_3rvlg"]
+[sub_resource type="Resource" id="Resource_uotbs"]
 script = ExtResource("2_6ovpo")
 calories = 700
 nutrientA = 25
@@ -19,7 +20,7 @@ metadata/_custom_type_script = "uid://vvkn4ax4t010"
 
 [resource]
 script = ExtResource("3_tmlra")
-restrictions = SubResource("Resource_3rvlg")
+restrictions = SubResource("Resource_uotbs")
 gridShape = Array[Vector2i]([Vector2i(-5, 0), Vector2i(-4, 0), Vector2i(-3, 0), Vector2i(-2, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(-6, -1), Vector2i(-5, -1), Vector2i(-4, -1), Vector2i(-3, -1), Vector2i(0, -1), Vector2i(3, -1), Vector2i(4, -1), Vector2i(5, -1), Vector2i(6, -1), Vector2i(-7, -2), Vector2i(-6, -2), Vector2i(-5, -2), Vector2i(-4, -2), Vector2i(-1, -2), Vector2i(0, -2), Vector2i(1, -2), Vector2i(4, -2), Vector2i(5, -2), Vector2i(6, -2), Vector2i(7, -2), Vector2i(-2, -3), Vector2i(-1, -3), Vector2i(0, -3), Vector2i(1, -3), Vector2i(2, -3), Vector2i(-2, -4), Vector2i(-1, -4), Vector2i(0, -4), Vector2i(1, -4), Vector2i(2, -4), Vector2i(-7, -5), Vector2i(-6, -5), Vector2i(-5, -5), Vector2i(-4, -5), Vector2i(-1, -5), Vector2i(0, -5), Vector2i(1, -5), Vector2i(4, -5), Vector2i(5, -5), Vector2i(6, -5), Vector2i(7, -5), Vector2i(-6, -6), Vector2i(-5, -6), Vector2i(-4, -6), Vector2i(-3, -6), Vector2i(0, -6), Vector2i(3, -6), Vector2i(4, -6), Vector2i(5, -6), Vector2i(6, -6), Vector2i(-5, -7), Vector2i(-4, -7), Vector2i(-3, -7), Vector2i(-2, -7), Vector2i(2, -7), Vector2i(3, -7), Vector2i(4, -7), Vector2i(5, -7)])
 customerName = "Cassie"
 customerTexture = ExtResource("1_ijeq6")
@@ -29,4 +30,5 @@ newItem2 = ExtResource("3_mbqla")
 newItem3 = ExtResource("4_uotbs")
 newItem4 = ExtResource("5_o0s4t")
 newItem5 = ExtResource("6_8iafc")
+newItem6 = ExtResource("7_mbqla")
 metadata/_custom_type_script = "uid://bptu1jid2jp0n"

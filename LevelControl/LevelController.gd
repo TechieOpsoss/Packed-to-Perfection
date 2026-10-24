@@ -47,6 +47,10 @@ func loadLevel(level: Level):
 		$Level/Container/BucketTray/Bucket5.item = level.newItem5
 		$Level/Container/BucketTray/Bucket5.heldQuantity = level.newItem5.foodStartQuantity
 		$Level/Container/BucketTray/Bucket5.updateText()
+			
+		$Level/Container/BucketTray/Bucket6.item = level.newItem6
+		$Level/Container/BucketTray/Bucket6.heldQuantity = level.newItem6.foodStartQuantity
+		$Level/Container/BucketTray/Bucket6.updateText()
 
 func _nextLevel():
 	currentLevel += 1

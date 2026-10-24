@@ -1,10 +1,18 @@
 class_name FoodItemStats extends Resource
+
+## Calories
 @export var calories: int
+## Protein
 @export var nutrientA: int
+## Carbohydrates
 @export var nutrientB: int
+## Fat
 @export var nutrientC: int
+## Dairy
 @export var tagA: bool
+## Meat
 @export var tagB: bool
+## Gluten
 @export var tagC: bool
 func _init(p_calories: int = 0, p_nutrientA: int = 0, p_nutrientB: int = 0, p_nutrientC: int = 0, p_tagA: bool = false, p_tagB: bool = false, p_tagC: bool = false):
 	calories = p_calories

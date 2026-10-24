@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bqvmovkw15m3t" path="res://Level/ReceiptLayer.gd" id="1_g61rn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp1u0"]
-bg_color = Color(0.45882353, 0.8509804, 0.7607843, 0.7137255)
+bg_color = Color(0.45882353, 0, 0.25882354, 0.7137255)
 
 [node name="ReceiptLayer" type="CanvasLayer" unique_id=1798305892]
 script = ExtResource("1_g61rn")

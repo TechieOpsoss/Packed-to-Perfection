@@ -53,4 +53,4 @@ func calculate_score() -> int:
 	return max(0, score)
 
 func end_score(finalCard):
-	finalCard.text = "Final Score:\n" + str(max(0, totalScore)) + " / " + "300" + "\n\n" + ("You Won" if totalScore > WIN_THRESHOLD else "You Lost") + "Thanks for Playing!"
+	finalCard.text = "Final Score:\n" + str(max(0, totalScore)) + " / " + "300" + "\n\n" + ("You Won" if totalScore > WIN_THRESHOLD else "You Lost") + "\nThanks for Playing!"
