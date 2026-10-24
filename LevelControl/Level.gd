@@ -3,7 +3,8 @@ class_name Level extends Resource
 @export var restrictions: FoodItemStats
 @export var gridShape: Array[Vector2i]
 
-@export var alienTexture: Resource
+@export var customerName: String = "Customer"
+@export var customerTexture: Texture2D
 
 @export var resetsFoodItems: bool
 @export var newItem1: FoodItem

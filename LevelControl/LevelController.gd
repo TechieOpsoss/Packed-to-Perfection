@@ -15,6 +15,8 @@ func loadLevel(level: Level):
 	$Level/Grid.gridShape = level.gridShape.duplicate()
 	$Level/Grid.emptyCells = level.gridShape.duplicate()
 	$Level/Grid.clearDroppedFood()
+	$Level/ReceiptLayer.update(level.customerName, level.restrictions)
+	$Level/Customer.texture = level.customerTexture
 	
 	$Level/Grid.updateGridVisuals()
 	if level.resetsFoodItems:

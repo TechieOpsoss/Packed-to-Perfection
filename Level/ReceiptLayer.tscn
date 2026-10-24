@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://0kgjw0ttvahu"]
+
+[ext_resource type="Script" uid="uid://bqvmovkw15m3t" path="res://Level/ReceiptLayer.gd" id="1_g61rn"]
+
+[node name="ReceiptLayer" type="CanvasLayer" unique_id=1798305892]
+script = ExtResource("1_g61rn")
+
+[node name="Receipt" type="Panel" parent="." unique_id=384934691]
+offset_right = 263.0
+offset_bottom = 300.0
+
+[node name="ReceiptHeader" type="Label" parent="Receipt" unique_id=241148720]
+layout_mode = 0
+offset_right = 205.0
+offset_bottom = 36.0
+text = "Receipt"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProteinsLabel" type="Label" parent="Receipt" unique_id=230542579]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 65.0
+offset_right = 206.0
+offset_bottom = 106.0
+text = "Proteins: "
+
+[node name="CarbohydratesLabel" type="Label" parent="Receipt" unique_id=55471003]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 111.0
+offset_right = 207.0
+offset_bottom = 152.0
+text = "Carbohydrates: "
+
+[node name="FatsLabel" type="Label" parent="Receipt" unique_id=36892931]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 161.0
+offset_right = 207.0
+offset_bottom = 202.0
+text = "Fats: "
+
+[node name="CaloriesLabel" type="Label" parent="Receipt" unique_id=170106758]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 206.0
+offset_right = 204.0
+offset_bottom = 247.0
+text = "Calories: "
+
+[node name="DietaryLabel" type="Label" parent="Receipt" unique_id=827394790]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 251.0
+offset_right = 206.0
+offset_bottom = 292.0
+text = "Dietary Restrictions: "

@@ -4,24 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dwy44bgksy46j" path="res://Level/Food/FoodGrid.tscn" id="2_y3hra"]
 [ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Level/Food/FoodBucket.tscn" id="3_l4vu7"]
 [ext_resource type="Script" uid="uid://crn8imolnvuea" path="res://Level/Scoring/FoodItem.gd" id="4_5noo7"]
+[ext_resource type="Resource" uid="uid://j73y4ftt5bq1" path="res://Resources/FoodItems/Gresh.tres" id="4_chl2c"]
 [ext_resource type="Script" uid="uid://s14eqx3x70br" path="res://Level/Scoring/FoodScorer.gd" id="4_i5eh5"]
 [ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="5_u0wck"]
-
-[sub_resource type="Resource" id="Resource_6fg3j"]
-script = ExtResource("5_u0wck")
-calories = 70
-nutrientA = 1
-nutrientB = 3
-tagB = true
-metadata/_custom_type_script = "uid://vvkn4ax4t010"
-
-[sub_resource type="Resource" id="Resource_j3llj"]
-script = ExtResource("4_5noo7")
-foodItemName = "Gresh"
-foodItemNamePlural = "Greshes"
-shape = Array[Vector2i]([Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, -1), Vector2i(1, -1)])
-stats = SubResource("Resource_6fg3j")
-metadata/_custom_type_script = "uid://crn8imolnvuea"
+[ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Resources/Alien Icons/Alien1.png" id="7_6lumq"]
+[ext_resource type="PackedScene" uid="uid://0kgjw0ttvahu" path="res://Level/ReceiptLayer.tscn" id="8_chl2c"]
 
 [sub_resource type="Resource" id="Resource_2ld0w"]
 script = ExtResource("5_u0wck")
@@ -91,7 +78,7 @@ metadata/_custom_type_script = "uid://crn8imolnvuea"
 [node name="Level" type="Node2D" unique_id=1586488118]
 
 [node name="Grid" parent="." unique_id=1446597112 instance=ExtResource("2_y3hra")]
-position = Vector2(770, 427)
+position = Vector2(836, 622)
 
 [node name="BucketTray" type="Node2D" parent="." unique_id=1378077383]
 script = ExtResource("2_5noo7")
@@ -124,7 +111,7 @@ offset_right = 144.0
 offset_bottom = 504.0
 grow_horizontal = 2
 grow_vertical = 2
-item = SubResource("Resource_j3llj")
+item = ExtResource("4_chl2c")
 grid = NodePath("../../Grid")
 
 [node name="Bucket2" parent="BucketTray" unique_id=1732722692 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
@@ -215,6 +202,13 @@ offset_bottom = 596.0
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Customer" type="Sprite2D" parent="." unique_id=970706866]
+position = Vector2(576, 150)
+scale = Vector2(0.138, 0.138)
+texture = ExtResource("7_6lumq")
+
+[node name="ReceiptLayer" parent="." unique_id=1584341472 instance=ExtResource("8_chl2c")]
 
 [connection signal="button_down" from="BucketTray/FinishButton" to="Grid" method="freezeDroppedFood"]
 [connection signal="button_down" from="BucketTray/FinishButton" to="BucketTray" method="_hide"]
