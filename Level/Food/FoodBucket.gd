@@ -5,12 +5,15 @@ class_name FoodBucket extends Button
 
 var heldQuantity: int
 
+func updateText():
+	if heldQuantity == 1:
+		$Label.text = str(heldQuantity, " ", item.foodItemName, "\n", item.stats)
+	else:
+		$Label.text = str(heldQuantity, " ", item.foodItemNamePlural, "\n", item.stats)
+
 func _ready():
 	heldQuantity = item.foodStartQuantity
-	if heldQuantity == 1:
-		$Label.text = str(heldQuantity, " ", item.foodItemName)
-	else:
-		$Label.text = str(heldQuantity, " ", item.foodItemNamePlural)
+	updateText()
 	$Label.size = size
 
 # Carried shape production.
@@ -32,17 +35,11 @@ func produceShape() -> void:
 # Increment quantity stored in bucket.
 func returnShape():
 	heldQuantity += 1
-	if heldQuantity == 1:
-		$Label.text = str(heldQuantity, " ", item.foodItemName)
-	else:
-		$Label.text = str(heldQuantity, " ", item.foodItemNamePlural)
+	updateText()
 
 # Decrement quantity stored in bucket and attempt to produce shape.
 func _pressed() -> void:
 	if (heldQuantity > 0):
 		heldQuantity = heldQuantity - 1
-		if heldQuantity == 1:
-			$Label.text = str(heldQuantity, " ", item.foodItemName)
-		else:
-			$Label.text = str(heldQuantity, " ", item.foodItemNamePlural)
+		updateText()
 		produceShape()

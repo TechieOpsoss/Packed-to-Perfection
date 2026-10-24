@@ -20,38 +20,23 @@ func loadLevel(level: Level):
 	if level.resetsFoodItems:
 		$Level/BucketTray/Bucket1.item = level.newItem1
 		$Level/BucketTray/Bucket1.heldQuantity = level.newItem1.foodStartQuantity
-		if $Level/BucketTray/Bucket1.heldQuantity == 1:
-			$Level/BucketTray/Bucket1/Label.text = str($Level/BucketTray/Bucket1.heldQuantity, " ", level.newItem1.foodItemName)
-		else:
-			$Level/BucketTray/Bucket1/Label.text = str($Level/BucketTray/Bucket1.heldQuantity, " ", level.newItem1.foodItemNamePlural)
+		$Level/BucketTray/Bucket1.updateText()
 			
 		$Level/BucketTray/Bucket2.item = level.newItem2
 		$Level/BucketTray/Bucket2.heldQuantity = level.newItem2.foodStartQuantity
-		if $Level/BucketTray/Bucket2.heldQuantity == 1:
-			$Level/BucketTray/Bucket2/Label.text = str($Level/BucketTray/Bucket2.heldQuantity, " ", level.newItem2.foodItemName)
-		else:
-			$Level/BucketTray/Bucket2/Label.text = str($Level/BucketTray/Bucket2.heldQuantity, " ", level.newItem2.foodItemNamePlural)
+		$Level/BucketTray/Bucket2.updateText()
 			
 		$Level/BucketTray/Bucket3.item = level.newItem3
 		$Level/BucketTray/Bucket3.heldQuantity = level.newItem3.foodStartQuantity
-		if $Level/BucketTray/Bucket3.heldQuantity == 1:
-			$Level/BucketTray/Bucket3/Label.text = str($Level/BucketTray/Bucket3.heldQuantity, " ", level.newItem3.foodItemName)
-		else:
-			$Level/BucketTray/Bucket3/Label.text = str($Level/BucketTray/Bucket3.heldQuantity, " ", level.newItem3.foodItemNamePlural)
+		$Level/BucketTray/Bucket3.updateText()
 			
 		$Level/BucketTray/Bucket4.item = level.newItem4
 		$Level/BucketTray/Bucket4.heldQuantity = level.newItem4.foodStartQuantity
-		if $Level/BucketTray/Bucket4.heldQuantity == 1:
-			$Level/BucketTray/Bucket4/Label.text = str($Level/BucketTray/Bucket4.heldQuantity, " ", level.newItem4.foodItemName)
-		else:
-			$Level/BucketTray/Bucket4/Label.text = str($Level/BucketTray/Bucket4.heldQuantity, " ", level.newItem4.foodItemNamePlural)
+		$Level/BucketTray/Bucket4.updateText()
 			
 		$Level/BucketTray/Bucket5.item = level.newItem5
 		$Level/BucketTray/Bucket5.heldQuantity = level.newItem5.foodStartQuantity
-		if $Level/BucketTray/Bucket5.heldQuantity == 1:
-			$Level/BucketTray/Bucket5/Label.text = str($Level/BucketTray/Bucket5.heldQuantity, " ", level.newItem5.foodItemName)
-		else:
-			$Level/BucketTray/Bucket5/Label.text = str($Level/BucketTray/Bucket5.heldQuantity, " ", level.newItem5.foodItemNamePlural)
+		$Level/BucketTray/Bucket5.updateText()
 
 func _nextLevel():
 	currentLevel += 1

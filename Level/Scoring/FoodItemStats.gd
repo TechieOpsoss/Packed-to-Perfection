@@ -37,4 +37,4 @@ func sumWith(other: FoodItemStats) -> FoodItemStats:
 	return ret
 	
 func _to_string() -> String:
-	return str({"Calories": calories, "Nutrient A": nutrientA, "Nutrient B": nutrientB, "Nutrient C": nutrientC, "Tag A": tagA, "Tag B": tagB, "Tag C": tagC})
+	return str(calories, " Cal\nA ", nutrientA, " B ", nutrientB, " C ", nutrientC, "\n" if tagA or tagB or tagC else "", "a " if tagA else "", " b " if tagB else "", " c " if tagC else "")
