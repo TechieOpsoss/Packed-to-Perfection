@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dagl0qslxd21j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khwxe"]
+bg_color = Color(2.3102762e-06, 0.6785928, 0.74008703, 1)
+
+[node name="EndScore" type="Control" unique_id=1024891976]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreBox" type="PanelContainer" parent="." unique_id=643264406]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_khwxe")
+
+[node name="ScoreLabel" type="Label" parent="ScoreBox" unique_id=1371192394]
+layout_mode = 2
+size_flags_vertical = 1
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 33
+text = "Final Score:"
+horizontal_alignment = 1

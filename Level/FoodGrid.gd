@@ -62,7 +62,6 @@ const carriedFoodScene: Resource = preload("res://Level/FoodCarried.tscn")
 func produceShape(producedShape: Array[Vector2i], cursorOffset: Vector2, letGoFromBucket: Signal, returnToBucket: Callable):
 	# Create and initialize instance.
 	var carriedFoodInstance: Node2D = carriedFoodScene.instantiate()
-	print("carriedFoodInstance in produceShape: ", carriedFoodInstance)
 	carriedFoodInstance.shape = producedShape
 	carriedFoodInstance.position += cursorOffset
 	
