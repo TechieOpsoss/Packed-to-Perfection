@@ -14,7 +14,6 @@ var initialPosition: Vector2
 var previewPolygon: Polygon2D
 var dropTimePassed: bool
 
-# TODO: Sounds on signals
 signal dropSuccess()
 signal dropFailure()
 
@@ -29,6 +28,10 @@ func _ready() -> void:
 	# Delete when dropped.
 	dropSuccess.connect(queue_free)
 	dropFailure.connect(queue_free)
+	
+	LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.1, 1.2 * randf_range(0.9, 1.0))
+	dropSuccess.connect(func(): LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.2, 0.6 * randf_range(0.9, 1.0)))
+	dropFailure.connect(func(): LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.2, 0.2 * randf_range(0.9, 1.0)))
 	
 	# Setup visuals
 	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(item.shape, triangle_width, spacing))
