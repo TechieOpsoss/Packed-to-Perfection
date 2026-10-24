@@ -15,3 +15,5 @@ color = Color(0, 0, 0, 1)
 color = Color(0, 1, 0, 0.53333336)
 
 [node name="Cursor" type="Node2D" parent="." unique_id=2066253851]
+
+[node name="DroppedFoodItems" type="Node2D" parent="." unique_id=1151493524]

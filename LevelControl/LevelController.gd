@@ -13,6 +13,7 @@ func loadLevel(level: Level):
 	$Level/ScoreCard.restrictions = level.restrictions
 	$Level/Grid.gridShape = level.gridShape.duplicate()
 	$Level/Grid.emptyCells = level.gridShape.duplicate()
+	$Level/Grid.clearDroppedFood()
 	
 	$Level/Grid.updateGridVisuals()
 	if level.resetsFoodItems:

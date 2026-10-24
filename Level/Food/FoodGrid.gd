@@ -10,6 +10,15 @@ class_name FoodGrid extends Node2D
 var emptyCells: Array[Vector2i]
 var placedFoodStats: Array[FoodItemStats]
 
+func freezeDroppedFood():
+	for droppedFoodItem: Area2D in $DroppedFoodItems.get_children():
+		for connection in droppedFoodItem.input_event.get_connections():
+			droppedFoodItem.input_event.disconnect(connection.callable)
+
+func clearDroppedFood():
+	for droppedFoodItem: Area2D in $DroppedFoodItems.get_children():
+		droppedFoodItem.queue_free()
+
 func totalStats() -> FoodItemStats:
 	var sum: FoodItemStats = FoodItemStats.new()
 	for placedFoodStat: FoodItemStats in placedFoodStats:
@@ -71,7 +80,7 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 		updateGridVisuals()
 	)
 	
-	add_child(droppedFood)
+	$DroppedFoodItems.add_child(droppedFood)
 	
 	# Add stats
 	placedFoodStats.append(item.stats)
