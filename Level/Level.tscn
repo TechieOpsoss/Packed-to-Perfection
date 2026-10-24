@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://0kgjw0ttvahu" path="res://Level/ReceiptLayer.tscn" id="8_chl2c"]
 [ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="10_wp1u0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e56cd"]
+bg_color = Color(0.7764706, 0.3372549, 0.88235295, 1)
+
 [sub_resource type="Resource" id="Resource_2ld0w"]
 script = ExtResource("5_u0wck")
 calories = 120
@@ -78,13 +81,35 @@ metadata/_custom_type_script = "uid://crn8imolnvuea"
 
 [node name="Level" type="Node2D" unique_id=1586488118]
 
-[node name="Grid" parent="." unique_id=1446597112 instance=ExtResource("2_y3hra")]
-position = Vector2(836, 622)
+[node name="Customer" type="Sprite2D" parent="." unique_id=970706866]
+position = Vector2(576, 269.29)
+scale = Vector2(0.223, 0.223)
+texture = ExtResource("7_6lumq")
 
-[node name="BucketTray" type="Node2D" parent="." unique_id=1378077383]
+[node name="ReceiptLayer" parent="." unique_id=1584341472 instance=ExtResource("8_chl2c")]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1958186854]
+z_index = -3
+offset_top = -156.615
+offset_right = 1152.0
+offset_bottom = 491.385
+texture = ExtResource("10_wp1u0")
+expand_mode = 1
+
+[node name="Container" type="PanelContainer" parent="." unique_id=2064847995]
+offset_top = 367.0
+offset_right = 1152.0
+offset_bottom = 647.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e56cd")
+
+[node name="Grid" parent="Container" unique_id=1446597112 instance=ExtResource("2_y3hra")]
+position = Vector2(836, 243)
+
+[node name="BucketTray" type="Node2D" parent="Container" unique_id=1378077383]
+position = Vector2(0, -379)
 script = ExtResource("2_5noo7")
 
-[node name="FinishButton" type="Button" parent="BucketTray" unique_id=35069417]
+[node name="FinishButton" type="Button" parent="Container/BucketTray" unique_id=35069417]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -99,8 +124,9 @@ grow_vertical = 2
 focus_mode = 0
 action_mode = 0
 text = "-->"
+metadata/_edit_use_anchors_ = true
 
-[node name="Bucket1" parent="BucketTray" unique_id=899398795 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
+[node name="Bucket1" parent="Container/BucketTray" unique_id=899398795 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -114,8 +140,9 @@ grow_horizontal = 2
 grow_vertical = 2
 item = ExtResource("4_chl2c")
 grid = NodePath("../../Grid")
+metadata/_edit_use_anchors_ = true
 
-[node name="Bucket2" parent="BucketTray" unique_id=1732722692 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
+[node name="Bucket2" parent="Container/BucketTray" unique_id=1732722692 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -129,8 +156,9 @@ grow_horizontal = 2
 grow_vertical = 2
 item = SubResource("Resource_6lumq")
 grid = NodePath("../../Grid")
+metadata/_edit_use_anchors_ = true
 
-[node name="Bucket3" parent="BucketTray" unique_id=473661831 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
+[node name="Bucket3" parent="Container/BucketTray" unique_id=473661831 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -144,8 +172,9 @@ grow_horizontal = 2
 grow_vertical = 2
 item = SubResource("Resource_u0wck")
 grid = NodePath("../../Grid")
+metadata/_edit_use_anchors_ = true
 
-[node name="Bucket4" parent="BucketTray" unique_id=352251204 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
+[node name="Bucket4" parent="Container/BucketTray" unique_id=352251204 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -159,8 +188,9 @@ grow_horizontal = 2
 grow_vertical = 2
 item = SubResource("Resource_chl2c")
 grid = NodePath("../../Grid")
+metadata/_edit_use_anchors_ = true
 
-[node name="Bucket5" parent="BucketTray" unique_id=710536430 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
+[node name="Bucket5" parent="Container/BucketTray" unique_id=710536430 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -174,12 +204,14 @@ grow_horizontal = 2
 grow_vertical = 2
 item = SubResource("Resource_wp1u0")
 grid = NodePath("../../Grid")
+metadata/_edit_use_anchors_ = true
 
-[node name="ScoreCard" type="Node2D" parent="." unique_id=1063314635 node_paths=PackedStringArray("toScore")]
+[node name="ScoreCard" type="Node2D" parent="Container" unique_id=1063314635 node_paths=PackedStringArray("toScore")]
+position = Vector2(0, -379)
 script = ExtResource("4_i5eh5")
 toScore = NodePath("../Grid")
 
-[node name="ContinueButton" type="Button" parent="ScoreCard" unique_id=495821184]
+[node name="ContinueButton" type="Button" parent="Container/ScoreCard" unique_id=495821184]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -194,8 +226,9 @@ grow_vertical = 2
 focus_mode = 0
 action_mode = 0
 text = "-->"
+metadata/_edit_use_anchors_ = true
 
-[node name="ScorePlaceholder" type="Label" parent="ScoreCard" unique_id=1313200512]
+[node name="ScorePlaceholder" type="Label" parent="Container/ScoreCard" unique_id=1313200512]
 offset_left = 67.0
 offset_top = 439.0
 offset_right = 384.0
@@ -203,23 +236,10 @@ offset_bottom = 596.0
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Customer" type="Sprite2D" parent="." unique_id=970706866]
-position = Vector2(576, 269.29)
-scale = Vector2(0.223, 0.223)
-texture = ExtResource("7_6lumq")
-
-[node name="ReceiptLayer" parent="." unique_id=1584341472 instance=ExtResource("8_chl2c")]
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1958186854]
-z_index = -3
-offset_right = 1158.0
-offset_bottom = 648.0
-texture = ExtResource("10_wp1u0")
-expand_mode = 1
-
-[connection signal="button_down" from="BucketTray/FinishButton" to="Grid" method="freezeDroppedFood"]
-[connection signal="button_down" from="BucketTray/FinishButton" to="BucketTray" method="_hide"]
-[connection signal="button_down" from="BucketTray/FinishButton" to="ScoreCard" method="_show"]
-[connection signal="button_down" from="ScoreCard/ContinueButton" to="BucketTray" method="_show"]
-[connection signal="button_down" from="ScoreCard/ContinueButton" to="ScoreCard" method="_hide"]
+[connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/Grid" method="freezeDroppedFood"]
+[connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/BucketTray" method="_hide"]
+[connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/ScoreCard" method="_show"]
+[connection signal="button_down" from="Container/ScoreCard/ContinueButton" to="Container/BucketTray" method="_show"]
+[connection signal="button_down" from="Container/ScoreCard/ContinueButton" to="Container/ScoreCard" method="_hide"]

@@ -63,6 +63,6 @@ levels = Array[ExtResource("2_05t60")]([SubResource("Resource_fglrw"), SubResour
 
 [node name="Level" parent="." unique_id=1586488118 instance=ExtResource("1_5rhmw")]
 
-[connection signal="button_down" from="Level/ScoreCard/ContinueButton" to="." method="_nextLevel"]
+[connection signal="button_down" from="Level/Container/ScoreCard/ContinueButton" to="." method="_nextLevel"]
 
 [editable path="Level"]
