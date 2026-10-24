@@ -19,7 +19,7 @@ func printScore():
 	var fatText = "Fats: " + str(currentStats.nutrientC) + " / " + str(restrictions.nutrientC)
 	var calorieText = "Calories: " + str(currentStats.calories) + " / " + str(restrictions.calories)
 	calculate_score()
-	scoreCard.text = "SCORE:\n" + calorieText + "\n" + proteinText + "\n" + carbText + "\n" + fatText + "\nTotal Score: " + str(alienScore)
+	scoreCard.text = "SCORE:\n" + calorieText + "\n" + proteinText + "\n" + carbText + "\n" + fatText + "\nTotal Score: " + str(max(0, alienScore))
 	totalScore = totalScore + alienScore
 	
 
@@ -52,4 +52,4 @@ func calculate_score():
 		alienScore = alienScore - DIETARYDEDUCTION
 
 func end_score(finalCard):
-	finalCard.text = "Final Score:\n" + str(totalScore) + " / " + "300" + "\n\n Thanks for Playing!"
+	finalCard.text = "Final Score:\n" + str(max(0, totalScore)) + " / " + "300" + "\n\n Thanks for Playing!"
