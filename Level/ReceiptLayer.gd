@@ -2,7 +2,7 @@ extends CanvasLayer
 
 func update(customerName: String, requirements: FoodItemStats) -> void:
 	$Receipt/ReceiptHeader.text = str(customerName, "'s Order")
-	$Receipt/ProteinsLabel.text = str("Proteins: ", requirements.nutrientA)
+	$Receipt/ProteinsLabel.text = str("Proteins: ", requirements.nutrientProtein)
 	$Receipt/CarbohydratesLabel.text = str("Carbohydrates: ", requirements.nutrientB)
 	$Receipt/FatsLabel.text = str("Fats: ", requirements.nutrientC)
 	$Receipt/CaloriesLabel.text = str("Calories: ", requirements.calories)

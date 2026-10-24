@@ -11,7 +11,7 @@
 [sub_resource type="Resource" id="Resource_3rvlg"]
 script = ExtResource("3_d7giy")
 calories = 700
-nutrientA = 25
+nutrientProtein = 25
 nutrientB = 15
 nutrientC = 10
 metadata/_custom_type_script = "uid://vvkn4ax4t010"
@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://bptu1jid2jp0n"
 [sub_resource type="Resource" id="Resource_05t60"]
 script = ExtResource("3_d7giy")
 calories = 800
-nutrientA = 10
+nutrientProtein = 10
 nutrientB = 30
 nutrientC = 20
 tagC = true
@@ -44,7 +44,7 @@ metadata/_custom_type_script = "uid://bptu1jid2jp0n"
 [sub_resource type="Resource" id="Resource_y5lma"]
 script = ExtResource("3_d7giy")
 calories = 1100
-nutrientA = 20
+nutrientProtein = 20
 nutrientB = 30
 nutrientC = 30
 metadata/_custom_type_script = "uid://vvkn4ax4t010"
@@ -62,6 +62,20 @@ script = ExtResource("1_7ka52")
 levels = Array[ExtResource("2_05t60")]([SubResource("Resource_fglrw"), SubResource("Resource_d7giy"), SubResource("Resource_pnvru")])
 
 [node name="Level" parent="." unique_id=1586488118 instance=ExtResource("1_5rhmw")]
+
+[node name="ScoreCard" parent="Level/Container" parent_id_path=PackedInt32Array(1586488118, 2064847995) index="2" unique_id=1063314635]
+position = Vector2(1, -378)
+
+[node name="ScoreBox" parent="Level/Container/ScoreCard" index="1" unique_id=2132067959]
+offset_left = 14.0
+offset_top = 408.0
+offset_right = 394.0
+offset_bottom = 431.0
+
+[node name="ScoreLabel" parent="Level/Container/ScoreCard/ScoreBox" index="0" unique_id=1313200512]
+text = "Score:"
+horizontal_alignment = 0
+vertical_alignment = 0
 
 [connection signal="button_down" from="Level/Container/ScoreCard/ContinueButton" to="." method="_nextLevel"]
 
