@@ -2,7 +2,7 @@
 class_name FoodGrid extends Node2D
 
 @export var gridShape: Array[Vector2i] = [Vector2i(0,0)]
-@export var triangleWidth: float = 48
+@export var triangleWidth: float = 36
 @export var emptyCellSpacing: float = 6
 @export var filledCellSpacing: float = 6
 @export var previewCellSpacing: float = 0

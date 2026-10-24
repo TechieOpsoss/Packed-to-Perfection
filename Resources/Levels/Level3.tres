@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://bct50c85awhmf"]
+
+[ext_resource type="Texture2D" uid="uid://ch8cibmfm1xrs" path="res://Resources/Alien Icons/CHR_Alien2_V1.png" id="1_4ia1m"]
+[ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="2_06ljn"]
+[ext_resource type="Script" uid="uid://bptu1jid2jp0n" path="res://LevelControl/Level.gd" id="3_hhsar"]
+
+[sub_resource type="Resource" id="Resource_y5lma"]
+script = ExtResource("2_06ljn")
+calories = 1100
+nutrientA = 20
+nutrientB = 30
+nutrientC = 30
+metadata/_custom_type_script = "uid://vvkn4ax4t010"
+
+[resource]
+script = ExtResource("3_hhsar")
+restrictions = SubResource("Resource_y5lma")
+gridShape = Array[Vector2i]([Vector2i(-5, 0), Vector2i(-4, 0), Vector2i(-3, 0), Vector2i(-2, 0), Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)])
+customerName = "Broady"
+customerTexture = ExtResource("1_4ia1m")
+metadata/_custom_type_script = "uid://bptu1jid2jp0n"
