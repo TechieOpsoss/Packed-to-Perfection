@@ -29,9 +29,9 @@ func _ready() -> void:
 	dropSuccess.connect(queue_free)
 	dropFailure.connect(queue_free)
 	
-	LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.1, 1.2 * randf_range(0.9, 1.0))
-	dropSuccess.connect(func(): LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.2, 0.6 * randf_range(0.9, 1.0)))
-	dropFailure.connect(func(): LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.2, 0.2 * randf_range(0.9, 1.0)))
+	LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.1, 1.2 * randf_range(0.8, 1.0))
+	dropSuccess.connect(func(): LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.2, 0.6 * randf_range(0.8, 1.0)))
+	dropFailure.connect(func(): LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.2, 0.2 * randf_range(0.8, 1.0)))
 	
 	# Setup visuals
 	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(item.shape, triangle_width, spacing))

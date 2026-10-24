@@ -50,10 +50,10 @@ func _process(_delta: float) -> void:
 	$Cursor.global_position = get_viewport().get_mouse_position()
 	# Rotate cursor.
 	if ($Cursor.get_child_count() > 0 and Input.is_action_just_pressed("shape_rotate_cw")):
-		LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.1, 2.1 * randf_range(0.9, 1.0))
+		LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.1, 2 * randf_range(0.8, 1.0))
 		$Cursor.rotation = fmod($Cursor.rotation + deg_to_rad(60), deg_to_rad(360))
 	if ($Cursor.get_child_count() > 0 and Input.is_action_just_pressed("shape_rotate_ccw")):
-		LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.1, 1.9 * randf_range(0.9, 1.0))
+		LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.1, 1.5 * randf_range(0.8, 1.0))
 		$Cursor.rotation = fmod($Cursor.rotation + deg_to_rad(300), deg_to_rad(360))
 
 func checkDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: int) -> bool:
