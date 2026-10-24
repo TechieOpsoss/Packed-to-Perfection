@@ -161,8 +161,10 @@ text = "-->"
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreBox" type="PanelContainer" parent="Container/ScoreCard" unique_id=2132067959]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 14.0
+offset_top = 408.0
+offset_right = 394.0
+offset_bottom = 431.0
 
 [node name="ScoreLabel" type="Label" parent="Container/ScoreCard/ScoreBox" unique_id=1313200512]
 layout_mode = 2

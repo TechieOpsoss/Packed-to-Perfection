@@ -15,7 +15,7 @@ func _ready():
 		$Level/Container/ScoreCard.end_score(endScreen.find_child("Background").find_child("FinalScoreLabel"))
 		get_tree().change_scene_to_node(endScreen)
 	)
-  LocalAudioManager.play_music("res://Audio/Music/Lunchbox.ogg", 0.5)
+	LocalAudioManager.play_music("res://Audio/Music/Lunchbox.ogg", 0.5)
 
 func loadLevel(level: Level):
 	$Level/Container/ScoreCard.restrictions = level.restrictions

@@ -4,52 +4,53 @@ class_name FoodScorer extends Node2D
 @export var toScore: FoodGrid
 @onready var scoreCard: Label = $ScoreBox/ScoreLabel
 var totalScore: int = 0
-const MACRODEDUCTION = 5
-const DIETARYDEDUCTION = 10
+const MACRO_DEDUCTION = 5
+const DIETARY_DEDUCTION = 10
+const WIN_THRESHOLD = 280
 var currentStats: FoodItemStats
-var alienScore: int = 100
 
 func _ready():
 	hide()
 
-func printScore():
+func updateScore():
 	currentStats = toScore.totalStats()
-	var proteinText = "Proteins: " + str(currentStats.nutrientProtein) + " / " + str(restrictions.nutrientProtein)
+	var proteinText = "Proteins: " + str(currentStats.nutrientA) + " / " + str(restrictions.nutrientA)
 	var carbText = "Carbohydrates: " + str(currentStats.nutrientB) + " / " + str(restrictions.nutrientB)
 	var fatText = "Fats: " + str(currentStats.nutrientC) + " / " + str(restrictions.nutrientC)
 	var calorieText = "Calories: " + str(currentStats.calories) + " / " + str(restrictions.calories)
-	calculate_score()
-	scoreCard.text = "SCORE:\n" + calorieText + "\n" + proteinText + "\n" + carbText + "\n" + fatText + "\nTotal Score: " + str(max(0, alienScore))
-	totalScore = totalScore + alienScore
 	
+	var alienScore: int = calculate_score()
+	scoreCard.text = str("SCORE:\n", calorieText, "\n", proteinText, "\n", carbText, "\n", fatText, "\nTotal Score: ", alienScore)
+	totalScore = totalScore + alienScore
 
 func _show():
-	printScore()
+	updateScore()
 	show()
 
 func _hide():
 	hide()
 
-func cal_deduction(): # -1 for every 10 off by
+func cal_deduction() -> int: # -1 for every 10 off by
 	var overUnder = abs(restrictions.calories - currentStats.calories) / 10
-	for num in overUnder:
-		alienScore = alienScore - 1
+	return floor(overUnder) as int
 
-func calculate_score():
+func calculate_score() -> int:
+	var score: int = 100
 	if currentStats.calories < restrictions.calories || currentStats.calories > restrictions.calories : #update
-		cal_deduction()
-	if currentStats.nutrientProtein < restrictions.nutrientProtein:
-		alienScore = alienScore - MACRODEDUCTION
+		score -= cal_deduction()
+	if currentStats.nutrientA < restrictions.nutrientA:
+		score -= MACRO_DEDUCTION
 	if currentStats.nutrientB < restrictions.nutrientB:
-		alienScore = alienScore - MACRODEDUCTION
+		score -= MACRO_DEDUCTION
 	if currentStats.nutrientC < restrictions.nutrientC:
-		alienScore = alienScore - MACRODEDUCTION
+		score -= MACRO_DEDUCTION
 	if  currentStats.tagA == true && restrictions.tagA == true:
-		alienScore = alienScore - DIETARYDEDUCTION
+		score -= DIETARY_DEDUCTION
 	if currentStats.tagB == true && restrictions.tagB == true:
-		alienScore = alienScore - DIETARYDEDUCTION
+		score -= DIETARY_DEDUCTION
 	if currentStats.tagB == true && restrictions.tagC == true:
-		alienScore = alienScore - DIETARYDEDUCTION
+		score -= DIETARY_DEDUCTION
+	return max(0, score)
 
 func end_score(finalCard):
-	finalCard.text = "Final Score:\n" + str(max(0, totalScore)) + " / " + "300" + "\n\n Thanks for Playing!"
+	finalCard.text = "Final Score:\n" + str(max(0, totalScore)) + " / " + "300" + "\n\n" + ("You Won" if totalScore > WIN_THRESHOLD else "You Lost") + "Thanks for Playing!"

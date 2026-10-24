@@ -1,6 +1,6 @@
 class_name FoodItemStats extends Resource
 @export var calories: int
-@export var nutrientProtein: int
+@export var nutrientA: int
 @export var nutrientB: int
 @export var nutrientC: int
 @export var tagA: bool
@@ -8,7 +8,7 @@ class_name FoodItemStats extends Resource
 @export var tagC: bool
 func _init(p_calories: int = 0, p_nutrientA: int = 0, p_nutrientB: int = 0, p_nutrientC: int = 0, p_tagA: bool = false, p_tagB: bool = false, p_tagC: bool = false):
 	calories = p_calories
-	nutrientProtein = p_nutrientA
+	nutrientA = p_nutrientA
 	nutrientB = p_nutrientB
 	nutrientC = p_nutrientC
 	tagA = p_tagA
@@ -17,7 +17,7 @@ func _init(p_calories: int = 0, p_nutrientA: int = 0, p_nutrientB: int = 0, p_nu
 
 func add(other: FoodItemStats) -> FoodItemStats:
 	calories = calories + other.calories
-	nutrientProtein = nutrientProtein + other.nutrientProtein
+	nutrientA = nutrientA + other.nutrientA
 	nutrientB = nutrientB + other.nutrientB
 	nutrientC = nutrientC + other.nutrientC
 	tagA = tagA or other.tagA
@@ -28,7 +28,7 @@ func add(other: FoodItemStats) -> FoodItemStats:
 func sumWith(other: FoodItemStats) -> FoodItemStats:
 	var ret: FoodItemStats = FoodItemStats.new()
 	ret.calories = calories + other.calories
-	ret.nutrientProtein = nutrientProtein + other.nutrientProtein
+	ret.nutrientA = nutrientA + other.nutrientA
 	ret.nutrientB = nutrientB + other.nutrientB
 	ret.nutrientC = nutrientC + other.nutrientC
 	ret.tagA = tagA or other.tagA
