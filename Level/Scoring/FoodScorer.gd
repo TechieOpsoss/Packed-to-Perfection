@@ -6,7 +6,7 @@ class_name FoodScorer extends Node2D
 var totalScore: int = 0
 const MACRO_DEDUCTION = 5
 const DIETARY_DEDUCTION = 10
-const WIN_THRESHOLD = 280
+const WIN_THRESHOLD = 225
 var currentStats: FoodItemStats
 
 func _ready():
@@ -55,4 +55,4 @@ func calculate_score() -> int:
 	return max(0, score)
 
 func end_score(finalCard):
-	finalCard.text = "Final Score:\n" + str(max(0, totalScore)) + " / " + "300" + "\n\n" + ("You Won" if totalScore > WIN_THRESHOLD else "You Lost") + "\nThanks for Playing!"
+	finalCard.text = "Final Score:\n" + str(max(0, totalScore), "/", WIN_THRESHOLD) + "\n\n" + ("You Won" if totalScore > WIN_THRESHOLD else "You Lost") + "\nThanks for Playing!"
