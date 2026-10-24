@@ -11,9 +11,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="EmptyCellVisual" type="Polygon2D" parent="." unique_id=342341943]
 
-[node name="FilledCellVisual" type="Polygon2D" parent="." unique_id=2033175334]
-color = Color(0, 0, 1, 1)
-
 [node name="DropPreview" type="Polygon2D" parent="." unique_id=2144225401]
 color = Color(0, 1, 0, 0.53333336)
 

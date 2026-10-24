@@ -1,8 +1,7 @@
 class_name FoodProducer extends Area2D
 
-@export var foodStats: FoodItemStats
+@export var item: FoodItem
 @export var producerShape: Array[Vector2i]
-@export var producedShape: Array[Vector2i]
 @export var triangleWidth: float
 @export var cellSpacing: float
 @export var grid: FoodGrid
@@ -15,11 +14,11 @@ signal depleted()
 func _ready():
 	input_event.connect(onInputEvent)
 	# Shape setting
-	var polygons: Array[PackedVector2Array] = TriGridUtils.make_meshes(producerShape, triangleWidth, cellSpacing)
-	var verticesAndIndices = TriGridUtils.combine_meshes(polygons)
+	var clickPolygons: Array[PackedVector2Array] = TriGridUtils.make_meshes(producerShape, triangleWidth, 0)
+	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(producerShape, triangleWidth, cellSpacing))
 	$Visual.polygon = verticesAndIndices[0]
 	$Visual.polygons = verticesAndIndices[1]
-	for polygon in polygons:
+	for polygon in clickPolygons:
 		var collisionPolygon: CollisionPolygon2D = CollisionPolygon2D.new()
 		collisionPolygon.polygon = polygon
 		add_child(collisionPolygon)
@@ -30,8 +29,7 @@ const carriedFoodScene: Resource = preload("res://Level/Food/FoodCarried.tscn")
 func produceShape():
 	# Create and initialize instance.
 	var carriedFoodInstance: FoodCarried = carriedFoodScene.instantiate()
-	carriedFoodInstance.shape = producedShape
-	carriedFoodInstance.stats = foodStats
+	carriedFoodInstance.item = item
 	carriedFoodInstance.tryDrop = grid.tryDrop
 	carriedFoodInstance.grid = grid
 	carriedFoodInstance.returnShape = returnShape

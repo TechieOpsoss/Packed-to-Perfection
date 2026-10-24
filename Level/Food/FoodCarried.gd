@@ -1,8 +1,7 @@
 class_name FoodCarried extends Node2D
 
 @export var grid: FoodGrid
-@export var stats: FoodItemStats
-@export var shape: Array[Vector2i]
+@export var item: FoodItem
 @export var triangle_width: float = 24
 @export var spacing: float = 4
 @export var tryDrop: Callable
@@ -32,7 +31,7 @@ func _ready() -> void:
 	dropFailure.connect(queue_free)
 	
 	# Setup visuals
-	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(shape, triangle_width, spacing))
+	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(item.shape, triangle_width, spacing))
 	$Visual.polygon = verticesAndIndices[0]
 	$Visual.polygons = verticesAndIndices[1]
 	
@@ -64,14 +63,14 @@ func _input(event):
 
 func _process(_delta: float) -> void:
 	if not is_queued_for_deletion():
-		if grid.checkDrop(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6):
+		if grid.checkDrop(item.shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6):
 			previewPolygon.color = Color(0, 0, 1, 0.5)
 		else:
 			previewPolygon.color = Color(1, 0, 0, 0.25)
-		updatePreview(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6)
+		updatePreview(item.shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6)
 
 func drop():
-	if tryDrop.call(shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6, stats, returnShape):
+	if tryDrop.call(item.shape, global_position, (roundi(global_rotation_degrees / 60) + 6) % 6, item, returnShape):
 		dropSuccess.emit()
 	else:
 		dropFailure.emit()

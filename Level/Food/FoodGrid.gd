@@ -49,7 +49,7 @@ func checkDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: 
 			return false
 	return true
 
-func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: int, stats: FoodItemStats, returnShape: Callable) -> bool:
+func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: int, item: FoodItem, returnShape: Callable) -> bool:
 	var originPos: Vector2i = TriGridUtils.screen_to_grid(heldPosition - global_position, (shapeRotation % 2) == 1, triangleWidth)
 	var transformedShape: Array[Vector2i] = TriGridUtils.offset_grid(TriGridUtils.rotate_grid(tryShape, shapeRotation), originPos)
 	for transformedCell: Vector2i in transformedShape:
@@ -58,9 +58,8 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 	
 	var droppedFood: FoodProducer = preload("res://Level/Food/FoodDropped.tscn").instantiate()
 	
-	droppedFood.foodStats = stats
+	droppedFood.item = item
 	droppedFood.producerShape = transformedShape
-	droppedFood.producedShape = tryShape
 	droppedFood.triangleWidth = triangleWidth
 	droppedFood.cellSpacing = filledCellSpacing
 	droppedFood.grid = self
@@ -68,14 +67,14 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 	droppedFood.depleted.connect(func():
 		for transformedCell: Vector2i in transformedShape:
 			emptyCells.append(transformedCell)
-		placedFoodStats.remove_at(placedFoodStats.find(stats))
+		placedFoodStats.remove_at(placedFoodStats.find(item.stats))
 		updateGridVisuals()
 	)
 	
 	add_child(droppedFood)
 	
 	# Add stats
-	placedFoodStats.append(stats)
+	placedFoodStats.append(item.stats)
 	
 	for transformedCell: Vector2i in transformedShape:
 		emptyCells.remove_at(emptyCells.find(transformedCell))

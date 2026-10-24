@@ -1,24 +1,59 @@
 [gd_scene format=3 uid="uid://crnc13a1nqb50"]
 
 [ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Level/Level.tscn" id="1_5rhmw"]
+[ext_resource type="Script" uid="uid://1q13s70ugadp" path="res://LevelControl/LevelController.gd" id="1_7ka52"]
+[ext_resource type="Script" uid="uid://bptu1jid2jp0n" path="res://LevelControl/Level.gd" id="2_05t60"]
+[ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="3_d7giy"]
+
+[sub_resource type="Resource" id="Resource_3rvlg"]
+script = ExtResource("3_d7giy")
+calories = 700
+nutrientA = 25
+nutrientB = 15
+nutrientC = 10
+metadata/_custom_type_script = "uid://vvkn4ax4t010"
+
+[sub_resource type="Resource" id="Resource_fglrw"]
+script = ExtResource("2_05t60")
+restrictions = SubResource("Resource_3rvlg")
+gridShape = Array[Vector2i]([Vector2i(-5, 0), Vector2i(-4, 0), Vector2i(-3, 0), Vector2i(-2, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(-6, -1), Vector2i(-5, -1), Vector2i(-4, -1), Vector2i(-3, -1), Vector2i(0, -1), Vector2i(3, -1), Vector2i(4, -1), Vector2i(5, -1), Vector2i(6, -1), Vector2i(-7, -2), Vector2i(-6, -2), Vector2i(-5, -2), Vector2i(-4, -2), Vector2i(-1, -2), Vector2i(0, -2), Vector2i(1, -2), Vector2i(4, -2), Vector2i(5, -2), Vector2i(6, -2), Vector2i(7, -2)])
+metadata/_custom_type_script = "uid://bptu1jid2jp0n"
+
+[sub_resource type="Resource" id="Resource_05t60"]
+script = ExtResource("3_d7giy")
+calories = 800
+nutrientA = 10
+nutrientB = 30
+nutrientC = 20
+tagC = true
+metadata/_custom_type_script = "uid://vvkn4ax4t010"
+
+[sub_resource type="Resource" id="Resource_d7giy"]
+script = ExtResource("2_05t60")
+restrictions = SubResource("Resource_05t60")
+gridShape = Array[Vector2i]([Vector2i(0, 0)])
+metadata/_custom_type_script = "uid://bptu1jid2jp0n"
+
+[sub_resource type="Resource" id="Resource_y5lma"]
+script = ExtResource("3_d7giy")
+calories = 1100
+nutrientA = 20
+nutrientB = 30
+nutrientC = 30
+metadata/_custom_type_script = "uid://vvkn4ax4t010"
+
+[sub_resource type="Resource" id="Resource_pnvru"]
+script = ExtResource("2_05t60")
+restrictions = SubResource("Resource_y5lma")
+gridShape = Array[Vector2i]([Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0)])
+metadata/_custom_type_script = "uid://bptu1jid2jp0n"
 
 [node name="LevelController" type="Node2D" unique_id=436989991]
+script = ExtResource("1_7ka52")
+levels = Array[ExtResource("2_05t60")]([SubResource("Resource_fglrw"), SubResource("Resource_d7giy"), SubResource("Resource_pnvru")])
 
 [node name="Level" parent="." unique_id=1586488118 instance=ExtResource("1_5rhmw")]
 
-[node name="Bucket" parent="Level/BucketTray" parent_id_path=PackedInt32Array(1586488118, 1378077383) index="1" unique_id=899398795]
-producedShape = Array[Vector2i]([])
-
-[node name="Bucket2" parent="Level/BucketTray" parent_id_path=PackedInt32Array(1586488118, 1378077383) index="2" unique_id=1732722692]
-producedShape = Array[Vector2i]([])
-
-[node name="Bucket3" parent="Level/BucketTray" parent_id_path=PackedInt32Array(1586488118, 1378077383) index="3" unique_id=473661831]
-producedShape = Array[Vector2i]([])
-
-[node name="Bucket4" parent="Level/BucketTray" parent_id_path=PackedInt32Array(1586488118, 1378077383) index="4" unique_id=352251204]
-producedShape = Array[Vector2i]([])
-
-[node name="Bucket5" parent="Level/BucketTray" parent_id_path=PackedInt32Array(1586488118, 1378077383) index="5" unique_id=710536430]
-producedShape = Array[Vector2i]([])
+[connection signal="button_down" from="Level/ScoreCard/ContinueButton" to="." method="_nextLevel"]
 
 [editable path="Level"]

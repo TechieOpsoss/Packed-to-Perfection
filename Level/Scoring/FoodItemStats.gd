@@ -1,7 +1,4 @@
 class_name FoodItemStats extends Resource
-@export var foodStartQuantity: int
-@export var foodItemName: String
-@export var foodItemNamePlural: String
 @export var calories: int
 @export var nutrientA: int
 @export var nutrientB: int
@@ -9,10 +6,7 @@ class_name FoodItemStats extends Resource
 @export var tagA: bool
 @export var tagB: bool
 @export var tagC: bool
-func _init(p_foodStartQuantity: int = 10, p_foodItemName: String = "Food Item", p_foodItemNamePlural: String = "Food Items", p_calories: int = 0, p_nutrientA: int = 0, p_nutrientB: int = 0, p_nutrientC: int = 0, p_tagA: bool = false, p_tagB: bool = false, p_tagC: bool = false):
-	foodStartQuantity = p_foodStartQuantity
-	foodItemName = p_foodItemName
-	foodItemNamePlural = p_foodItemNamePlural
+func _init(p_calories: int = 0, p_nutrientA: int = 0, p_nutrientB: int = 0, p_nutrientC: int = 0, p_tagA: bool = false, p_tagB: bool = false, p_tagC: bool = false):
 	calories = p_calories
 	nutrientA = p_nutrientA
 	nutrientB = p_nutrientB
@@ -43,4 +37,4 @@ func sumWith(other: FoodItemStats) -> FoodItemStats:
 	return ret
 	
 func _to_string() -> String:
-	return str("\"", foodItemName, "\": ", {"Calories": calories, "Nutrient A": nutrientA, "Nutrient B": nutrientB, "Nutrient C": nutrientC, "Tag A": tagA, "Tag B": tagB, "Tag C": tagC})
+	return str({"Calories": calories, "Nutrient A": nutrientA, "Nutrient B": nutrientB, "Nutrient C": nutrientC, "Tag A": tagA, "Tag B": tagB, "Tag C": tagC})
