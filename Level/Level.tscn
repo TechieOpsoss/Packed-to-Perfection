@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://c07fu7134iygg"]
 
+[ext_resource type="Script" uid="uid://bpskttlgfdn1y" path="res://Level/Food/FoodBucketTray.gd" id="2_5noo7"]
 [ext_resource type="PackedScene" uid="uid://dwy44bgksy46j" path="res://Level/Food/FoodGrid.tscn" id="2_y3hra"]
 [ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="3_cyxyq"]
 [ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Level/Food/FoodBucket.tscn" id="3_l4vu7"]
+[ext_resource type="Script" uid="uid://s14eqx3x70br" path="res://Level/Scoring/FoodScorer.gd" id="4_i5eh5"]
 
 [sub_resource type="Resource" id="Resource_5noo7"]
 script = ExtResource("3_cyxyq")
@@ -36,32 +38,133 @@ metadata/_custom_type_script = "uid://vvkn4ax4t010"
 [node name="Level" type="Node2D" unique_id=1586488118]
 
 [node name="Grid" parent="." unique_id=1446597112 instance=ExtResource("2_y3hra")]
-position = Vector2(702.415, 453.98)
+position = Vector2(770, 427)
 gridShape = Array[Vector2i]([Vector2i(-1, -1), Vector2i(0, -1), Vector2i(1, -1), Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, 1), Vector2i(0, 1), Vector2i(1, 1)])
 
-[node name="Bucket" parent="." unique_id=899398795 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
-offset_left = 32.0
-offset_top = 384.0
-offset_right = 128.0
-offset_bottom = 480.0
+[node name="BucketTray" type="Node2D" parent="." unique_id=1378077383]
+script = ExtResource("2_5noo7")
+
+[node name="FinishButton" type="Button" parent="BucketTray" unique_id=35069417]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 432.0
+offset_top = 568.0
+offset_right = 496.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+action_mode = 0
+text = "-->"
+
+[node name="Bucket" parent="BucketTray" unique_id=899398795 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = 408.0
+offset_right = 144.0
+offset_bottom = 504.0
+grow_horizontal = 2
+grow_vertical = 2
 stats = SubResource("Resource_5noo7")
-producedShape = Array[Vector2i]([Vector2i(0, -1), Vector2i(0, 0), Vector2i(0, 1)])
-grid = NodePath("../Grid")
+grid = NodePath("../../Grid")
 
-[node name="Bucket2" parent="." unique_id=1732722692 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
-offset_left = 160.0
-offset_top = 448.0
-offset_right = 256.0
-offset_bottom = 544.0
+[node name="Bucket2" parent="BucketTray" unique_id=1732722692 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = 408.0
+offset_right = 400.0
+offset_bottom = 504.0
+grow_horizontal = 2
+grow_vertical = 2
 stats = SubResource("Resource_cyxyq")
-producedShape = Array[Vector2i]([Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0)])
-grid = NodePath("../Grid")
+grid = NodePath("../../Grid")
 
-[node name="Bucket3" parent="." unique_id=473661831 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
-offset_left = 288.0
-offset_top = 384.0
-offset_right = 384.0
-offset_bottom = 480.0
+[node name="Bucket3" parent="BucketTray" unique_id=473661831 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 176.0
+offset_top = 472.0
+offset_right = 272.0
+offset_bottom = 568.0
+grow_horizontal = 2
+grow_vertical = 2
 stats = SubResource("Resource_u0wck")
-producedShape = Array[Vector2i]([Vector2i(0, 0)])
-grid = NodePath("../Grid")
+grid = NodePath("../../Grid")
+
+[node name="Bucket4" parent="BucketTray" unique_id=352251204 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = 536.0
+offset_right = 144.0
+offset_bottom = 632.0
+grow_horizontal = 2
+grow_vertical = 2
+stats = SubResource("Resource_u0wck")
+grid = NodePath("../../Grid")
+
+[node name="Bucket5" parent="BucketTray" unique_id=710536430 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = 536.0
+offset_right = 400.0
+offset_bottom = 632.0
+grow_horizontal = 2
+grow_vertical = 2
+stats = SubResource("Resource_u0wck")
+grid = NodePath("../../Grid")
+
+[node name="ScoreCard" type="Node2D" parent="." unique_id=1063314635 node_paths=PackedStringArray("toScore")]
+script = ExtResource("4_i5eh5")
+toScore = NodePath("../Grid")
+
+[node name="ContinueButton" type="Button" parent="ScoreCard" unique_id=495821184]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 432.0
+offset_top = 568.0
+offset_right = 496.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+action_mode = 0
+text = "-->"
+
+[node name="ScorePlaceholder" type="Label" parent="ScoreCard" unique_id=1313200512]
+offset_left = 67.0
+offset_top = 439.0
+offset_right = 384.0
+offset_bottom = 596.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="button_down" from="BucketTray/FinishButton" to="BucketTray" method="_hide"]
+[connection signal="button_down" from="BucketTray/FinishButton" to="ScoreCard" method="_show"]
+[connection signal="button_down" from="ScoreCard/ContinueButton" to="BucketTray" method="_show"]
+[connection signal="button_down" from="ScoreCard/ContinueButton" to="ScoreCard" method="_hide"]

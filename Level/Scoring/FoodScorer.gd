@@ -1,10 +1,14 @@
-class_name Scoring
+class_name FoodScorer extends Node2D
 
+@export var toScore: FoodGrid
 
-@export var minCalories: int
-@export var minNutrientA: int
-@export var minNutrientB: int
-@export var minNutrientC: int
-@export var restrictTagA: bool
-@export var restrictTagB: bool
-@export var restrictTagC: bool
+func _ready():
+	hide()
+
+func _show():
+	# TODO: actually score
+	$ScorePlaceholder.text = str(toScore.totalStats())
+	show()
+
+func _hide():
+	hide()

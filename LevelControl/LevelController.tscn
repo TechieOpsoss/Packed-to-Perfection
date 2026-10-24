@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://crnc13a1nqb50"]
+
+[ext_resource type="PackedScene" uid="uid://c07fu7134iygg" path="res://Level/Level.tscn" id="1_5rhmw"]
+
+[node name="LevelController" type="Node2D" unique_id=436989991]
+
+[node name="Level" parent="." unique_id=1586488118 instance=ExtResource("1_5rhmw")]
+
+[node name="Bucket" parent="Level/BucketTray" parent_id_path=PackedInt32Array(1586488118, 1378077383) index="1" unique_id=899398795]
+producedShape = Array[Vector2i]([])
+
+[node name="Bucket2" parent="Level/BucketTray" parent_id_path=PackedInt32Array(1586488118, 1378077383) index="2" unique_id=1732722692]
+producedShape = Array[Vector2i]([])
+
+[node name="Bucket3" parent="Level/BucketTray" parent_id_path=PackedInt32Array(1586488118, 1378077383) index="3" unique_id=473661831]
+producedShape = Array[Vector2i]([])
+
+[node name="Bucket4" parent="Level/BucketTray" parent_id_path=PackedInt32Array(1586488118, 1378077383) index="4" unique_id=352251204]
+producedShape = Array[Vector2i]([])
+
+[node name="Bucket5" parent="Level/BucketTray" parent_id_path=PackedInt32Array(1586488118, 1378077383) index="5" unique_id=710536430]
+producedShape = Array[Vector2i]([])
+
+[editable path="Level"]

@@ -1,4 +1,5 @@
 class_name FoodItemStats extends Resource
+@export var foodStartQuantity: int
 @export var foodItemName: String
 @export var foodItemNamePlural: String
 @export var calories: int
@@ -8,7 +9,8 @@ class_name FoodItemStats extends Resource
 @export var tagA: bool
 @export var tagB: bool
 @export var tagC: bool
-func _init(p_foodItemName: String = "Food Item", p_foodItemNamePlural: String = "Food Items", p_calories: int = 0, p_nutrientA: int = 0, p_nutrientB: int = 0, p_nutrientC: int = 0, p_tagA: bool = false, p_tagB: bool = false, p_tagC: bool = false):
+func _init(p_foodStartQuantity: int = 10, p_foodItemName: String = "Food Item", p_foodItemNamePlural: String = "Food Items", p_calories: int = 0, p_nutrientA: int = 0, p_nutrientB: int = 0, p_nutrientC: int = 0, p_tagA: bool = false, p_tagB: bool = false, p_tagC: bool = false):
+	foodStartQuantity = p_foodStartQuantity
 	foodItemName = p_foodItemName
 	foodItemNamePlural = p_foodItemNamePlural
 	calories = p_calories

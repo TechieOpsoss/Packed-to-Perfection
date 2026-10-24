@@ -4,9 +4,10 @@ class_name FoodBucket extends Button
 @export var producedShape: Array[Vector2i]
 @export var grid: FoodGrid
 
-@export var heldQuantity: int = 10
+var heldQuantity: int
 
 func _ready():
+	heldQuantity = stats.foodStartQuantity
 	if heldQuantity == 1:
 		$Label.text = str(heldQuantity, " ", stats.foodItemName)
 	else:
