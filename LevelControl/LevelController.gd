@@ -8,6 +8,7 @@ signal completedAll
 func _ready():
 	if currentLevel < levels.size():
 		loadLevel(levels[currentLevel])
+	completedAll.connect($Level.queue_free)
 
 func loadLevel(level: Level):
 	$Level/ScoreCard.restrictions = level.restrictions
