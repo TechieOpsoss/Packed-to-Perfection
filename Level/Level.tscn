@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Level/Food/FoodBucket.tscn" id="3_l4vu7"]
 [ext_resource type="Script" uid="uid://s14eqx3x70br" path="res://Level/Scoring/FoodScorer.gd" id="4_i5eh5"]
 [ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Resources/Alien Icons/Alien1.png" id="7_6lumq"]
-[ext_resource type="PackedScene" uid="uid://0kgjw0ttvahu" path="res://Level/ReceiptLayer.tscn" id="8_chl2c"]
+[ext_resource type="PackedScene" uid="uid://0kgjw0ttvahu" path="res://Level/Receipt.tscn" id="8_chl2c"]
 [ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="10_wp1u0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e56cd"]
@@ -18,9 +18,9 @@ position = Vector2(576, 269.29)
 scale = Vector2(0.223, 0.223)
 texture = ExtResource("7_6lumq")
 
-[node name="ReceiptLayer" parent="." unique_id=1584341472 instance=ExtResource("8_chl2c")]
-offset = Vector2(864, 20)
-transform = Transform2D(1, 0, 0, 1, 864, 20)
+[node name="Receipt" parent="." unique_id=1584341472 instance=ExtResource("8_chl2c")]
+offset_left = 896.0
+offset_right = 1152.0
 
 [node name="Background" type="TextureRect" parent="." unique_id=1958186854]
 z_index = -3
@@ -39,9 +39,9 @@ mouse_filter = 1
 mouse_behavior_recursive = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_e56cd")
 
-[node name="Grid" parent="Container" unique_id=1446597112 node_paths=PackedStringArray("receiptLayer") instance=ExtResource("2_y3hra")]
+[node name="Grid" parent="Container" unique_id=1446597112 node_paths=PackedStringArray("receipt") instance=ExtResource("2_y3hra")]
 position = Vector2(836, 256)
-receiptLayer = NodePath("../../ReceiptLayer")
+receipt = NodePath("../../Receipt")
 
 [node name="BucketTray" type="Node2D" parent="Container" unique_id=1378077383]
 position = Vector2(0, -379)
