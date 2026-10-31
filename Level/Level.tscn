@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://c07fu7134iygg"]
 
-[ext_resource type="Script" uid="uid://bpskttlgfdn1y" path="res://Level/Food/FoodBucketTray.gd" id="2_5noo7"]
+[ext_resource type="Script" uid="uid://bpskttlgfdn1y" path="res://Level/Hideable.gd" id="2_5noo7"]
 [ext_resource type="PackedScene" uid="uid://dwy44bgksy46j" path="res://Level/Food/FoodGrid.tscn" id="2_y3hra"]
 [ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Level/Food/FoodBucket.tscn" id="3_l4vu7"]
 [ext_resource type="Script" uid="uid://s14eqx3x70br" path="res://Level/Scoring/FoodScorer.gd" id="4_i5eh5"]
 [ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Resources/Alien Icons/Alien1.png" id="7_6lumq"]
+[ext_resource type="PackedScene" uid="uid://dff0vwr25pbgp" path="res://Level/Scoring/ScoreboxStatDisplay.tscn" id="8_6lumq"]
 [ext_resource type="PackedScene" uid="uid://0kgjw0ttvahu" path="res://Level/Scoring/Receipt.tscn" id="8_chl2c"]
 [ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="10_wp1u0"]
 
@@ -61,7 +62,27 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 action_mode = 0
-text = "-->"
+text = "Finish"
+script = ExtResource("2_5noo7")
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfirmButton" type="Button" parent="Container/BucketTray" unique_id=105728272]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 432.0
+offset_top = 568.0
+offset_right = 496.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+action_mode = 0
+text = "Are you sure?"
+script = ExtResource("2_5noo7")
+startHidden = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Bucket1" parent="Container/BucketTray" unique_id=899398795 node_paths=PackedStringArray("grid") instance=ExtResource("3_l4vu7")]
@@ -173,7 +194,7 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 action_mode = 0
-text = "-->"
+text = "Continue"
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreBox" type="PanelContainer" parent="Container/ScoreCard" unique_id=2132067959]
@@ -189,8 +210,15 @@ vertical_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/Grid" method="freezeDroppedFood"]
-[connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/BucketTray" method="_hide"]
-[connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/ScoreCard" method="_show"]
+[node name="StatDisplay" parent="Container/ScoreCard/ScoreBox" unique_id=952904504 instance=ExtResource("8_6lumq")]
+layout_mode = 2
+
+[connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/BucketTray/FinishButton" method="_hide"]
+[connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/BucketTray/ConfirmButton" method="_show"]
+[connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/Grid" method="freezeDroppedFood"]
+[connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/BucketTray" method="_hide"]
+[connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/BucketTray/FinishButton" method="_show"]
+[connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/BucketTray/ConfirmButton" method="_hide"]
+[connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/ScoreCard" method="_show"]
 [connection signal="button_down" from="Container/ScoreCard/ContinueButton" to="Container/BucketTray" method="_show"]
 [connection signal="button_down" from="Container/ScoreCard/ContinueButton" to="Container/ScoreCard" method="_hide"]
