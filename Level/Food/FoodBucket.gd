@@ -5,15 +5,24 @@ class_name FoodBucket extends Button
 
 var heldQuantity: int
 
-func updateText():
+func updateLabel():
 	if heldQuantity == 1:
-		$Label.text = str(heldQuantity, " ", item.foodItemName, "\n", item.stats)
+		$Label.text = str(heldQuantity, " ", item.foodItemName)
 	else:
-		$Label.text = str(heldQuantity, " ", item.foodItemNamePlural, "\n", item.stats)
+		$Label.text = str(heldQuantity, " ", item.foodItemNamePlural)
+	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(item.shape, 12, 4))
+	$PreviewShape.polygon = verticesAndIndices[0]
+	$PreviewShape.polygons = verticesAndIndices[1]
+	var minBounds: Vector2 = verticesAndIndices[0][0]
+	for vertex in verticesAndIndices[0]:
+		minBounds.x = min(minBounds.x, vertex.x)
+		minBounds.y = min(minBounds.y, vertex.y)
+	$PreviewShape.position = -minBounds + Vector2(4,4)
+
+func updateNutrients(requirements: FoodItemStats):
+	pass
 
 func _ready():
-	heldQuantity = item.foodStartQuantity
-	updateText()
 	$Label.size = size
 
 # Carried shape production.
@@ -35,11 +44,11 @@ func produceShape() -> void:
 # Increment quantity stored in bucket.
 func returnShape():
 	heldQuantity += 1
-	updateText()
+	updateLabel()
 
 # Decrement quantity stored in bucket and attempt to produce shape.
 func _pressed() -> void:
 	if (heldQuantity > 0):
 		heldQuantity = heldQuantity - 1
-		updateText()
+		updateLabel()
 		produceShape()

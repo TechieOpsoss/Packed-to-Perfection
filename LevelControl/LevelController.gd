@@ -30,27 +30,33 @@ func loadLevel(level: Level):
 	if level.resetsFoodItems:
 		$Level/Container/BucketTray/Bucket1.item = level.newItem1
 		$Level/Container/BucketTray/Bucket1.heldQuantity = level.newItem1.foodStartQuantity
-		$Level/Container/BucketTray/Bucket1.updateText()
+		$Level/Container/BucketTray/Bucket1.updateLabel()
 			
 		$Level/Container/BucketTray/Bucket2.item = level.newItem2
 		$Level/Container/BucketTray/Bucket2.heldQuantity = level.newItem2.foodStartQuantity
-		$Level/Container/BucketTray/Bucket2.updateText()
+		$Level/Container/BucketTray/Bucket2.updateLabel()
 			
 		$Level/Container/BucketTray/Bucket3.item = level.newItem3
 		$Level/Container/BucketTray/Bucket3.heldQuantity = level.newItem3.foodStartQuantity
-		$Level/Container/BucketTray/Bucket3.updateText()
+		$Level/Container/BucketTray/Bucket3.updateLabel()
 			
 		$Level/Container/BucketTray/Bucket4.item = level.newItem4
 		$Level/Container/BucketTray/Bucket4.heldQuantity = level.newItem4.foodStartQuantity
-		$Level/Container/BucketTray/Bucket4.updateText()
+		$Level/Container/BucketTray/Bucket4.updateLabel()
 			
 		$Level/Container/BucketTray/Bucket5.item = level.newItem5
 		$Level/Container/BucketTray/Bucket5.heldQuantity = level.newItem5.foodStartQuantity
-		$Level/Container/BucketTray/Bucket5.updateText()
+		$Level/Container/BucketTray/Bucket5.updateLabel()
 			
 		$Level/Container/BucketTray/Bucket6.item = level.newItem6
 		$Level/Container/BucketTray/Bucket6.heldQuantity = level.newItem6.foodStartQuantity
-		$Level/Container/BucketTray/Bucket6.updateText()
+		$Level/Container/BucketTray/Bucket6.updateLabel()
+	$Level/Container/BucketTray/Bucket1.updateNutrients(level.restrictions)
+	$Level/Container/BucketTray/Bucket2.updateNutrients(level.restrictions)
+	$Level/Container/BucketTray/Bucket3.updateNutrients(level.restrictions)
+	$Level/Container/BucketTray/Bucket4.updateNutrients(level.restrictions)
+	$Level/Container/BucketTray/Bucket5.updateNutrients(level.restrictions)
+	$Level/Container/BucketTray/Bucket6.updateNutrients(level.restrictions)
 
 func _nextLevel():
 	currentLevel += 1

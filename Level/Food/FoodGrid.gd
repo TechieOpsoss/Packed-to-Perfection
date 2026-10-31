@@ -80,8 +80,11 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 	droppedFood.grid = self
 	droppedFood.returnShape = returnShape
 	droppedFood.depleted.connect(func():
+		# Remove cells
 		for transformedCell: Vector2i in transformedShape:
 			emptyCells.append(transformedCell)
+		
+		# Remove stats
 		placedFoodStats.remove_at(placedFoodStats.find(item.stats))
 		receipt.update(totalStats(), requirements)
 		updateGridVisuals()
@@ -89,12 +92,13 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 	
 	$DroppedFoodItems.add_child(droppedFood)
 	
+	# Add cells
+	for transformedCell: Vector2i in transformedShape:
+		emptyCells.remove_at(emptyCells.find(transformedCell))
+	
 	# Add stats
 	placedFoodStats.append(item.stats)
 	receipt.update(totalStats(), requirements)
-	
-	for transformedCell: Vector2i in transformedShape:
-		emptyCells.remove_at(emptyCells.find(transformedCell))
 	
 	updateGridVisuals()
 	

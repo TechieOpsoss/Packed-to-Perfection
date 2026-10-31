@@ -1,31 +1,23 @@
 [gd_scene format=3 uid="uid://eq0pqyl0544b"]
 
 [ext_resource type="Script" uid="uid://bglxm572r043g" path="res://Level/Food/FoodBucket.gd" id="1_c2pod"]
-[ext_resource type="Script" uid="uid://crn8imolnvuea" path="res://Level/Scoring/FoodItem.gd" id="2_w0o8m"]
-[ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="3_x7q1p"]
-
-[sub_resource type="Resource" id="Resource_x7q1p"]
-script = ExtResource("3_x7q1p")
-metadata/_custom_type_script = "uid://vvkn4ax4t010"
-
-[sub_resource type="Resource" id="Resource_w0o8m"]
-script = ExtResource("2_w0o8m")
-stats = SubResource("Resource_x7q1p")
-metadata/_custom_type_script = "uid://crn8imolnvuea"
 
 [node name="Bucket" type="Button" unique_id=899398795]
-offset_right = 64.0
-offset_bottom = 64.0
+offset_right = 96.0
+offset_bottom = 96.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 focus_mode = 0
 action_mode = 0
 script = ExtResource("1_c2pod")
-item = SubResource("Resource_w0o8m")
 
 [node name="Label" type="Label" parent="." unique_id=1783574177]
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_right = 96.0
+offset_bottom = 96.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "Item"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PreviewShape" type="Polygon2D" parent="." unique_id=824730390]
+position = Vector2(48, 48)

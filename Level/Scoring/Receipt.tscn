@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://0kgjw0ttvahu"]
+
+[ext_resource type="Script" uid="uid://bll1sr7eixwga" path="res://Level/Scoring/Receipt.gd" id="1_g61rn"]
+[ext_resource type="PackedScene" uid="uid://dclcu6nq0vuad" path="res://Level/Scoring/ReceiptStatDisplay.tscn" id="2_myr18"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp1u0"]
+bg_color = Color(0.45882353, 0, 0.25882354, 0.7137255)
+
+[node name="Receipt" type="Panel" unique_id=384934691]
+offset_right = 320.0
+offset_bottom = 368.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wp1u0")
+script = ExtResource("1_g61rn")
+
+[node name="CenteredText" type="Label" parent="." unique_id=241148720]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 368.0
+text = "
+Order
+
+
+
+
+
+
+
+
+
+Dietary Restrictions"
+horizontal_alignment = 1
+
+[node name="LeftText" type="Label" parent="." unique_id=697832577]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 368.0
+text = "
+
+
+Calories
+
+Protein
+
+Dietary Fat
+
+Carbohydrates"
+
+[node name="StatDisplay" parent="." unique_id=952904504 instance=ExtResource("2_myr18")]
+layout_mode = 0
