@@ -13,6 +13,28 @@ levels = Array[ExtResource("2_05t60")]([ExtResource("3_3rvlg"), ExtResource("5_f
 
 [node name="Level" parent="." unique_id=1586488118 instance=ExtResource("1_5rhmw")]
 
+[node name="MainButton" type="Button" parent="Level/Container/Grid" parent_id_path=PackedInt32Array(1586488118, 1446597112) index="5" unique_id=654022368]
+offset_left = 186.0
+offset_top = -45.0
+offset_right = 299.0
+offset_bottom = -13.0
+text = "Main Menu"
+
+[node name="FinishButton" parent="Level/Container/BucketTray" parent_id_path=PackedInt32Array(1586488118, 1378077383) index="0" unique_id=35069417]
+offset_left = 1022.5
+offset_top = 506.0
+offset_right = 1135.5
+offset_bottom = 538.0
+text = "Submit Order"
+
+[node name="ContinueButton" parent="Level/Container/ScoreCard" parent_id_path=PackedInt32Array(1586488118, 1063314635) index="0" unique_id=495821184]
+offset_left = 1022.5
+offset_top = 506.0
+offset_right = 1135.5
+offset_bottom = 538.0
+text = "Continue"
+
+[connection signal="button_down" from="Level/Container/Grid/MainButton" to="." method="_on_main_button_button_down"]
 [connection signal="button_down" from="Level/Container/ScoreCard/ContinueButton" to="." method="_nextLevel"]
 
 [editable path="Level"]

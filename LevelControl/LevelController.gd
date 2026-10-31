@@ -58,3 +58,7 @@ func _nextLevel():
 		loadLevel(levels[currentLevel])
 	else:
 		completedAll.emit()
+
+
+func _on_main_button_button_down() -> void:
+	get_tree().change_scene_to_file("res://Menu/Menu.tscn")
