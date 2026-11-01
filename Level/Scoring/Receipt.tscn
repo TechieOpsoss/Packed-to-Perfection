@@ -37,13 +37,13 @@ offset_bottom = 368.0
 text = "
 
 
-Calories
+ Calories
 
-Protein
+ Protein
 
-Dietary Fat
+ Dietary Fat
 
-Carbohydrates"
+ Carbohydrates"
 
 [node name="StatDisplay" parent="." unique_id=952904504 instance=ExtResource("2_myr18")]
 layout_mode = 0

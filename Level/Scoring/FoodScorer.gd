@@ -34,8 +34,8 @@ func _hide():
 	hide()
 
 static func cal_deduction(calories: int, requiredCalories: int) -> int: # -1 for every 10 off by
-	var overUnder = abs(requiredCalories - calories) / 10
-	return floor(overUnder) as int
+	var difference = abs(requiredCalories - calories)
+	return floor(difference as float / 10) as int
 
 func calculate_score() -> int:
 	if currentStats.calories == 0 and currentStats.nutrientA == 0 and currentStats.nutrientB == 0 and currentStats.nutrientC == 0:

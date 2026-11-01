@@ -7,7 +7,8 @@ func update(score: int, current: FoodItemStats, requirements: FoodItemStats):
 	+ (FoodScorer.DIETARY_DEDUCTION if requirements.tagA else 0)\
 	+ (FoodScorer.DIETARY_DEDUCTION if requirements.tagB else 0)\
 	+ (FoodScorer.DIETARY_DEDUCTION if requirements.tagC else 0)
-	$Backdrop/Calories.size.x = 0 if score == 0 else $Backdrop.size.x * min(1, (potentialLostScoreDueToCalories - FoodScorer.cal_deduction(current.calories, requirements.calories) as float) / potentialLostScore)
+	
+	$Backdrop/Calories.size.x = 0 if score == 0 else $Backdrop.size.x * min(1, abs(potentialLostScoreDueToCalories - FoodScorer.cal_deduction(current.calories, requirements.calories)) as float / potentialLostScore)
 	$Backdrop/Protein.position.x = $Backdrop/Calories.size.x
 	$Backdrop/Protein.size.x = 0 if score == 0 else $Backdrop.size.x * (FoodScorer.MACRO_DEDUCTION as float / potentialLostScore) if current.nutrientA >= requirements.nutrientA else 0
 	$Backdrop/Carbs.position.x = $Backdrop/Protein.position.x + $Backdrop/Protein.size.x
