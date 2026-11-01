@@ -6,6 +6,7 @@ extends Node2D
 signal completedAll
 
 func _ready():
+	$LevelCounter.text = str(currentLevel + 1, "/", levels.size())
 	if currentLevel < levels.size():
 		loadLevel(levels[currentLevel])
 	completedAll.connect($Level.queue_free)
@@ -60,6 +61,7 @@ func loadLevel(level: Level):
 
 func _nextLevel():
 	currentLevel += 1
+	$LevelCounter.text = str(currentLevel + 1, "/", levels.size())
 	if currentLevel < levels.size():
 		loadLevel(levels[currentLevel])
 	else:

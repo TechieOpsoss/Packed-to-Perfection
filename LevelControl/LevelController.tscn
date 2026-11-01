@@ -7,11 +7,33 @@
 [ext_resource type="Resource" uid="uid://c00xnbvnkmjm0" path="res://Resources/Levels/Level2.tres" id="5_fglrw"]
 [ext_resource type="Resource" uid="uid://bct50c85awhmf" path="res://Resources/Levels/Level3.tres" id="5_y5lma"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rvlg"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="LevelController" type="Node2D" unique_id=436989991]
 script = ExtResource("1_7ka52")
 levels = Array[ExtResource("2_05t60")]([ExtResource("3_3rvlg"), ExtResource("5_fglrw"), ExtResource("5_y5lma")])
 
 [node name="Level" parent="." unique_id=1586488118 instance=ExtResource("1_5rhmw")]
+
+[node name="LevelCounter" type="Label" parent="." unique_id=638413068]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 444.0
+offset_top = 589.0
+offset_right = 484.0
+offset_bottom = 612.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3rvlg")
+text = "1/3"
+horizontal_alignment = 1
 
 [connection signal="button_down" from="Level/Container/ScoreCard/ContinueButton" to="." method="_nextLevel"]
 

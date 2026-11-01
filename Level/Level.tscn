@@ -215,12 +215,14 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 
 [node name="Hint" type="Label" parent="." unique_id=965847105]
-offset_left = 405.0
-offset_top = 415.0
-offset_right = 549.0
-offset_bottom = 464.0
+offset_left = 406.0
+offset_top = 395.0
+offset_right = 620.0
+offset_bottom = 466.0
+theme_override_font_sizes/font_size = 24
 text = "Right click to show
 <-- statistics"
+horizontal_alignment = 1
 script = ExtResource("9_chl2c")
 
 [connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/BucketTray/FinishButton" method="_hide"]

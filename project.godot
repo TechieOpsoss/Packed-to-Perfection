@@ -76,3 +76,4 @@ shape_rotate_ccw={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+anti_aliasing/quality/msaa_2d=3
