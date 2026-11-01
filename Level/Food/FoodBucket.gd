@@ -15,6 +15,7 @@ func updateLabel():
 	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(item.shape, 24, 3))
 	$PreviewShape.polygon = verticesAndIndices[0]
 	$PreviewShape.polygons = verticesAndIndices[1]
+	$PreviewShape.color = item.color
 	minPreviewBounds = verticesAndIndices[0][0]
 	maxPreviewBounds = verticesAndIndices[0][0]
 	for vertex in verticesAndIndices[0]:

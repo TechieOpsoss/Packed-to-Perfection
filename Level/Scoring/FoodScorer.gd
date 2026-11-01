@@ -8,19 +8,18 @@ const BASE_SCORE: int = 100
 const MACRO_DEDUCTION: int = 10
 const DIETARY_DEDUCTION: int = 20
 const WIN_THRESHOLD: int = 225
-var currentStats: FoodItemStats
 
 func _ready():
 	hide()
 
 func updateScore():
-	currentStats = toScore.totalStats()
+	var currentStats: FoodItemStats = toScore.totalStats()
 	var proteinText = "Proteins: " + str(currentStats.nutrientA) + " / " + str(restrictions.nutrientA) + (str(" (-", MACRO_DEDUCTION, ")") if currentStats.nutrientA < restrictions.nutrientA else "")
 	var carbText = "Carbohydrates: " + str(currentStats.nutrientB) + " / " + str(restrictions.nutrientB) + (str(" (-", MACRO_DEDUCTION, ")") if currentStats.nutrientB < restrictions.nutrientB else "")
 	var fatText = "Fats: " + str(currentStats.nutrientC) + " / " + str(restrictions.nutrientC) + (str(" (-", MACRO_DEDUCTION, ")") if currentStats.nutrientC < restrictions.nutrientC else "")
 	var calorieText = "Calories: " + str(currentStats.calories) + " / " + str(restrictions.calories) + " (-" + str(cal_deduction(currentStats.calories, restrictions.calories)) + ")"
 	
-	var alienScore: int = calculate_score()
+	var alienScore: int = calculate_score(currentStats)
 	$ScoreBox/ScoreLabel.text = str("SCORE:\n", calorieText, "\n", proteinText, "\n", carbText, "\n", fatText, "\nTotal Score: ", alienScore)
 	$ScoreBox/StatDisplay.update(alienScore, currentStats, restrictions)
 	totalScore += alienScore
@@ -37,23 +36,22 @@ static func cal_deduction(calories: int, requiredCalories: int) -> int: # -1 for
 	var difference = abs(requiredCalories - calories)
 	return floor(difference as float / 10) as int
 
-func calculate_score() -> int:
+func calculate_score(currentStats: FoodItemStats) -> int:
 	if currentStats.calories == 0 and currentStats.nutrientA == 0 and currentStats.nutrientB == 0 and currentStats.nutrientC == 0:
 		return 0
 	var score: int = BASE_SCORE
-	if currentStats.calories < restrictions.calories || currentStats.calories > restrictions.calories : #update
-		score -= cal_deduction(currentStats.calories, restrictions.calories)
+	score -= cal_deduction(currentStats.calories, restrictions.calories)
 	if currentStats.nutrientA < restrictions.nutrientA:
 		score -= MACRO_DEDUCTION
 	if currentStats.nutrientB < restrictions.nutrientB:
 		score -= MACRO_DEDUCTION
 	if currentStats.nutrientC < restrictions.nutrientC:
 		score -= MACRO_DEDUCTION
-	if  currentStats.tagA && restrictions.tagA:
+	if currentStats.tagA && restrictions.tagA:
 		score -= DIETARY_DEDUCTION
 	if currentStats.tagB && restrictions.tagB:
 		score -= DIETARY_DEDUCTION
-	if currentStats.tagB && restrictions.tagC:
+	if currentStats.tagC && restrictions.tagC:
 		score -= DIETARY_DEDUCTION
 	return max(0, score)
 
