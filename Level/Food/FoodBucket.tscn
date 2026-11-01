@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://eq0pqyl0544b"]
 
 [ext_resource type="Script" uid="uid://bglxm572r043g" path="res://Level/Food/FoodBucket.gd" id="1_c2pod"]
+[ext_resource type="PackedScene" uid="uid://c7v1bl2dqk4n2" path="res://Level/Food/FoodBucketStatDisplay.tscn" id="2_w0o8m"]
 
 [node name="Bucket" type="Button" unique_id=899398795]
 offset_right = 96.0
@@ -8,16 +9,24 @@ offset_bottom = 96.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 focus_mode = 0
 action_mode = 0
+button_mask = 3
 script = ExtResource("1_c2pod")
 
 [node name="Label" type="Label" parent="." unique_id=1783574177]
 layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 120.0
+offset_bottom = 120.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 14
 text = "Item"
 horizontal_alignment = 1
-vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="StatDisplay" parent="." unique_id=952904504 instance=ExtResource("2_w0o8m")]
+visible = false
+layout_mode = 0
 
 [node name="PreviewShape" type="Polygon2D" parent="." unique_id=824730390]
 position = Vector2(48, 48)

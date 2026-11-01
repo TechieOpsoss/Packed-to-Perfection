@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Resources/Alien Icons/Alien1.png" id="7_6lumq"]
 [ext_resource type="PackedScene" uid="uid://dff0vwr25pbgp" path="res://Level/Scoring/ScoreboxStatDisplay.tscn" id="8_6lumq"]
 [ext_resource type="PackedScene" uid="uid://0kgjw0ttvahu" path="res://Level/Scoring/Receipt.tscn" id="8_chl2c"]
+[ext_resource type="Script" uid="uid://bcb7bk1eetit" path="res://Level/Hint.gd" id="9_chl2c"]
 [ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="10_wp1u0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e56cd"]
@@ -213,6 +214,15 @@ metadata/_edit_use_anchors_ = true
 [node name="StatDisplay" parent="Container/ScoreCard/ScoreBox" unique_id=952904504 instance=ExtResource("8_6lumq")]
 layout_mode = 2
 
+[node name="Hint" type="Label" parent="." unique_id=965847105]
+offset_left = 405.0
+offset_top = 415.0
+offset_right = 549.0
+offset_bottom = 464.0
+text = "Right click to show
+<-- statistics"
+script = ExtResource("9_chl2c")
+
 [connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/BucketTray/FinishButton" method="_hide"]
 [connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/BucketTray/ConfirmButton" method="_show"]
 [connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/Grid" method="freezeDroppedFood"]
@@ -220,5 +230,11 @@ layout_mode = 2
 [connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/BucketTray/FinishButton" method="_show"]
 [connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/BucketTray/ConfirmButton" method="_hide"]
 [connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/ScoreCard" method="_show"]
+[connection signal="button_down" from="Container/BucketTray/Bucket1" to="Hint" method="_hide"]
+[connection signal="button_down" from="Container/BucketTray/Bucket2" to="Hint" method="_hide"]
+[connection signal="button_down" from="Container/BucketTray/Bucket3" to="Hint" method="_hide"]
+[connection signal="button_down" from="Container/BucketTray/Bucket4" to="Hint" method="_hide"]
+[connection signal="button_down" from="Container/BucketTray/Bucket5" to="Hint" method="_hide"]
+[connection signal="button_down" from="Container/BucketTray/Bucket6" to="Hint" method="_hide"]
 [connection signal="button_down" from="Container/ScoreCard/ContinueButton" to="Container/BucketTray" method="_show"]
 [connection signal="button_down" from="Container/ScoreCard/ContinueButton" to="Container/ScoreCard" method="_hide"]
