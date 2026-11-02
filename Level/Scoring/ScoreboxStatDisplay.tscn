@@ -4,7 +4,7 @@
 [ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="2_qtgwo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62dyq"]
-bg_color = Color(0.27058825, 0.46666667, 0.98039216, 1)
+bg_color = Color(0.27439997, 0.47431996, 0.98, 0.78431374)
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
