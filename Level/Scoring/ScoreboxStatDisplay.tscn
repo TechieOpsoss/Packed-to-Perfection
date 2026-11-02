@@ -4,50 +4,34 @@
 [ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="2_qtgwo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62dyq"]
-bg_color = Color(0.27439997, 0.47431996, 0.98, 0.78431374)
+bg_color = Color(0.32, 0.32, 0.32, 0.78431374)
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myr18"]
 bg_color = Color(0.25882354, 0.47058824, 0.9843137, 1)
-corner_radius_top_left = 32
 corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihqso"]
 bg_color = Color(1, 0.27058825, 0.23921569, 1)
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stsuc"]
 bg_color = Color(1, 0.6039216, 0.29803923, 1)
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4anlb"]
 bg_color = Color(0.16862746, 0.49803922, 0.36862746, 1)
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjwl7"]
 bg_color = Color(0.46666667, 0.57254905, 0.9490196, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
 corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtgwo"]
 bg_color = Color(0.9529412, 0.57254905, 0.46666667, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
 corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78p8x"]
 bg_color = Color(0.72156864, 0.9490196, 0.46666667, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
 corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
 
 [node name="StatDisplay" type="Control" unique_id=952904504]
 layout_mode = 3

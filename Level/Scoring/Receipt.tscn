@@ -18,9 +18,14 @@ layout_mode = 0
 offset_right = 288.0
 offset_bottom = 368.0
 theme_override_colors/font_color = Color(0.1254902, 0, 0.4509804, 1)
+theme_override_constants/line_spacing = -8
 theme_override_fonts/font = ExtResource("2_ygpxy")
+theme_override_font_sizes/font_size = 20
 text = "
 Dietary Needs
+
+
+
 
 
 
