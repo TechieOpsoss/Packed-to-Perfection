@@ -4,18 +4,38 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62dyq"]
 bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myr18"]
 bg_color = Color(0.46666667, 0.69803923, 0.9490196, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihqso"]
 bg_color = Color(0.9490196, 0.46666667, 0.83137256, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stsuc"]
 bg_color = Color(0.9490196, 0.77254903, 0.46666667, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4anlb"]
 bg_color = Color(0.54901963, 0.9490196, 0.46666667, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
 
 [node name="StatDisplay" type="Control" unique_id=952904504]
 layout_mode = 3
@@ -26,90 +46,90 @@ script = ExtResource("1_ae7n5")
 
 [node name="Calories" type="Panel" parent="." unique_id=1426777364]
 layout_mode = 0
-offset_left = 129.0
+offset_left = 16.0
 offset_top = 76.0
-offset_right = 298.065
+offset_right = 272.0
 offset_bottom = 99.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_62dyq")
 
 [node name="Bar" type="Panel" parent="Calories" unique_id=1191469255]
 layout_mode = 0
-offset_right = 169.065
+offset_right = 256.0
 offset_bottom = 22.999996
 theme_override_styles/panel = SubResource("StyleBoxFlat_myr18")
 
 [node name="Text" type="Label" parent="Calories" unique_id=1761698715]
 layout_mode = 0
-offset_right = 169.065
+offset_left = 6.0
+offset_right = 262.0
 offset_bottom = 23.0
 text = "0/0"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Protein" type="Panel" parent="." unique_id=1228553487]
 layout_mode = 0
-offset_left = 129.0
+offset_left = 16.0
 offset_top = 128.0
-offset_right = 298.065
+offset_right = 272.0
 offset_bottom = 151.00002
 theme_override_styles/panel = SubResource("StyleBoxFlat_62dyq")
 
 [node name="Bar" type="Panel" parent="Protein" unique_id=943269577]
 layout_mode = 0
-offset_right = 169.065
+offset_right = 256.0
 offset_bottom = 22.999996
 theme_override_styles/panel = SubResource("StyleBoxFlat_ihqso")
 
 [node name="Text" type="Label" parent="Protein" unique_id=649749140]
 layout_mode = 0
-offset_right = 169.065
+offset_left = 6.0
+offset_right = 262.0
 offset_bottom = 23.0
 text = "0/0"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Fat" type="Panel" parent="." unique_id=934047341]
 layout_mode = 0
-offset_left = 129.0
+offset_left = 16.0
 offset_top = 180.0
-offset_right = 298.065
+offset_right = 272.0
 offset_bottom = 203.00002
 theme_override_styles/panel = SubResource("StyleBoxFlat_62dyq")
 
 [node name="Bar" type="Panel" parent="Fat" unique_id=1068519322]
 layout_mode = 0
-offset_right = 169.065
+offset_right = 256.0
 offset_bottom = 22.999996
 theme_override_styles/panel = SubResource("StyleBoxFlat_stsuc")
 
 [node name="Text" type="Label" parent="Fat" unique_id=731008539]
 layout_mode = 0
-offset_right = 169.065
+offset_left = 6.0
+offset_right = 262.0
 offset_bottom = 23.0
 text = "0/0"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Carbs" type="Panel" parent="." unique_id=528710464]
 layout_mode = 0
-offset_left = 129.0
+offset_left = 16.0
 offset_top = 232.0
-offset_right = 298.065
+offset_right = 272.0
 offset_bottom = 255.00002
 theme_override_styles/panel = SubResource("StyleBoxFlat_62dyq")
 
 [node name="Bar" type="Panel" parent="Carbs" unique_id=1862514885]
 layout_mode = 0
-offset_right = 169.065
+offset_right = 256.0
 offset_bottom = 22.999996
 theme_override_styles/panel = SubResource("StyleBoxFlat_4anlb")
 
 [node name="Text" type="Label" parent="Carbs" unique_id=2040162205]
 layout_mode = 0
-offset_right = 169.065
+offset_left = 6.0
+offset_right = 262.0
 offset_bottom = 23.0
 text = "0/0"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Dairy" type="Label" parent="." unique_id=2027786320]

@@ -7,18 +7,17 @@
 bg_color = Color(0.45882353, 0, 0.25882354, 0.7137255)
 
 [node name="Receipt" type="Panel" unique_id=384934691]
-offset_right = 320.0
+offset_right = 288.0
 offset_bottom = 368.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wp1u0")
 script = ExtResource("1_g61rn")
 
 [node name="CenteredText" type="Label" parent="." unique_id=241148720]
 layout_mode = 0
-offset_right = 320.0
+offset_right = 288.0
 offset_bottom = 368.0
 text = "
 Order
-
 
 
 
@@ -32,10 +31,9 @@ horizontal_alignment = 1
 
 [node name="LeftText" type="Label" parent="." unique_id=697832577]
 layout_mode = 0
-offset_right = 320.0
+offset_right = 288.0
 offset_bottom = 368.0
 text = "
-
 
  Calories
 

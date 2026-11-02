@@ -5,10 +5,16 @@
 [node name="Grid" type="Node2D" unique_id=1446597112]
 script = ExtResource("1_p7f57")
 
+[node name="TrayVisual" type="Sprite2D" parent="." unique_id=79623930]
+position = Vector2(54, -130)
+scale = Vector2(0.3, 0.3)
+
 [node name="CellBackgroundVisual" type="Polygon2D" parent="." unique_id=1541883818]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="EmptyCellVisual" type="Polygon2D" parent="." unique_id=342341943]
+visible = false
 
 [node name="DropPreview" type="Polygon2D" parent="." unique_id=2144225401]
 color = Color(0, 1, 0, 0.53333336)

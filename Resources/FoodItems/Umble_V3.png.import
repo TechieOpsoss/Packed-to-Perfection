@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5jwxi7h4p2hq"
-path="res://.godot/imported/Alien1.png-758fa8070d4cb42dfb2fcb3b8e775f6e.ctex"
+uid="uid://bpheq2ye8b3g"
+path="res://.godot/imported/Umble_V3.png-64fb137c117e3e53eef3778f0d7a5f71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Alien Icons/Alien1.png"
-dest_files=["res://.godot/imported/Alien1.png-758fa8070d4cb42dfb2fcb3b8e775f6e.ctex"]
+source_file="res://Resources/FoodItems/Umble_V3.png"
+dest_files=["res://.godot/imported/Umble_V3.png-64fb137c117e3e53eef3778f0d7a5f71.ctex"]
 
 [params]
 

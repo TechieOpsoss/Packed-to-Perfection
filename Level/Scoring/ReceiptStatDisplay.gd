@@ -18,10 +18,10 @@ func update(current: FoodItemStats, requirements: FoodItemStats):
 	#$Fat/Text.add_theme_color_override("font_color", Color(1,1,1) if current.nutrientC >= requirements.nutrientC else Color(1,0,0))
 	$Fat/Text.text = str(current.nutrientC, "/", requirements.nutrientC)
 	
-	$Calories/Bar.size.x = $Calories.size.x * max(0.05,min(1, (current.calories as float) / (requirements.calories as float)))
-	$Protein/Bar.size.x = $Protein.size.x * max(0.05,min(1, (current.nutrientA as float) / (requirements.nutrientA as float)))
-	$Carbs/Bar.size.x = $Carbs.size.x * max(0.05,min(1, (current.nutrientB as float) / (requirements.nutrientB as float)))
-	$Fat/Bar.size.x = $Fat.size.x * max(0.05,min(1, (current.nutrientC as float) / (requirements.nutrientC as float)))
+	$Calories/Bar.size.x = max($Calories/Bar.size.y,$Calories.size.x * min(1, (current.calories as float) / (requirements.calories as float)))
+	$Protein/Bar.size.x = max($Protein/Bar.size.y,$Protein.size.x * min(1, (current.nutrientA as float) / (requirements.nutrientA as float)))
+	$Carbs/Bar.size.x = max($Carbs/Bar.size.y,$Carbs.size.x * min(1, (current.nutrientB as float) / (requirements.nutrientB as float)))
+	$Fat/Bar.size.x = max($Fat/Bar.size.y,$Fat.size.x * min(1, (current.nutrientC as float) / (requirements.nutrientC as float)))
 	
 	#$Dairy.add_theme_color_override("font_color", Color(1,0,0) if current.tagA and requirements.tagA else dairyColor)
 	$Dairy.visible = requirements.tagA

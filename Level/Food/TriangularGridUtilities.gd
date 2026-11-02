@@ -116,14 +116,16 @@ static func screen_to_grid(screenSpace: Vector2, pointsDown: bool, triangle_widt
 	var cellX: int = round((float(screenSpace.x)/triangle_grid_size.x + horizontalOffset)/2.0)*2 - horizontalOffset
 	return Vector2i(cellX, cellY)
 
-static func grid_to_screen(gridSpace: Vector2i, triangle_width: float) -> Vector2:
+static func grid_to_screen(gridSpace: Vector2i, triangle_width: float, include_offset: bool = true) -> Vector2:
 	# Grid measurements
 	var triangle_height: float = triangle_width * sin(deg_to_rad(60))
 	var triangle_circumradius: float = triangle_width / sqrt(3)
 	var triangle_grid_size: Vector2 = Vector2(triangle_width / 2, triangle_height)
-	# Offset to be vertically centered based on height rather than centroid
-	var verticalOffset: float = triangle_circumradius - triangle_height / 2
-	if ((gridSpace.x % 2) == (gridSpace.y % 2)):
-		return Vector2(gridSpace) * triangle_grid_size - Vector2(0, verticalOffset)
-	else:
-		return Vector2(gridSpace) * triangle_grid_size + Vector2(0, verticalOffset)
+	if include_offset:
+		# Offset to be vertically centered based on height rather than centroid
+		var verticalOffset: float = triangle_circumradius - triangle_height / 2
+		if ((gridSpace.x % 2) == (gridSpace.y % 2)):
+			return Vector2(gridSpace) * triangle_grid_size - Vector2(0, verticalOffset)
+		else:
+			return Vector2(gridSpace) * triangle_grid_size + Vector2(0, verticalOffset)
+	return Vector2(gridSpace) * triangle_grid_size

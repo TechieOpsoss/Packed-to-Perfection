@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4dmx53co6ssb"
-path="res://.godot/imported/CHR_Alien3_V1.png-83337c30f92da0e11b3d956becae4b00.ctex"
+uid="uid://d1eihpo2ewn2k"
+path="res://.godot/imported/Gnistle_V3.png-a626109ec95bac990df6f42a5bec2ca8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Alien Icons/CHR_Alien3_V1.png"
-dest_files=["res://.godot/imported/CHR_Alien3_V1.png-83337c30f92da0e11b3d956becae4b00.ctex"]
+source_file="res://Resources/FoodItems/Gnistle_V3.png"
+dest_files=["res://.godot/imported/Gnistle_V3.png-a626109ec95bac990df6f42a5bec2ca8.ctex"]
 
 [params]
 

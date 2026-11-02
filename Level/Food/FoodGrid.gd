@@ -29,20 +29,20 @@ func totalStats() -> FoodItemStats:
 		sum.add(placedFoodStat)
 	return sum
 
-func updateGridVisuals() -> void:
+func updateGridVisuals(trayTexture: Texture2D) -> void:
 	# Background
-	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(gridShape, triangleWidth, 0))
-	$CellBackgroundVisual.polygon = verticesAndIndices[0]
-	$CellBackgroundVisual.polygons = verticesAndIndices[1]
+	#var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(gridShape, triangleWidth, 0))
+	#$CellBackgroundVisual.polygon = verticesAndIndices[0]
+	#$CellBackgroundVisual.polygons = verticesAndIndices[1]
 	# Empty cells
-	verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(emptyCells, triangleWidth, emptyCellSpacing))
-	$EmptyCellVisual.polygon = verticesAndIndices[0]
-	$EmptyCellVisual.polygons = verticesAndIndices[1]
+	#verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(emptyCells, triangleWidth, emptyCellSpacing))
+	#$EmptyCellVisual.polygon = verticesAndIndices[0]
+	#$EmptyCellVisual.polygons = verticesAndIndices[1]
+	
+	$TrayVisual.texture = trayTexture
 
 func _ready() -> void:
 	emptyCells = gridShape.duplicate()
-	
-	updateGridVisuals()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -73,8 +73,13 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 	
 	var droppedFood: FoodProducer = preload("res://Level/Food/FoodDropped.tscn").instantiate()
 	
+	# WOOHOO JANK AS FUCK MATH YAY
+	var triangle_height: float = triangleWidth * sin(deg_to_rad(60))
+	var triangle_circumradius: float = triangleWidth / sqrt(3)
+	droppedFood.position = TriGridUtils.grid_to_screen(originPos, triangleWidth, false) - (Vector2(0, 2 * (triangle_circumradius - triangle_height / 2)) if (shapeRotation % 2) == 1 else Vector2.ZERO)
+	
+	droppedFood.rotation = shapeRotation * deg_to_rad(60)
 	droppedFood.item = item
-	droppedFood.producerShape = transformedShape
 	droppedFood.triangleWidth = triangleWidth
 	droppedFood.cellSpacing = filledCellSpacing
 	droppedFood.grid = self
@@ -87,7 +92,6 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 		# Remove stats
 		placedFoodStats.remove_at(placedFoodStats.find(item.stats))
 		receipt.update(totalStats(), requirements)
-		updateGridVisuals()
 	)
 	
 	$DroppedFoodItems.add_child(droppedFood)
@@ -99,7 +103,5 @@ func tryDrop(tryShape: Array[Vector2i], heldPosition: Vector2, shapeRotation: in
 	# Add stats
 	placedFoodStats.append(item.stats)
 	receipt.update(totalStats(), requirements)
-	
-	updateGridVisuals()
 	
 	return true

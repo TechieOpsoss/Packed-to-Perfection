@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crn8imolnvuea" path="res://Level/Scoring/FoodItem.gd" id="1_j3k6i"]
 [ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="2_5j16u"]
+[ext_resource type="Texture2D" uid="uid://dmnb0ij0rya3k" path="res://Resources/FoodItems/Nubulus_V4.png" id="3_5j16u"]
 
 [sub_resource type="Resource" id="Resource_32x38"]
 script = ExtResource("2_5j16u")
@@ -16,5 +17,6 @@ foodItemName = "Nubulus"
 foodItemNamePlural = "Nubuluses"
 shape = Array[Vector2i]([Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 1)])
 stats = SubResource("Resource_32x38")
-color = Color(0.54901963, 0.16470589, 0.40392157, 1)
+color = Color(0.79607844, 0.29803923, 0.18039216, 1)
+texture = ExtResource("3_5j16u")
 metadata/_custom_type_script = "uid://crn8imolnvuea"

@@ -27,7 +27,7 @@ func loadLevel(level: Level):
 	$Level/Receipt.update($Level/Container/Grid.totalStats(), level.restrictions, level.customerName)
 	$Level/Customer.texture = level.customerTexture
 	
-	$Level/Container/Grid.updateGridVisuals()
+	$Level/Container/Grid.updateGridVisuals(level.trayTexture)
 	if level.resetsFoodItems:
 		$Level/Container/BucketTray/Bucket1.item = level.newItem1
 		$Level/Container/BucketTray/Bucket1.heldQuantity = level.newItem1.foodStartQuantity

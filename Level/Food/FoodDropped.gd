@@ -1,7 +1,6 @@
 class_name FoodProducer extends Area2D
 
 @export var item: FoodItem
-@export var producerShape: Array[Vector2i]
 @export var triangleWidth: float
 @export var cellSpacing: float
 @export var grid: FoodGrid
@@ -14,15 +13,28 @@ signal depleted()
 func _ready():
 	input_event.connect(onInputEvent)
 	# Shape setting
-	var clickPolygons: Array[PackedVector2Array] = TriGridUtils.make_meshes(producerShape, triangleWidth, 0)
-	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(producerShape, triangleWidth, cellSpacing))
-	$Visual.polygon = verticesAndIndices[0]
-	$Visual.polygons = verticesAndIndices[1]
-	$Visual.color = item.color
-	for polygon in clickPolygons:
+	#var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(item.shape, triangleWidth, cellSpacing))
+	#$ReferenceVisual.polygon = verticesAndIndices[0]
+	#$ReferenceVisual.polygons = verticesAndIndices[1]
+	#$ReferenceVisual.color = item.color
+	var tris: Array[PackedVector2Array] = TriGridUtils.make_meshes(item.shape, triangleWidth, 0)
+	var minVertexBounds = tris[0][0]
+	var maxVertexBounds = tris[0][0]
+	for tri in tris:
+		for vertex in tri:
+			minVertexBounds.x = min(minVertexBounds.x, vertex.x)
+			minVertexBounds.y = min(minVertexBounds.y, vertex.y)
+			maxVertexBounds.x = max(maxVertexBounds.x, vertex.x)
+			maxVertexBounds.y = max(maxVertexBounds.y, vertex.y)
 		var collisionPolygon: CollisionPolygon2D = CollisionPolygon2D.new()
-		collisionPolygon.polygon = polygon
+		collisionPolygon.polygon = tri
 		add_child(collisionPolygon)
+	var shapeSize = maxVertexBounds - minVertexBounds
+	var textureSize = item.texture.get_size()
+	var maxRatio = max(shapeSize.x, shapeSize.y) / max(textureSize.x, textureSize.y)
+	$Visual.scale = Vector2(maxRatio, maxRatio)
+	$Visual.texture = item.texture
+	$Visual.position = (minVertexBounds + maxVertexBounds) / 2
 	depleted.connect(queue_free)
 
 # Carried shape production.
@@ -38,7 +50,10 @@ func produceShape():
 	# When unsuccessfully dropped, return to producer.
 	carriedFoodInstance.dropFailure.connect(returnShape)
 	
-	grid.find_child("Cursor").rotation = 0
+	# Make pickup more consistent and feel niceys
+	grid.find_child("Cursor").rotation = rotation
+	carriedFoodInstance.position = (position - grid.find_child("Cursor").position).rotated(-rotation)
+	
 	grid.find_child("Cursor").add_child(carriedFoodInstance)
 	
 	return carriedFoodInstance
