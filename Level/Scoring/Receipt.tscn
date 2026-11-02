@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bll1sr7eixwga" path="res://Level/Scoring/Receipt.gd" id="1_g61rn"]
 [ext_resource type="PackedScene" uid="uid://dclcu6nq0vuad" path="res://Level/Scoring/ReceiptStatDisplay.tscn" id="2_myr18"]
+[ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="2_ygpxy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp1u0"]
-bg_color = Color(0.45882353, 0, 0.25882354, 0.7137255)
+bg_color = Color(0.8784314, 0.80784315, 1, 1)
 
 [node name="Receipt" type="Panel" unique_id=384934691]
 offset_right = 288.0
-offset_bottom = 368.0
+offset_bottom = 360.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wp1u0")
 script = ExtResource("1_g61rn")
 
@@ -16,8 +17,10 @@ script = ExtResource("1_g61rn")
 layout_mode = 0
 offset_right = 288.0
 offset_bottom = 368.0
+theme_override_colors/font_color = Color(0.1254902, 0, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("2_ygpxy")
 text = "
-Order
+Dietary Needs
 
 
 
@@ -33,6 +36,8 @@ horizontal_alignment = 1
 layout_mode = 0
 offset_right = 288.0
 offset_bottom = 368.0
+theme_override_colors/font_color = Color(0.39607844, 0.12156863, 0.42745098, 1)
+theme_override_fonts/font = ExtResource("2_ygpxy")
 text = "
 
  Calories

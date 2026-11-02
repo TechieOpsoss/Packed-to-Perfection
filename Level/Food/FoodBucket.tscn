@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bglxm572r043g" path="res://Level/Food/FoodBucket.gd" id="1_c2pod"]
 [ext_resource type="PackedScene" uid="uid://c7v1bl2dqk4n2" path="res://Level/Food/FoodBucketStatDisplay.tscn" id="2_w0o8m"]
+[ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="2_x7q1p"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdeta"]
 
@@ -34,20 +35,6 @@ action_mode = 0
 button_mask = 3
 script = ExtResource("1_c2pod")
 
-[node name="Label" type="Label" parent="." unique_id=1783574177]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 80.0
-offset_right = 120.0
-offset_bottom = 120.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_w0o8m")
-text = "#"
-horizontal_alignment = 1
-vertical_alignment = 1
-text_overrun_behavior = 3
-
 [node name="Visual" type="Sprite2D" parent="." unique_id=88710474]
 
 [node name="PreviewShape" type="Polygon2D" parent="." unique_id=824730390]
@@ -57,6 +44,21 @@ position = Vector2(48, 48)
 [node name="StatDisplay" parent="." unique_id=952904504 instance=ExtResource("2_w0o8m")]
 visible = false
 layout_mode = 0
+
+[node name="Label" type="Label" parent="." unique_id=1783574177]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 80.0
+offset_right = 120.0
+offset_bottom = 120.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_x7q1p")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_w0o8m")
+text = "#"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
 
 [connection signal="mouse_entered" from="." to="." method="_on_hover"]
 [connection signal="mouse_exited" from="." to="." method="_on_unhover"]
