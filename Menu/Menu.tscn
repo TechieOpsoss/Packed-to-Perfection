@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxqjr8pygo76o"]
 
 [ext_resource type="Script" uid="uid://ckh1b34xr0vdq" path="res://Menu/Menu.gd" id="1_r150o"]
+[ext_resource type="Texture2D" uid="uid://ud0tqulkfvsf" path="res://Menu/UI_GameTitle.png" id="2_w32jx"]
 [ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="3_u03px"]
 [ext_resource type="StyleBox" uid="uid://6o2dvm4emo2k" path="res://ButtonStyleDefault.tres" id="4_w32jx"]
 [ext_resource type="StyleBox" uid="uid://ch23qawdd2w6o" path="res://ButtonStyleInteract.tres" id="5_0cyjp"]
@@ -22,7 +23,20 @@ offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=261189269]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -452.5
+offset_right = 452.5
+offset_bottom = 357.0
+grow_horizontal = 2
+texture = ExtResource("2_w32jx")
+expand_mode = 1
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=534737610]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -50,10 +64,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -110.5
-offset_top = -47.0
-offset_right = 110.5
-offset_bottom = 47.0
+offset_left = -58.25
+offset_top = -21.640015
+offset_right = 58.25
+offset_bottom = 72.359985
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8

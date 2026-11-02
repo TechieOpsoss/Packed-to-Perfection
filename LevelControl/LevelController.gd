@@ -13,7 +13,7 @@ func _ready():
 	completedAll.connect(func():
 		$Level/Container/BucketTray/SubmitButton.hide()
 		var endScreen = preload("res://Level/Scoring/FinalScore.tscn").instantiate()
-		$Level/Container/ScoreCard.end_score(endScreen.find_child("Background").find_child("FinalScoreLabel"))
+		$Level/Container/ScoreCard.end_score(endScreen.find_child("FinalScoreLabel"))
 		await pop_out()
 		down()
 		await get_parent().down()

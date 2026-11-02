@@ -56,6 +56,6 @@ func calculate_score(currentStats: FoodItemStats) -> int:
 	return max(0, score)
 
 func end_score(finalCard):
-	finalCard.text = "Final Score:\n" + str(max(0, totalScore))\
-	+ ("/" + str(100 * totalPassed) + "\n\nYou Won" if totalScore > WIN_THRESHOLD else "/" + str(WIN_THRESHOLD) + "\n\nYou Lost")\
-	+ "\nThanks for Playing!"
+	finalCard.text = "[b]Final Score\n" + str(max(0, totalScore))\
+	+ ("/" + str(100 * totalPassed) + "[/b]\nYou Won" if totalScore > WIN_THRESHOLD else "/" + str(WIN_THRESHOLD) + "[/b]\nYou Lost")\
+	+ "\n[i]Thanks for Playing![/i]"

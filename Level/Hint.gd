@@ -2,6 +2,7 @@ extends Label
 var state: int = -1
 var hintBox = load("res://Level/HintBox.tres")
 
+# This could all be done with modulate.a to make the code simpler but it works as-is
 func _show() -> void:
 	show()
 	add_theme_color_override("font_color", get_theme_color("font_color") * Color(1,1,1,0))

@@ -1,11 +1,38 @@
 [gd_scene format=3 uid="uid://b38b80x4p83mf"]
 
 [ext_resource type="Script" uid="uid://bjegubchho80o" path="res://Level/Scoring/final_score.gd" id="1_t7bm7"]
+[ext_resource type="Texture2D" uid="uid://bx0j56nop7uaw" path="res://Level/Scoring/Final_Screen2.png" id="2_8fh2u"]
+[ext_resource type="Texture2D" uid="uid://if3xdky3oya6" path="res://Level/Scoring/Final_Screen1.png" id="2_gu7j1"]
+[ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="4_18iow"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glv2v"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gu7j1"]
+bg_color = Color(0.43010026, 0.20400001, 0.85, 0.6509804)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hogcy"]
-bg_color = Color(0.8301218, 0.5268958, 0.7371098, 1)
+bg_color = Color(0.53333336, 0.32156864, 0.8980392, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18iow"]
+bg_color = Color(0.6039216, 0.4392157, 0.9019608, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gypeu"]
+bg_color = Color(0.6039216, 0.4392157, 0.9019608, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bpgnr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsx7l"]
+bg_color = Color(0.6039216, 0.4392157, 0.9019608, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
 
 [node name="FinalScore" type="Control" unique_id=63706070]
 layout_mode = 3
@@ -16,17 +43,48 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t7bm7")
 
-[node name="Background" type="PanelContainer" parent="." unique_id=1983866460]
+[node name="Background1" type="TextureRect" parent="." unique_id=967129485]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_glv2v")
+texture = ExtResource("2_gu7j1")
+expand_mode = 1
 
-[node name="FinalScoreLabel" type="RichTextLabel" parent="Background" unique_id=1408399831]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 68
-text = "Final Score:"
+[node name="Background2" type="TextureRect" parent="." unique_id=1279965632]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_8fh2u")
+expand_mode = 1
+
+[node name="Node2D" type="Node2D" parent="." unique_id=168673895]
+
+[node name="FinalScoreLabel" type="RichTextLabel" parent="." unique_id=1592155242]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -353.5
+offset_top = 61.0
+offset_right = 353.5
+offset_bottom = 517.00073
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("4_18iow")
+theme_override_fonts/bold_font = ExtResource("4_18iow")
+theme_override_fonts/italics_font = ExtResource("4_18iow")
+theme_override_font_sizes/normal_font_size = 72
+theme_override_font_sizes/bold_font_size = 64
+theme_override_font_sizes/italics_font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_gu7j1")
+bbcode_enabled = true
+text = "[b]Final Score
+0/0[/b]
+You Played
+[i]Thanks for Doing That[/i]"
+fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ExitButton" type="Button" parent="." unique_id=813947280]
 layout_mode = 1
@@ -35,13 +93,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -88.0
-offset_top = -42.0
-offset_right = 88.0
+offset_left = -153.0
+offset_top = -45.0
+offset_right = 153.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_18iow")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_hogcy")
-text = "Main Menu"
+theme_override_styles/pressed = SubResource("StyleBoxFlat_18iow")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gypeu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bpgnr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_bsx7l")
+text = "Return to Menu"
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_pressed"]
