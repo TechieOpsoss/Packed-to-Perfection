@@ -13,6 +13,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 1
 script = ExtResource("1_r0du0")
 lightsOff = ExtResource("2_lgr22")
 lightsFlicker = Array[Texture2D]([ExtResource("3_trn2v"), ExtResource("4_03owx"), ExtResource("2_lgr22")])
