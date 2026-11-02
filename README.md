@@ -2,7 +2,19 @@
 
 Capstone project for the Game Studio Roles and Development course at the University of Washington.
 
-​Click and drag to fit food items into a alien cafeteria trays to fulfill their needs, lest you become their lunch yourself.
+​Click and drag to fit food items into a alien cafeteria trays to fulfill their needs, lest you yourself become their lunch.
+
+## CREDITS
+
+Lead Designer - Beck Johnson
+
+Lead Programmer - Mathew Hedrich
+
+Gameplay Programmer - Bianca Rivera Nales
+
+Art Lead - Ruslana Akhadova
+
+Producer - Chad Rogers
 
 ## CONTROLS
 
