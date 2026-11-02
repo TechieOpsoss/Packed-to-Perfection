@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crn8imolnvuea" path="res://Level/Scoring/FoodItem.gd" id="1_6crqs"]
 [ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="2_sp7n6"]
+[ext_resource type="Texture2D" uid="uid://iubk2kqlkpxs" path="res://Resources/FoodItems/Gnistle_V4.png" id="3_sp7n6"]
 
 [sub_resource type="Resource" id="Resource_x7q1p"]
 script = ExtResource("2_sp7n6")
@@ -17,5 +18,6 @@ foodStartQuantity = 20
 foodItemName = "Gnistle"
 foodItemNamePlural = "Gnistles"
 stats = SubResource("Resource_x7q1p")
-color = Color(0.5176471, 0, 0, 1)
+color = Color(0.8862745, 0.5176471, 0.21176471, 1)
+texture = ExtResource("3_sp7n6")
 metadata/_custom_type_script = "uid://crn8imolnvuea"

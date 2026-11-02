@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://dclcu6nq0vuad"]
+
+[ext_resource type="Script" uid="uid://kov86v2dhnuy" path="res://Level/Scoring/ReceiptStatDisplay.gd" id="1_ae7n5"]
+[ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="2_x3otm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3otm"]
+bg_color = Color(0.16862746, 0.19215687, 0.69411767, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myr18"]
+bg_color = Color(0.25882354, 0.47058824, 0.9843137, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wki6e"]
+bg_color = Color(0.46666667, 0.10980392, 0.39607844, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihqso"]
+bg_color = Color(1, 0.27058825, 0.23921569, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j1ef"]
+bg_color = Color(0.46666667, 0.24313726, 0.41960785, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stsuc"]
+bg_color = Color(1, 0.6039216, 0.29803923, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62dyq"]
+bg_color = Color(0.13333334, 0.2, 0.44705883, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4anlb"]
+bg_color = Color(0.16862746, 0.49803922, 0.36862746, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[node name="StatDisplay" type="Control" unique_id=952904504]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ae7n5")
+
+[node name="Calories" type="Panel" parent="." unique_id=1426777364]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 76.0
+offset_right = 272.0
+offset_bottom = 99.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x3otm")
+
+[node name="Bar" type="Panel" parent="Calories" unique_id=1191469255]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 22.999996
+theme_override_styles/panel = SubResource("StyleBoxFlat_myr18")
+
+[node name="Text" type="Label" parent="Calories" unique_id=1761698715]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 262.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_x3otm")
+text = "0/0"
+vertical_alignment = 1
+
+[node name="Protein" type="Panel" parent="." unique_id=1228553487]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 128.0
+offset_right = 272.0
+offset_bottom = 151.00002
+theme_override_styles/panel = SubResource("StyleBoxFlat_wki6e")
+
+[node name="Bar" type="Panel" parent="Protein" unique_id=943269577]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 22.999996
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihqso")
+
+[node name="Text" type="Label" parent="Protein" unique_id=649749140]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 262.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_x3otm")
+text = "0/0"
+vertical_alignment = 1
+
+[node name="Fat" type="Panel" parent="." unique_id=934047341]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 180.0
+offset_right = 272.0
+offset_bottom = 203.00002
+theme_override_styles/panel = SubResource("StyleBoxFlat_8j1ef")
+
+[node name="Bar" type="Panel" parent="Fat" unique_id=1068519322]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 22.999996
+theme_override_styles/panel = SubResource("StyleBoxFlat_stsuc")
+
+[node name="Text" type="Label" parent="Fat" unique_id=731008539]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 262.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_x3otm")
+text = "0/0"
+vertical_alignment = 1
+
+[node name="Carbs" type="Panel" parent="." unique_id=528710464]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 232.0
+offset_right = 272.0
+offset_bottom = 255.00002
+theme_override_styles/panel = SubResource("StyleBoxFlat_62dyq")
+
+[node name="Bar" type="Panel" parent="Carbs" unique_id=1862514885]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 22.999996
+theme_override_styles/panel = SubResource("StyleBoxFlat_4anlb")
+
+[node name="Text" type="Label" parent="Carbs" unique_id=2040162205]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 262.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_x3otm")
+text = "0/0"
+vertical_alignment = 1
+
+[node name="Dairy" type="Label" parent="." unique_id=2027786320]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 324.0
+offset_right = 239.0
+offset_bottom = 347.0
+theme_override_colors/font_color = Color(0.9098039, 0.28235295, 0.73333335, 1)
+theme_override_fonts/font = ExtResource("2_x3otm")
+text = "Dairy"
+
+[node name="Meat" type="Label" parent="." unique_id=497769739]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 325.0
+offset_right = 85.0
+offset_bottom = 348.0
+theme_override_colors/font_color = Color(0.9529412, 0.69411767, 0, 1)
+theme_override_fonts/font = ExtResource("2_x3otm")
+text = "Meat"
+
+[node name="Gluten" type="Label" parent="." unique_id=729027040]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 302.0
+offset_right = 171.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(0.46666667, 0.45490196, 0.90588236, 1)
+theme_override_fonts/font = ExtResource("2_x3otm")
+text = "Gluten"

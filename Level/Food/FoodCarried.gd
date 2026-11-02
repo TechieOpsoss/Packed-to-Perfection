@@ -34,10 +34,25 @@ func _ready() -> void:
 	dropFailure.connect(func(): LocalAudioManager.play_sfx("res://Audio/soundeffects/Rotate.wav", 0.2, 0.2 * randf_range(0.8, 1.0)))
 	
 	# Setup visuals
-	var verticesAndIndices = TriGridUtils.combine_meshes(TriGridUtils.make_meshes(item.shape, triangle_width, spacing))
-	$Visual.polygon = verticesAndIndices[0]
-	$Visual.polygons = verticesAndIndices[1]
-	$Visual.color = item.color
+	var tris: Array[PackedVector2Array] = TriGridUtils.make_meshes(item.shape, triangle_width, spacing)
+	#var verticesAndIndices = TriGridUtils.combine_meshes(tris)
+	#$ReferenceVisual.polygon = verticesAndIndices[0]
+	#$ReferenceVisual.polygons = verticesAndIndices[1]
+	#$ReferenceVisual.color = item.color
+	var minVertexBounds = tris[0][0]
+	var maxVertexBounds = tris[0][0]
+	for tri in tris:
+		for vertex in tri:
+			minVertexBounds.x = min(minVertexBounds.x, vertex.x)
+			minVertexBounds.y = min(minVertexBounds.y, vertex.y)
+			maxVertexBounds.x = max(maxVertexBounds.x, vertex.x)
+			maxVertexBounds.y = max(maxVertexBounds.y, vertex.y)
+	var shapeSize = maxVertexBounds - minVertexBounds
+	var textureSize = item.texture.get_size()
+	var maxRatio = max(shapeSize.x, shapeSize.y) / max(textureSize.x, textureSize.y)
+	$Visual.scale = Vector2(maxRatio, maxRatio)
+	$Visual.texture = item.texture
+	$Visual.position = (minVertexBounds + maxVertexBounds) / 2
 	
 	previewPolygon = grid.find_child("DropPreview")
 	

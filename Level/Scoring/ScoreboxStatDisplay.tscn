@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://dff0vwr25pbgp"]
+
+[ext_resource type="Script" uid="uid://d0l4iuyllvidb" path="res://Level/Scoring/ScoreboxStatDisplay.gd" id="1_qjwl7"]
+[ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="2_qtgwo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62dyq"]
+bg_color = Color(0.32, 0.32, 0.32, 0.78431374)
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myr18"]
+bg_color = Color(0.25882354, 0.47058824, 0.9843137, 1)
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihqso"]
+bg_color = Color(1, 0.27058825, 0.23921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stsuc"]
+bg_color = Color(1, 0.6039216, 0.29803923, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4anlb"]
+bg_color = Color(0.16862746, 0.49803922, 0.36862746, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjwl7"]
+bg_color = Color(0.9098039, 0.28235295, 0.73333335, 1)
+corner_radius_bottom_right = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtgwo"]
+bg_color = Color(0.9529412, 0.69411767, 0, 1)
+corner_radius_bottom_right = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78p8x"]
+bg_color = Color(0.46666667, 0.45490196, 0.90588236, 1)
+corner_radius_bottom_right = 32
+
+[node name="StatDisplay" type="Control" unique_id=952904504]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qjwl7")
+
+[node name="Backdrop" type="Panel" parent="." unique_id=1426777364]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 352.0
+offset_bottom = 224.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_62dyq")
+
+[node name="Calories" type="Panel" parent="Backdrop" unique_id=1191469255]
+layout_mode = 0
+offset_right = 352.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_myr18")
+
+[node name="Protein" type="Panel" parent="Backdrop" unique_id=943269577]
+layout_mode = 0
+offset_right = 352.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihqso")
+
+[node name="Fat" type="Panel" parent="Backdrop" unique_id=1068519322]
+layout_mode = 0
+offset_right = 352.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_stsuc")
+
+[node name="Carbs" type="Panel" parent="Backdrop" unique_id=1862514885]
+layout_mode = 0
+offset_right = 352.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4anlb")
+
+[node name="Dairy" type="Panel" parent="Backdrop" unique_id=854385114]
+layout_mode = 0
+offset_right = 352.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qjwl7")
+
+[node name="Meat" type="Panel" parent="Backdrop" unique_id=163406758]
+layout_mode = 0
+offset_right = 352.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qtgwo")
+
+[node name="Gluten" type="Panel" parent="Backdrop" unique_id=245116335]
+layout_mode = 0
+offset_right = 352.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_78p8x")
+
+[node name="Total" type="Label" parent="Backdrop" unique_id=169833683]
+layout_mode = 0
+offset_right = 352.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_qtgwo")
+theme_override_font_sizes/font_size = 32
+text = "Total: 0"
+horizontal_alignment = 1
+vertical_alignment = 1

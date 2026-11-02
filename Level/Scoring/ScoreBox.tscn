@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://u2kyn24wmq06"]
+
+[ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="1_017oa"]
+[ext_resource type="PackedScene" uid="uid://dff0vwr25pbgp" path="res://Level/Scoring/ScoreboxStatDisplay.tscn" id="2_a1h0n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjwl7"]
+bg_color = Color(0.5672267, 0.3204, 0.89, 0.78431374)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+
+[node name="ScoreBox" type="PanelContainer" unique_id=1062992481]
+offset_left = 48.0
+offset_top = 408.0
+offset_right = 400.0
+offset_bottom = 568.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qjwl7")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1841642493]
+layout_mode = 2
+theme_override_constants/line_spacing = -8
+theme_override_fonts/font = ExtResource("1_017oa")
+theme_override_font_sizes/font_size = 32
+text = "Score
+
+
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelLabel" type="Label" parent="." unique_id=1668369507]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_017oa")
+text = "
+Calories:
+Protein:
+Carbohydrates:
+Dietary Fat:"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=420540061]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_017oa")
+horizontal_alignment = 2
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="StatDisplay" parent="." unique_id=952904504 instance=ExtResource("2_a1h0n")]
+layout_mode = 2

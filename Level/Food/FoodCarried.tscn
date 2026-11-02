@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://dtwny5uv3g7p"]
 
 [ext_resource type="Script" uid="uid://cqkp8yi1pw0dq" path="res://Level/Food/FoodCarried.gd" id="1_p2bug"]
+[ext_resource type="Texture2D" uid="uid://di3dxbjdkfg7e" path="res://icon.svg" id="2_pldj0"]
 
 [node name="Carried Food Item" type="Node2D" unique_id=2049523459]
 script = ExtResource("1_p2bug")
 
-[node name="Visual" type="Polygon2D" parent="." unique_id=1822289850]
-color = Color(0, 1, 1, 0.53333336)
+[node name="ReferenceVisual" type="Polygon2D" parent="." unique_id=507886643]
+visible = false
+
+[node name="Visual" type="Sprite2D" parent="." unique_id=1208571286]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_pldj0")

@@ -5,5 +5,8 @@
 [node name="FoodDropped" type="Area2D" unique_id=2136252364]
 script = ExtResource("1_14foq")
 
-[node name="Visual" type="Polygon2D" parent="." unique_id=482609018]
+[node name="ReferenceVisual" type="Polygon2D" parent="." unique_id=482609018]
+visible = false
 color = Color(0, 0, 1, 1)
+
+[node name="Visual" type="Sprite2D" parent="." unique_id=1364337578]

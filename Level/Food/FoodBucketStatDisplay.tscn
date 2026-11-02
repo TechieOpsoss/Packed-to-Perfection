@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://c7v1bl2dqk4n2"]
+
+[ext_resource type="Script" uid="uid://hq80g8e713ad" path="res://Level/Food/FoodBucketStatDisplay.gd" id="1_cdeta"]
+[ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="2_vnift"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myr18"]
+bg_color = Color(0.16862746, 0.19215687, 0.69411767, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdeta"]
+bg_color = Color(0.25882354, 0.47058824, 0.9843137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnift"]
+bg_color = Color(0.46666667, 0.10980392, 0.39607844, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihqso"]
+bg_color = Color(1, 0.27058825, 0.23921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wqp5"]
+bg_color = Color(0.46666667, 0.24313726, 0.41960785, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stsuc"]
+bg_color = Color(1, 0.6039216, 0.29803923, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62dyq"]
+bg_color = Color(0.13333334, 0.2, 0.44705883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4anlb"]
+bg_color = Color(0.16862746, 0.49803922, 0.36862746, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3rlj"]
+bg_color = Color(0.9098039, 0.28235295, 0.73333335, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_533pf"]
+bg_color = Color(0.9529412, 0.69411767, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t14l7"]
+bg_color = Color(0.46666667, 0.45490196, 0.90588236, 1)
+
+[node name="StatDisplay" type="Control" unique_id=952904504]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 1
+script = ExtResource("1_cdeta")
+
+[node name="Calories" type="Panel" parent="." unique_id=1426777364]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 24.0
+offset_bottom = 96.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_myr18")
+
+[node name="Bar" type="Panel" parent="Calories" unique_id=1191469255]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_cdeta")
+
+[node name="Text" type="Label" parent="Calories" unique_id=1761698715]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_vnift")
+theme_override_font_sizes/font_size = 10
+text = "Cal
+000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Protein" type="Panel" parent="." unique_id=1228553487]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 96.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_vnift")
+
+[node name="Bar" type="Panel" parent="Protein" unique_id=943269577]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihqso")
+
+[node name="Text" type="Label" parent="Protein" unique_id=649749140]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_vnift")
+theme_override_font_sizes/font_size = 10
+text = "Prot
+0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fat" type="Panel" parent="." unique_id=934047341]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 72.0
+offset_bottom = 96.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_3wqp5")
+
+[node name="Bar" type="Panel" parent="Fat" unique_id=1068519322]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_stsuc")
+
+[node name="Text" type="Label" parent="Fat" unique_id=731008539]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_vnift")
+theme_override_font_sizes/font_size = 10
+text = "Fat
+0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Carbs" type="Panel" parent="." unique_id=528710464]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 48.0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_62dyq")
+
+[node name="Bar" type="Panel" parent="Carbs" unique_id=1862514885]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_4anlb")
+
+[node name="Text" type="Label" parent="Carbs" unique_id=2040162205]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_vnift")
+theme_override_font_sizes/font_size = 10
+text = "Carb
+0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dairy" type="Panel" parent="." unique_id=2035599092]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_n3rlj")
+
+[node name="Text" type="Label" parent="Dairy" unique_id=1072589835]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_vnift")
+theme_override_font_sizes/font_size = 12
+text = "Dairy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Meat" type="Panel" parent="." unique_id=1256893860]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 72.0
+offset_bottom = 28.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_533pf")
+
+[node name="Text" type="Label" parent="Meat" unique_id=874771375]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_vnift")
+theme_override_font_sizes/font_size = 12
+text = "Meat"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gluten" type="Panel" parent="." unique_id=1206696496]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 28.0
+offset_right = 96.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_t14l7")
+
+[node name="Text" type="Label" parent="Gluten" unique_id=748111344]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_vnift")
+theme_override_font_sizes/font_size = 12
+text = "Gluten"
+horizontal_alignment = 1
+vertical_alignment = 1

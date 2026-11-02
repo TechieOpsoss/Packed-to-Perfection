@@ -6,6 +6,7 @@ class_name FoodItem extends Resource
 @export var shape: Array[Vector2i] = [Vector2i(0,0)]
 @export var stats: FoodItemStats
 @export var color: Color
+@export var texture: Texture2D
 
 func _init(p_foodStartQuantity: int = 10, p_foodItemName: String = "Food Item", p_foodItemNamePlural: String = "Food Items", p_stats: FoodItemStats = FoodItemStats.new()):
 	foodStartQuantity = p_foodStartQuantity

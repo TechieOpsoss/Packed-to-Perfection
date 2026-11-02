@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crn8imolnvuea" path="res://Level/Scoring/FoodItem.gd" id="1_pe7gb"]
 [ext_resource type="Script" uid="uid://vvkn4ax4t010" path="res://Level/Scoring/FoodItemStats.gd" id="2_mvs0v"]
+[ext_resource type="Texture2D" uid="uid://b2176fpt82pau" path="res://Resources/FoodItems/Sloingile_V3.png" id="3_mvs0v"]
 
 [sub_resource type="Resource" id="Resource_2ld0w"]
 script = ExtResource("2_mvs0v")
@@ -18,5 +19,6 @@ foodItemName = "Sloingile"
 foodItemNamePlural = "Sloingile"
 shape = Array[Vector2i]([Vector2i(-2, 0), Vector2i(-1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(-2, 1), Vector2i(-1, 1), Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)])
 stats = SubResource("Resource_2ld0w")
-color = Color(0.16470589, 0.20392157, 0.54901963, 1)
+color = Color(0.9882353, 0.5568628, 0.078431375, 1)
+texture = ExtResource("3_mvs0v")
 metadata/_custom_type_script = "uid://crn8imolnvuea"
