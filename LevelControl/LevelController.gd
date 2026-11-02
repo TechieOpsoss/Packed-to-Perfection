@@ -9,12 +9,16 @@ func _ready():
 	$LevelCounter.text = str(currentLevel + 1, "/", levels.size())
 	if currentLevel < levels.size():
 		loadLevel(levels[currentLevel])
-	completedAll.connect($Level.queue_free)
 	
 	completedAll.connect(func():
+		$Level/Container/BucketTray/SubmitButton.hide()
 		var endScreen = preload("res://Level/Scoring/FinalScore.tscn").instantiate()
 		$Level/Container/ScoreCard.end_score(endScreen.find_child("Background").find_child("FinalScoreLabel"))
-		get_tree().change_scene_to_node(endScreen)
+		await pop_out()
+		down()
+		await get_parent().down()
+		get_parent().add_child(endScreen)
+		queue_free()
 	)
 	LocalAudioManager.play_music("res://Audio/Music/Lunchbox.ogg", 0.5)
 
@@ -64,5 +68,66 @@ func _nextLevel():
 	$LevelCounter.text = str(currentLevel + 1, "/", levels.size())
 	if currentLevel < levels.size():
 		loadLevel(levels[currentLevel])
+		summon_customer()
 	else:
 		completedAll.emit()
+
+var summoned = false
+
+func summon_customer():
+	if not summoned:
+		$Level/Customer.position.x = -576
+	summoned = true
+	while not is_queued_for_deletion() and summoned and $Level/Customer.position.x < 575:
+		$Level/Customer.position.x = lerp($Level/Customer.position.x, 576.0, 0.05)
+		await get_tree().create_timer(0.01).timeout
+	if not is_queued_for_deletion() and summoned:
+		$Level/Customer.position.x = 576
+
+func banish_customer():
+	if summoned:
+		$Level/Customer.position.x = 576
+	summoned = false
+	while not is_queued_for_deletion() and not summoned and $Level/Customer.position.x < 1168:
+		$Level/Customer.position.x = lerp($Level/Customer.position.x, 2000.0, 0.01)
+		await get_tree().create_timer(0.01).timeout
+	if not is_queued_for_deletion() and not summoned:
+		$Level/Customer.position.x = -576
+
+var popping_in = false
+
+func pop_in():
+	popping_in = true
+	summon_customer()
+	while not is_queued_for_deletion() and popping_in and $Level/Receipt.position.y < -1:
+		$Level/Receipt.position.y = lerp($Level/Receipt.position.y, 0.0, 0.05)
+		$LevelCounter.position.y = lerp($LevelCounter.position.y, 338.0, 0.05)
+		await get_tree().create_timer(0.01).timeout
+	if not is_queued_for_deletion() and popping_in:
+		$Level/Receipt.position.y = 0
+		$LevelCounter.position.y = 338
+		$Level/Hint._show()
+
+func pop_out():
+	popping_in = false
+	while not is_queued_for_deletion() and not popping_in and $Level/Receipt.position.y > -359.0:
+		$Level/Receipt.position.y = lerp($Level/Receipt.position.y, -360.0, 0.1)
+		$LevelCounter.position.y = lerp($LevelCounter.position.y, -22.0, 0.1)
+		await get_tree().create_timer(0.01).timeout
+	if not is_queued_for_deletion() and not popping_in:
+		$Level/Receipt.position.y = -1008
+		$LevelCounter.position.y = -670
+
+func down():
+	while not is_queued_for_deletion() and position.y < 345:
+		position.y = lerp(position.y, 345.0, 0.05)
+		await get_tree().create_timer(0.01).timeout
+	if not is_queued_for_deletion():
+		position.y = 345
+
+func up():
+	while not is_queued_for_deletion() and position.y > 151:
+		position.y = lerp(position.y, 150.0, 0.05)
+		await get_tree().create_timer(0.01).timeout
+	if not is_queued_for_deletion():
+		position.y = 150
