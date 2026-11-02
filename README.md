@@ -2,7 +2,7 @@
 
 Capstone project for the Game Studio Roles and Development course at the University of Washington.
 
-​Click and drag to fit food items into a alien cafeteria trays to fulfill their needs, lest you yourself become their lunch.
+​Click and drag to fit food items into alien cafeteria trays to fulfill their needs, lest you yourself become their lunch.
 
 ## CREDITS
 
