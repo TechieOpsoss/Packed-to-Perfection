@@ -18,6 +18,7 @@ func _ready():
 		down()
 		await get_parent().down()
 		get_parent().add_child(endScreen)
+		get_parent().flicker_off()
 		queue_free()
 	)
 	LocalAudioManager.play_music("res://Audio/Music/Lunchbox.ogg", 0.5)

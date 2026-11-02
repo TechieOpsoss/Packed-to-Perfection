@@ -13,6 +13,12 @@ func flicker_on():
 		await get_tree().create_timer(0.1 / sqrt(i)).timeout
 	$Background.texture = lightsOn
 
+func flicker_off():
+	for i in range(3, 1, -1):
+		$Background.texture = lightsFlicker[i % lightsFlicker.size()]
+		await get_tree().create_timer(0.15 / sqrt(i)).timeout
+	$Background.texture = lightsOff
+
 func up2():
 	while position.y > -149:
 		position.y = lerp(position.y, -150.0, 0.05)
