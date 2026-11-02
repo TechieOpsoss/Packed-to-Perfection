@@ -22,3 +22,5 @@ func update(score: int, current: FoodItemStats, requirements: FoodItemStats):
 	$Backdrop/Meat.position.x = $Backdrop/Dairy.position.x - $Backdrop/Meat.size.x
 	$Backdrop/Gluten.size.x = 0 if score == 0 else $Backdrop.size.x * (FoodScorer.DIETARY_DEDUCTION as float / potentialLostScore) if requirements.tagC and not current.tagC else 0
 	$Backdrop/Gluten.position.x = $Backdrop/Meat.position.x - $Backdrop/Gluten.size.x
+	
+	$Backdrop/Total.text = str("Total: ", score)

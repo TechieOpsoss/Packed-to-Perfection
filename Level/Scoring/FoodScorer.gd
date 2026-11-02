@@ -14,13 +14,13 @@ func _ready():
 
 func updateScore():
 	var currentStats: FoodItemStats = toScore.totalStats()
-	var proteinText = "Proteins: " + str(currentStats.nutrientA) + " / " + str(restrictions.nutrientA) + (str(" (-", MACRO_DEDUCTION, ")") if currentStats.nutrientA < restrictions.nutrientA else "")
-	var carbText = "Carbohydrates: " + str(currentStats.nutrientB) + " / " + str(restrictions.nutrientB) + (str(" (-", MACRO_DEDUCTION, ")") if currentStats.nutrientB < restrictions.nutrientB else "")
-	var fatText = "Fats: " + str(currentStats.nutrientC) + " / " + str(restrictions.nutrientC) + (str(" (-", MACRO_DEDUCTION, ")") if currentStats.nutrientC < restrictions.nutrientC else "")
-	var calorieText = "Calories: " + str(currentStats.calories) + " / " + str(restrictions.calories) + " (-" + str(cal_deduction(currentStats.calories, restrictions.calories)) + ")"
+	var proteinText = str(currentStats.nutrientA) + "/" + str(restrictions.nutrientA) + (str(" (-", MACRO_DEDUCTION, ")") if currentStats.nutrientA < restrictions.nutrientA else "")
+	var carbText = str(currentStats.nutrientB) + "/" + str(restrictions.nutrientB) + (str(" (-", MACRO_DEDUCTION, ")") if currentStats.nutrientB < restrictions.nutrientB else "")
+	var fatText = str(currentStats.nutrientC) + "/" + str(restrictions.nutrientC) + (str(" (-", MACRO_DEDUCTION, ")") if currentStats.nutrientC < restrictions.nutrientC else "")
+	var calorieText = str(currentStats.calories) + "/" + str(restrictions.calories) + " (-" + str(cal_deduction(currentStats.calories, restrictions.calories)) + ")"
 	
 	var alienScore: int = calculate_score(currentStats)
-	$ScoreBox/ScoreLabel.text = str("SCORE:\n", calorieText, "\n", proteinText, "\n", carbText, "\n", fatText, "\nTotal Score: ", alienScore)
+	$ScoreBox/ScoreLabel.text = str("\n", calorieText, "\n", proteinText, "\n", carbText, "\n", fatText)
 	$ScoreBox/StatDisplay.update(alienScore, currentStats, restrictions)
 	totalScore += alienScore
 	totalPassed += 1

@@ -3,17 +3,23 @@
 [ext_resource type="Script" uid="uid://bpskttlgfdn1y" path="res://Level/Hideable.gd" id="2_5noo7"]
 [ext_resource type="PackedScene" uid="uid://dwy44bgksy46j" path="res://Level/Food/FoodGrid.tscn" id="2_y3hra"]
 [ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Level/Food/FoodBucket.tscn" id="3_l4vu7"]
+[ext_resource type="Texture2D" uid="uid://b1xh4140a83qe" path="res://Resources/Backgrounds/ENV_FoodDecor_V1.png" id="4_32x38"]
 [ext_resource type="Script" uid="uid://s14eqx3x70br" path="res://Level/Scoring/FoodScorer.gd" id="4_i5eh5"]
+[ext_resource type="Texture2D" uid="uid://dg6mrbrll2f7h" path="res://Resources/Backgrounds/ENV_Plates_V1.png" id="5_66v8m"]
 [ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="6_wp1u0"]
 [ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Resources/Aliens/CHR_Alien1_V1.png" id="7_6lumq"]
-[ext_resource type="PackedScene" uid="uid://dff0vwr25pbgp" path="res://Level/Scoring/ScoreboxStatDisplay.tscn" id="8_6lumq"]
 [ext_resource type="PackedScene" uid="uid://0kgjw0ttvahu" path="res://Level/Scoring/Receipt.tscn" id="8_chl2c"]
+[ext_resource type="StyleBox" uid="uid://6o2dvm4emo2k" path="res://ButtonStyleDefault.tres" id="9_4jlx7"]
 [ext_resource type="Script" uid="uid://bcb7bk1eetit" path="res://Level/Hint.gd" id="9_chl2c"]
 [ext_resource type="StyleBox" uid="uid://hr6grc4n6k8k" path="res://Level/HintBox.tres" id="10_2ld0w"]
-[ext_resource type="Texture2D" uid="uid://bu3jrbfnl2tb3" path="res://Resources/Backgrounds/FoodStand1_V1.png" id="10_6fg3j"]
+[ext_resource type="Texture2D" uid="uid://bu3jrbfnl2tb3" path="res://Resources/Backgrounds/ENV_Table_V1.png" id="10_6fg3j"]
+[ext_resource type="StyleBox" uid="uid://ch23qawdd2w6o" path="res://ButtonStyleInteract.tres" id="10_fgcxn"]
 [ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="10_wp1u0"]
+[ext_resource type="PackedScene" uid="uid://u2kyn24wmq06" path="res://Level/Scoring/ScoreBox.tscn" id="13_4jlx7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygpxy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3rvlg"]
 
 [node name="Level" type="Node2D" unique_id=1586488118]
 
@@ -40,7 +46,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ygpxy")
 
 [node name="Holder" type="Node2D" parent="Container" unique_id=1756601474]
 
-[node name="TextureRect" type="TextureRect" parent="Container/Holder" unique_id=1679351234]
+[node name="Table" type="TextureRect" parent="Container/Holder" unique_id=1679351234]
 offset_left = -1345.0
 offset_top = -838.0
 offset_right = 2496.0
@@ -50,6 +56,22 @@ offset_transform_scale = Vector2(0.3, 0.3)
 offset_transform_visual_only = false
 texture = ExtResource("10_6fg3j")
 
+[node name="FoodDecor" type="TextureRect" parent="Container/Holder" unique_id=493709702]
+offset_left = 1032.0
+offset_top = -11.0
+offset_right = 1430.0
+offset_bottom = 959.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_32x38")
+
+[node name="TextureRect" type="TextureRect" parent="Container/Holder" unique_id=59673220]
+offset_left = 436.0
+offset_top = -11.0
+offset_right = 1130.0
+offset_bottom = 959.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_66v8m")
+
 [node name="Grid" parent="Container" unique_id=1446597112 node_paths=PackedStringArray("receipt") instance=ExtResource("2_y3hra")]
 position = Vector2(836, 256)
 receipt = NodePath("../../Receipt")
@@ -58,22 +80,27 @@ receipt = NodePath("../../Receipt")
 position = Vector2(0, -379)
 script = ExtResource("2_5noo7")
 
-[node name="FinishButton" type="Button" parent="Container/BucketTray" unique_id=35069417]
+[node name="SubmitButton" type="Button" parent="Container/BucketTray" unique_id=35069417]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 432.0
-offset_top = 568.0
-offset_right = 496.0
-offset_bottom = 600.0
+offset_left = 505.5
+offset_top = 546.0
+offset_right = 571.5
+offset_bottom = 578.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("6_wp1u0")
+theme_override_styles/normal = ExtResource("9_4jlx7")
+theme_override_styles/pressed = ExtResource("10_fgcxn")
+theme_override_styles/hover = ExtResource("10_fgcxn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3rvlg")
+theme_override_styles/focus = ExtResource("10_fgcxn")
 action_mode = 0
-text = "Finish"
+text = "Submit"
 script = ExtResource("2_5noo7")
 
 [node name="ConfirmButton" type="Button" parent="Container/BucketTray" unique_id=105728272]
@@ -82,14 +109,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 413.0
-offset_top = 568.0
-offset_right = 515.0
-offset_bottom = 600.0
+offset_left = 472.0
+offset_top = 546.0
+offset_right = 605.0
+offset_bottom = 578.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("6_wp1u0")
+theme_override_styles/normal = ExtResource("9_4jlx7")
+theme_override_styles/pressed = ExtResource("10_fgcxn")
+theme_override_styles/hover = ExtResource("10_fgcxn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3rvlg")
+theme_override_styles/focus = ExtResource("10_fgcxn")
 action_mode = 0
 text = "Are you sure?"
 script = ExtResource("2_5noo7")
@@ -190,40 +222,30 @@ position = Vector2(0, -379)
 script = ExtResource("4_i5eh5")
 toScore = NodePath("../Grid")
 
+[node name="ScoreBox" parent="Container/ScoreCard" unique_id=1062992481 instance=ExtResource("13_4jlx7")]
+
 [node name="ContinueButton" type="Button" parent="Container/ScoreCard" unique_id=495821184]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 431.0
-offset_top = 568.0
-offset_right = 497.0
-offset_bottom = 600.0
+offset_left = 501.0
+offset_top = 546.0
+offset_right = 578.0
+offset_bottom = 578.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("6_wp1u0")
+theme_override_styles/normal = ExtResource("9_4jlx7")
+theme_override_styles/pressed = ExtResource("10_fgcxn")
+theme_override_styles/hover = ExtResource("10_fgcxn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3rvlg")
+theme_override_styles/focus = ExtResource("10_fgcxn")
 action_mode = 0
 text = "Continue"
 metadata/_edit_use_anchors_ = true
-
-[node name="ScoreBox" type="PanelContainer" parent="Container/ScoreCard" unique_id=2132067959]
-offset_left = 48.0
-offset_top = 408.0
-offset_right = 400.0
-offset_bottom = 632.0
-
-[node name="ScoreLabel" type="Label" parent="Container/ScoreCard/ScoreBox" unique_id=1313200512]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_wp1u0")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="StatDisplay" parent="Container/ScoreCard/ScoreBox" unique_id=952904504 instance=ExtResource("8_6lumq")]
-layout_mode = 2
 
 [node name="Hint" type="Label" parent="." unique_id=965847105]
 offset_left = 435.0
@@ -242,11 +264,11 @@ script = ExtResource("9_chl2c")
 offset_left = 864.0
 offset_right = 1152.0
 
-[connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/BucketTray/FinishButton" method="_hide"]
-[connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/BucketTray/ConfirmButton" method="_show"]
+[connection signal="button_down" from="Container/BucketTray/SubmitButton" to="Container/BucketTray/SubmitButton" method="_hide"]
+[connection signal="button_down" from="Container/BucketTray/SubmitButton" to="Container/BucketTray/ConfirmButton" method="_show"]
 [connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/Grid" method="freezeDroppedFood"]
 [connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/BucketTray" method="_hide"]
-[connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/BucketTray/FinishButton" method="_show"]
+[connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/BucketTray/SubmitButton" method="_show"]
 [connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/BucketTray/ConfirmButton" method="_hide"]
 [connection signal="button_down" from="Container/BucketTray/ConfirmButton" to="Container/ScoreCard" method="_show"]
 [connection signal="button_down" from="Container/BucketTray/Bucket1" to="Hint" method="_hide"]

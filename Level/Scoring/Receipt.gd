@@ -6,5 +6,5 @@ func update(current: FoodItemStats, requirements: FoodItemStats, customerName: S
 		currentName = customerName
 	$CenteredText.text = str("\n", str(currentName, "'s ") if (currentName != "") else "",
 	"Dietary Needs\n\n\n\n\n\n\n\n\n",
-	"Dietary Restrictions:" if (requirements.tagA or requirements.tagB or requirements.tagC) else "Dietary Restrictions:\nNone")
+	"Dietary Restrictions" if (requirements.tagA or requirements.tagB or requirements.tagC) else "Dietary Restrictions\nNone")
 	$StatDisplay.update(current, requirements)

@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://ckh1b34xr0vdq" path="res://Menu/Menu.gd" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="2_idj7w"]
 [ext_resource type="SystemFont" uid="uid://ddi0bfgce20c0" path="res://BoldConsolasOrMonospace.tres" id="3_u03px"]
+[ext_resource type="StyleBox" uid="uid://6o2dvm4emo2k" path="res://ButtonStyleDefault.tres" id="4_w32jx"]
+[ext_resource type="StyleBox" uid="uid://ch23qawdd2w6o" path="res://ButtonStyleInteract.tres" id="5_0cyjp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w32jx"]
 
 [node name="Menu" type="Node2D" unique_id=1693905958]
 script = ExtResource("1_r150o")
@@ -67,12 +71,24 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_u03px")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_w32jx")
+theme_override_styles/pressed = ExtResource("5_0cyjp")
+theme_override_styles/hover = ExtResource("5_0cyjp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w32jx")
+theme_override_styles/focus = ExtResource("5_0cyjp")
 text = "Play"
 
 [node name="Exit_Button" type="Button" parent="Control/VBoxContainer" unique_id=2085437241]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_u03px")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_w32jx")
+theme_override_styles/pressed = ExtResource("5_0cyjp")
+theme_override_styles/hover = ExtResource("5_0cyjp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w32jx")
+theme_override_styles/focus = ExtResource("5_0cyjp")
 text = "Exit"
 
 [connection signal="pressed" from="Control/VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]

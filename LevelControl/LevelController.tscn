@@ -8,7 +8,9 @@
 [ext_resource type="Resource" uid="uid://bct50c85awhmf" path="res://Resources/Levels/Level3.tres" id="5_y5lma"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rvlg"]
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
+bg_color = Color(0.3137255, 0.03137255, 0.84313726, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
@@ -25,10 +27,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 444.0
-offset_top = 589.0
-offset_right = 484.0
-offset_bottom = 612.0
+offset_left = 863.0
+offset_top = 338.0
+offset_right = 903.0
+offset_bottom = 361.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_3rvlg")
