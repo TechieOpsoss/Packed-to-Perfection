@@ -47,14 +47,6 @@ offset_transform_scale = Vector2(0.3, 0.3)
 offset_transform_visual_only = false
 texture = ExtResource("10_6fg3j")
 
-[node name="FoodDecor" type="TextureRect" parent="Container/Holder" unique_id=493709702]
-offset_left = 1032.0
-offset_top = -11.0
-offset_right = 1430.0
-offset_bottom = 959.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_32x38")
-
 [node name="TextureRect" type="TextureRect" parent="Container/Holder" unique_id=59673220]
 offset_left = 436.0
 offset_top = -11.0
@@ -237,6 +229,16 @@ theme_override_styles/focus = ExtResource("10_fgcxn")
 action_mode = 0
 text = "Continue"
 metadata/_edit_use_anchors_ = true
+
+[node name="Holder2" type="Node2D" parent="Container" unique_id=1291570156]
+
+[node name="FoodDecor" type="TextureRect" parent="Container/Holder2" unique_id=493709702]
+offset_left = 1032.0
+offset_top = -11.0
+offset_right = 1430.0
+offset_bottom = 959.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_32x38")
 
 [node name="Hint" type="Label" parent="." unique_id=965847105]
 offset_left = 435.0

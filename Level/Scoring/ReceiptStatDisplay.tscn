@@ -164,7 +164,7 @@ offset_left = 191.0
 offset_top = 324.0
 offset_right = 239.0
 offset_bottom = 347.0
-theme_override_colors/font_color = Color(0.46666667, 0.57254905, 0.9490196, 1)
+theme_override_colors/font_color = Color(0.9098039, 0.28235295, 0.73333335, 1)
 theme_override_fonts/font = ExtResource("2_x3otm")
 text = "Dairy"
 
@@ -174,7 +174,7 @@ offset_left = 45.0
 offset_top = 325.0
 offset_right = 85.0
 offset_bottom = 348.0
-theme_override_colors/font_color = Color(0.9529412, 0.57254905, 0.46666667, 1)
+theme_override_colors/font_color = Color(0.9529412, 0.69411767, 0, 1)
 theme_override_fonts/font = ExtResource("2_x3otm")
 text = "Meat"
 
@@ -184,6 +184,6 @@ offset_left = 113.0
 offset_top = 302.0
 offset_right = 171.0
 offset_bottom = 325.0
-theme_override_colors/font_color = Color(0.72156864, 0.9490196, 0.46666667, 1)
+theme_override_colors/font_color = Color(0.46666667, 0.45490196, 0.90588236, 1)
 theme_override_fonts/font = ExtResource("2_x3otm")
 text = "Gluten"

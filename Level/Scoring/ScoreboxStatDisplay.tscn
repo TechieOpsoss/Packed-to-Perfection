@@ -22,15 +22,15 @@ bg_color = Color(1, 0.6039216, 0.29803923, 1)
 bg_color = Color(0.16862746, 0.49803922, 0.36862746, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjwl7"]
-bg_color = Color(0.46666667, 0.57254905, 0.9490196, 1)
+bg_color = Color(0.9098039, 0.28235295, 0.73333335, 1)
 corner_radius_bottom_right = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtgwo"]
-bg_color = Color(0.9529412, 0.57254905, 0.46666667, 1)
+bg_color = Color(0.9529412, 0.69411767, 0, 1)
 corner_radius_bottom_right = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78p8x"]
-bg_color = Color(0.72156864, 0.9490196, 0.46666667, 1)
+bg_color = Color(0.46666667, 0.45490196, 0.90588236, 1)
 corner_radius_bottom_right = 32
 
 [node name="StatDisplay" type="Control" unique_id=952904504]
