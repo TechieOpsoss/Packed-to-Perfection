@@ -5,7 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://eq0pqyl0544b" path="res://Level/Food/FoodBucket.tscn" id="3_l4vu7"]
 [ext_resource type="Script" uid="uid://s14eqx3x70br" path="res://Level/Scoring/FoodScorer.gd" id="4_i5eh5"]
 [ext_resource type="Texture2D" uid="uid://b5jwxi7h4p2hq" path="res://Resources/Alien Icons/Alien1.png" id="7_6lumq"]
+[ext_resource type="Script" uid="uid://bwxhyospnd8mr" path="res://Settings/settings_layer.gd" id="8_6fg3j"]
+[ext_resource type="PackedScene" uid="uid://4g4557dgunui" path="res://Settings/settings.tscn" id="8_6lumq"]
 [ext_resource type="PackedScene" uid="uid://0kgjw0ttvahu" path="res://Level/ReceiptLayer.tscn" id="8_chl2c"]
+[ext_resource type="Texture2D" uid="uid://buauq6hm8xrag" path="res://Resources/UI Icons/UI_SettingsIcon.png" id="8_wp1u0"]
 [ext_resource type="Texture2D" uid="uid://c221adly5pm25" path="res://Resources/Backgrounds/ENV_Station_V1.png" id="10_wp1u0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e56cd"]
@@ -189,8 +192,24 @@ vertical_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="SettingsLayer" type="CanvasLayer" parent="." unique_id=964658985]
+script = ExtResource("8_6fg3j")
+
+[node name="Settings" parent="SettingsLayer" unique_id=1699479711 instance=ExtResource("8_6lumq")]
+visible = false
+
+[node name="SettingsButton" type="TextureButton" parent="SettingsLayer" unique_id=367929270]
+offset_left = 9.0
+offset_top = 12.0
+offset_right = 145.0
+offset_bottom = 150.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("8_wp1u0")
+ignore_texture_size = true
+
 [connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/Grid" method="freezeDroppedFood"]
 [connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/BucketTray" method="_hide"]
 [connection signal="button_down" from="Container/BucketTray/FinishButton" to="Container/ScoreCard" method="_show"]
 [connection signal="button_down" from="Container/ScoreCard/ContinueButton" to="Container/BucketTray" method="_show"]
 [connection signal="button_down" from="Container/ScoreCard/ContinueButton" to="Container/ScoreCard" method="_hide"]
+[connection signal="pressed" from="SettingsLayer/SettingsButton" to="SettingsLayer" method="_on_pressed_settings"]

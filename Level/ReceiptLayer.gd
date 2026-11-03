@@ -9,5 +9,7 @@ func update(current: FoodItemStats, requirements: FoodItemStats, customerName: S
 	$Receipt/CaloriesLabel.text = str("Calories: ", current.calories, "/", requirements.calories)
 	if(requirements.tagA or requirements.tagB or requirements.tagC):
 		$Receipt/DietaryLabel.text = str("Dietary Restrictions:", " Dairy" if requirements.tagA else "", " Vegetarian" if requirements.tagB else "", " Gluten" if requirements.tagC else "")
+		$Receipt.size.y = 300
 	else:
 		$Receipt/DietaryLabel.text = ""
+		$Receipt.size.y = 255
