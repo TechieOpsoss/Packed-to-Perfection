@@ -12,6 +12,10 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1jfwg"]
+color = Color(0.3137255, 0.03137255, 0.84313726, 1)
+thickness = 2
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hogcy"]
 
 [node name="Settings" type="Control" unique_id=1699479711]
@@ -78,6 +82,7 @@ theme_override_constants/separation = 64
 [node name="HSeparator" type="HSeparator" parent="SettingsPopUp/MarginContainer/VBoxContainer" unique_id=794728680]
 layout_mode = 2
 theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_1jfwg")
 
 [node name="AudioSlider" parent="SettingsPopUp/MarginContainer/VBoxContainer" unique_id=1862458009 instance=ExtResource("3_3pnvy")]
 layout_mode = 2
@@ -88,9 +93,6 @@ layout_mode = 2
 [node name="HotkeyRebindButton2" parent="SettingsPopUp/MarginContainer/VBoxContainer" unique_id=1572728034 instance=ExtResource("4_3pnvy")]
 layout_mode = 2
 action_name = "shape_rotate_cw"
-
-[node name="HotkeyRebindButton3" parent="SettingsPopUp/MarginContainer/VBoxContainer" unique_id=897622143 instance=ExtResource("4_3pnvy")]
-layout_mode = 2
 
 [node name="HSeparator2" type="HSeparator" parent="SettingsPopUp/MarginContainer/VBoxContainer" unique_id=1952325262]
 layout_mode = 2

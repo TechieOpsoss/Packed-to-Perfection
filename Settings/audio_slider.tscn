@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://2x8w0x15ns03" path="res://Settings/audio_slider.gd" id="1_1jfwg"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1jfwg"]
+
 [node name="AudioSlider" type="Control" unique_id=1862458009]
 layout_mode = 3
 anchors_preset = 15
@@ -29,11 +31,19 @@ theme_override_font_sizes/font_size = 32
 text = "Audio"
 vertical_alignment = 1
 
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer" unique_id=1421583492]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1jfwg")
+
 [node name="MasterVolumeSlider" type="HSlider" parent="HBoxContainer" unique_id=1264912801]
 custom_minimum_size = Vector2(379, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 1.0
+rounded = true
+scrollable = false
 
 [connection signal="value_changed" from="HBoxContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]

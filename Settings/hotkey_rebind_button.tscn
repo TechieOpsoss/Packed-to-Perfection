@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d37m1cixeqefj" path="res://Settings/hotkey_rebind_button.gd" id="1_weiuq"]
 
-[node name="HotkeyRebindButton" type="Control" unique_id=1937032875]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1jfwg"]
+
+[node name="HotkeyRebindButton" type="Control" unique_id=1937032875 groups=["hotkey_button"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +35,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 150
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1jfwg")
 
 [node name="Button" type="Button" parent="HBoxContainer" unique_id=1389217666]
 custom_minimum_size = Vector2(164, 0)
