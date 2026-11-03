@@ -7,6 +7,10 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ojud"]
 bg_color = Color(0.95686275, 0.3882353, 0.6156863, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hogcy"]
 
@@ -32,29 +36,26 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ojud")
 
-[node name="ExitButton" type="TextureButton" parent="SettingsPopUp" unique_id=383902473]
-propagate_maximum_size = true
+[node name="MarginContainer2" type="MarginContainer" parent="SettingsPopUp" unique_id=133864688]
 layout_mode = 0
-offset_left = 726.0
-offset_right = 750.0
-offset_bottom = 24.0
-scale = Vector2(3, 3)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("3_v5vgm")
+offset_right = 800.0
+offset_bottom = 76.0
 
-[node name="SettingLabel" type="Label" parent="SettingsPopUp" unique_id=1997100386]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -42.5
-offset_top = 34.0
-offset_right = 42.5
-offset_bottom = 65.0
-grow_horizontal = 2
+[node name="SettingLabel" type="Label" parent="SettingsPopUp/MarginContainer2" unique_id=1997100386]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 28
 text = "Settings"
+
+[node name="ExitButton" type="TextureButton" parent="SettingsPopUp/MarginContainer2" unique_id=383902473]
+custom_minimum_size = Vector2(50, 50)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("3_v5vgm")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsPopUp" unique_id=418572730]
 layout_mode = 1
@@ -95,5 +96,3 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_hogcy")
-
-[connection signal="button_down" from="SettingsPopUp/ExitButton" to="." method="_on_exit_button_button_down"]
